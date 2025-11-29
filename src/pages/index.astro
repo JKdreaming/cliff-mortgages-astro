@@ -297,7 +297,7 @@ const expandedPrograms: Program[] = [
 
   <section
     class="relative bg-cover bg-left-top h-[60vh]"
-    style={`background-image: url(${backgroundImageAssignments.homeEquitySelectBanner.src});`}
+    style={`background-image: url('${backgroundImageAssignments.homeEquitySelectBanner.src}')`}
   >
     <div class="absolute inset-0 bg-[#09143e]/80"></div>
     <div class="relative z-10 h-full">
@@ -326,7 +326,7 @@ const expandedPrograms: Program[] = [
             Expanded Mortgage Solutions – Conventional, Jumbo, Commercial & Refinance Options
           </h2>
         </div>
-        <div class="lg:col-span-2">
+        <div class="lg:col-span-2 flex items-center">
           <p class="text-gray-600">
             For borrowers with diverse financial needs, we provide expanded loan solutions that go beyond the basics. From financing high-value luxury homes to commercial properties or simply lowering your current mortgage payment, these programs offer competitive rates and terms designed to support growth, stability, and long-term success.
           </p>
@@ -366,23 +366,5 @@ const expandedPrograms: Program[] = [
       </a>
     </div>
   </section>
+
 </BaseLayout>
-
-<script is:inline>
-  const trackEvent = (eventName, params = {}) => {
-    if (typeof window === 'undefined') return;
-    const gtag = window.gtag;
-    if (!gtag) return;
-    gtag('event', eventName, params);
-  };
-
-  document.querySelectorAll('[data-track-event]').forEach(element => {
-    element.addEventListener('click', () => {
-      const eventName = element.getAttribute('data-track-event');
-      const location = element.getAttribute('data-event-location');
-      if (!eventName) return;
-      const payload = location ? { location, page: window.location.pathname } : { page: window.location.pathname };
-      trackEvent(eventName, payload);
-    });
-  });
-</script>

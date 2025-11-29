@@ -138,6 +138,36 @@ const applyNowTitle = getApplyNowTitle(currentPath);
         gtag('config', 'G-JVKXY96FFH');
       `}
     </script>
+    <script is:inline>
+      const attachTrackEventListeners = () => {
+        const trackEvent = (eventName, params = {}) => {
+          if (typeof window === 'undefined') return;
+          const gtag = window.gtag;
+          if (!gtag) return;
+          gtag('event', eventName, params);
+        };
+
+        document.querySelectorAll('[data-track-event]').forEach((element) => {
+          element.addEventListener('click', () => {
+            const eventName = element.getAttribute('data-track-event');
+            if (!eventName) return;
+            const location = element.getAttribute('data-event-location');
+            const payload = location
+              ? { location, page: window.location.pathname }
+              : { page: window.location.pathname };
+            trackEvent(eventName, payload);
+          });
+        });
+      };
+
+      if (typeof document !== 'undefined') {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', attachTrackEventListeners, { once: true });
+        } else {
+          attachTrackEventListeners();
+        }
+      }
+    </script>
     {schemas.map((schema) => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
     ))}
