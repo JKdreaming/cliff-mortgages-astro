@@ -1,0 +1,10 @@
+# robots.txt for https://cliffmortgages.com/
+User-agent: *
+Disallow:
+
+# Allow major ad bots explicitly
+User-agent: AdsBot-Google
+Disallow:
+
+# XML sitemap location
+Sitemap: https://cliffmortgages.com/sitemap.xml

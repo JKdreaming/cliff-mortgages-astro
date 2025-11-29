@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GenericHero from '../../components/GenericHero.astro';
+import { allPageData } from '../../data/sitemap';
+
+const pageData = allPageData['/legal/accessibility'];
+const contactInfo = {
+  phone: '970-699-3900',
+  email: 'corp@cliffmortgages.com',
+  mailingAddress: '378 Nancy Court, Loveland, CO 80537',
+};
+---
+<BaseLayout pageData={pageData}>
+  <GenericHero
+    title={pageData.h1}
+    subtitle={pageData.description}
+    imageUrl={pageData.imageUrl!}
+    imageAlt={pageData.imageAlt!}
+  />
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="max-w-3xl mx-auto prose prose-headings:text-gray-900 prose-strong:text-gray-900 prose-a:text-[#09143e] prose-a:no-underline hover:prose-a:underline">
+        <p>
+          Cliff Mortgages is committed to providing a website experience that is usable and accessible for all visitors. We aim to make our online information
+          easy to navigate and understand, regardless of the technology used to access it.
+        </p>
+        <p>
+          Some features on our website—such as calculators, scheduling tools, or other embedded services—are provided by third-party vendors. While we cannot
+          control the accessibility of these external platforms, we do our best to select reputable partners and offer assistance if you encounter any
+          difficulty using them.
+        </p>
+        <p>If you experience a barrier on our website or need help accessing information, please contact us and we will be happy to assist you.</p>
+        <ul>
+          <li><strong>Phone:</strong> {contactInfo.phone}</li>
+          <li>
+            <strong>Email:</strong>
+            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+          </li>
+          <li><strong>Mailing Address:</strong> {contactInfo.mailingAddress}</li>
+        </ul>
+
+        <h2>Accessibility FAQ</h2>
+        <h3>What steps do you take to support accessibility?</h3>
+        <p>We aim to make our website easy to use and navigate for all visitors. If you experience any difficulty accessing information, please reach out so we can help.</p>
+
+        <h3>Are third-party tools always accessible?</h3>
+        <p>Some features on our site—such as calculators, scheduling tools, or other embedded services—are provided by outside vendors. Because we do not control those platforms, their accessibility may vary.</p>
+
+        <h3>How can I request assistance?</h3>
+        <p>If you need help accessing any part of our site or have questions about the information presented, please contact us by phone, email, or mail, and we will be happy to assist you.</p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

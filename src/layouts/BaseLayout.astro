@@ -1,0 +1,171 @@
+---
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+import ApplyNowCTA from '../components/ApplyNowCTA';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQBlock from '../components/FAQBlock';
+import '../styles/global.css';
+import type { PageData } from '../data/types';
+import { getApplyNowTitle } from '../utils/getApplyNowTitle';
+
+interface Props {
+  pageData: PageData;
+}
+
+const { pageData } = Astro.props as Props;
+const currentPath = Astro.url.pathname;
+
+const SITE_BASE_URL = 'https://cliffmortgages.com';
+const DEFAULT_SOCIAL_IMAGE_URL = `${SITE_BASE_URL}/cliff-default-social-share-image.jpg`;
+
+const sanitizePath = (path: string | undefined) => {
+  if (!path) return '/';
+  if (path.startsWith('http')) return path;
+  return path.startsWith('/') ? path : `/${path}`;
+};
+
+const canonicalUrl = (() => {
+  if (!pageData.path) return SITE_BASE_URL;
+  if (pageData.path.startsWith('http')) return pageData.path;
+  return `${SITE_BASE_URL}${sanitizePath(pageData.path)}`;
+})();
+
+const BRAND_SUFFIX = 'Cliff Mortgages / C2 Financial / Colorado Mortgage Broker';
+const LEGACY_SUFFIX_PATTERN = /\s*\|\s*Cliff Mortgages\b/;
+
+const normalizeTitle = (rawTitle: string) => {
+  if (!rawTitle) return BRAND_SUFFIX;
+  if (rawTitle.includes(BRAND_SUFFIX)) return rawTitle;
+  if (LEGACY_SUFFIX_PATTERN.test(rawTitle)) {
+    return rawTitle.replace(LEGACY_SUFFIX_PATTERN, ` / ${BRAND_SUFFIX}`);
+  }
+  return `${rawTitle} | ${BRAND_SUFFIX}`;
+};
+
+const normalisedTitle = normalizeTitle(pageData.title);
+const metaDescription = pageData.seoDescription ?? pageData.description;
+const socialImage = pageData.seoImageUrl ?? DEFAULT_SOCIAL_IMAGE_URL;
+
+const faqSchema = pageData.faqs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: pageData.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    }
+  : null;
+
+const breadcrumbSchema = pageData.breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: pageData.breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.name,
+        item: `${SITE_BASE_URL}${sanitizePath(crumb.path)}`,
+      })),
+    }
+  : null;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MortgageBroker',
+  name: 'Cliff Mortgages',
+  url: canonicalUrl,
+  logo: `${SITE_BASE_URL}/cliffmortgages-logo.webp`,
+  image: DEFAULT_SOCIAL_IMAGE_URL,
+  telephone: '970-699-3900',
+  email: 'cindy@cliffmortgages.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '12230 El Camino Real, Suite 100',
+    addressLocality: 'San Diego',
+    addressRegion: 'CA',
+    postalCode: '92130',
+    addressCountry: 'US',
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Colorado',
+  },
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61557149998918',
+    'https://www.linkedin.com/company/cliff-mortgages/',
+  ],
+};
+
+const schemas = [faqSchema, breadcrumbSchema, organizationSchema].filter(Boolean);
+const applyNowTitle = getApplyNowTitle(currentPath);
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{normalisedTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="title" content={normalisedTitle} />
+    <meta property="og:title" content={normalisedTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={normalisedTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={socialImage} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/cliffmortgages-favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVKXY96FFH"></script>
+    <script>
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JVKXY96FFH');
+      `}
+    </script>
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    ))}
+  </head>
+  <body class="bg-gray-50 min-h-screen font-sans text-gray-800">
+    <div class="flex flex-col min-h-screen">
+      <Header client:load currentPath={currentPath} />
+      <main class="flex-grow">
+        <Breadcrumbs items={pageData.breadcrumbs} />
+        <slot />
+        <FAQBlock client:idle faqs={pageData.faqs} />
+      </main>
+      <ApplyNowCTA client:idle title={applyNowTitle} />
+      <Footer />
+    </div>
+    <script>
+      {(function () {
+        return `
+          (function(w,i,d,g,e,t){
+            w["WidgetTrackerObject"]=g;
+            (w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());
+            (t=d.createElement("script")),(e=d.getElementsByTagName("script")[0]);
+            t.async=1;t.src=i; e.parentNode.insertBefore(t,e);
+          })(window,"https://widgetbe.com/agent",document,"widgetTracker");
+          window.widgetTracker("create", "WT-JUVWSUQG");
+          window.widgetTracker("send", "pageview");
+        `;
+      })()}
+    </script>
+  </body>
+</html>

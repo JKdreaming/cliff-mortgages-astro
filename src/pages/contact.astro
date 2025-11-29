@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { allPageData } from '../data/sitemap';
+
+const pageData = allPageData['/contact'];
+---
+<BaseLayout pageData={pageData}>
+  <section class="bg-white py-16 sm:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+          {pageData.h1}
+        </h1>
+        <p class="mt-4 text-xl text-gray-600">
+          Use the calendar below to book a free, no-obligation 30-minute consultation. We're happy to answer your questions and help you get started.
+        </p>
+      </div>
+
+      <div class="mt-12 max-w-4xl mx-auto h-[1050px] overflow-hidden rounded-lg shadow-lg border">
+        <iframe
+          src="https://calendly.com/cindy-cliffmortgages/30min?embed_domain=www.cliffmortgages.com&embed_type=Inline"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          title="Select a Date & Time - Calendly"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

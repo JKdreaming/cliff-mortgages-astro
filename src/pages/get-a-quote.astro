@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GenericHero from '../components/GenericHero.astro';
+import { allPageData } from '../data/sitemap';
+
+const pageData = allPageData['/get-a-quote'];
+---
+<BaseLayout pageData={pageData}>
+  <GenericHero
+    title={pageData.h1}
+    subtitle={pageData.description}
+    imageUrl={pageData.imageUrl!}
+    imageAlt={pageData.imageAlt!}
+    primaryCtaLabel="Fill Out The Form"
+    primaryCtaHref="#quote-form-section"
+    hideContactCta
+    imageObjectClassName="object-cover"
+  />
+
+  <section class="bg-gray-50 py-16 sm:py-20">
+    <div id="quote-form-section" class="container mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <div
+        class="plato-form-widget"
+        data-pf-id="frk5f5bmmwx"
+        data-pf-host="form.formcan.com/"
+      ></div>
+      <noscript>Please enable JavaScript to load the quote request form.</noscript>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  if (typeof window !== 'undefined') {
+    const existing = document.querySelector('script[data-formcan="true"]');
+    if (!existing) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = '//static.formcan.com/assets/dist/formbuilder.js?v=20';
+      script.dataset.formcan = 'true';
+
+      const trackEvent = (eventName, params = {}) => {
+        const gtag = window.gtag;
+        if (!gtag) return;
+        gtag('event', eventName, params);
+      };
+
+      script.addEventListener('load', () => {
+        trackEvent('quote_form_submit', {
+          page: window.location.pathname,
+          form_id: 'get_a_quote',
+          action: 'form_displayed',
+        });
+      });
+
+      document.body.appendChild(script);
+    }
+  }
+</script>

@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GenericHero from '../../components/GenericHero.astro';
+import { allPageData } from '../../data/sitemap';
+
+const pageData = allPageData['/legal/privacy-policy'];
+const lastUpdated = new Date().toLocaleDateString();
+---
+<BaseLayout pageData={pageData}>
+  <GenericHero
+    title={pageData.h1}
+    subtitle={pageData.description}
+    imageUrl={pageData.imageUrl}
+    imageAlt={pageData.imageAlt}
+  />
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="max-w-3xl mx-auto prose prose-headings:text-gray-900 prose-strong:text-gray-900 prose-a:text-[#09143e] prose-a:no-underline hover:prose-a:underline">
+        <p class="text-sm text-gray-500 font-semibold">Last Updated: {lastUpdated}</p>
+        <p>
+          This Privacy Policy explains how Cliff Mortgages (“we,” “us,” or “our”) collects, uses, protects, and shares your information when you visit our
+          website or interact with our services. It also outlines your rights and options regarding your personal data. By using our website or submitting
+          your information to us, you agree to the practices described in this Privacy Policy.
+        </p>
+        <p>
+          No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Information may be shared with
+          subcontractors only when necessary to perform support services (such as customer service). All other use-case categories exclude text messaging
+          opt-in data and consent; this information is never shared with third parties.
+        </p>
+
+        <h2>Interpretation and Definitions</h2>
+        <h3>Interpretation</h3>
+        <p>Words with capitalized first letters carry the meanings assigned to them below. These definitions apply whether a term is used in singular or plural form.</p>
+        <h3>Definitions</h3>
+        <dl class="space-y-4">
+          <div>
+            <dt class="font-semibold">Account</dt>
+            <dd>A unique online profile created to access certain features of our Service.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Company</dt>
+            <dd>Refers to Cliff Mortgages, located at 378 Nancy Court, Loveland, CO 80537. Cliff Mortgages is a marketing name used by Cindy Cliff, Mortgage Loan Originator, NMLS #2075376 | DRE #100524014, with C2 Financial Corporation (NMLS #135622).</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Cookies</dt>
+            <dd>Small data files placed on your device to improve your browsing experience and help us analyze website usage.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Device</dt>
+            <dd>Any technology capable of accessing our Service, including computers, tablets, and smartphones.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Personal Data</dt>
+            <dd>Any information that identifies — or can reasonably be linked to — an individual.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Service</dt>
+            <dd>Refers to our website and any related online services.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Service Provider</dt>
+            <dd>Any person or company that processes data on our behalf.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Usage Data</dt>
+            <dd>Information collected automatically when you interact with our website, such as browser type, page visits, IP address, and session duration.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Website</dt>
+            <dd>The Cliff Mortgages website, accessible from <a href="https://www.cliffmortgages.com" target="_blank" rel="noreferrer">www.cliffmortgages.com</a>.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold">You</dt>
+            <dd>The individual using our Service, or the organization the individual represents.</dd>
+          </div>
+        </dl>
+
+        <h2>Collecting and Using Your Personal Data</h2>
+        <h3>Types of Data We Collect</h3>
+        <h4>Personal Data You Provide</h4>
+        <p>We may request information that allows us to identify or contact you, including:</p>
+        <ul>
+          <li>First and last name</li>
+          <li>Email address</li>
+          <li>Phone number</li>
+          <li>Property address or mailing address</li>
+          <li>City, State, ZIP code</li>
+          <li>Other details you voluntarily submit for loan inquiries or service requests</li>
+        </ul>
+        <h4>Usage Data (Collected Automatically)</h4>
+        <p>When you browse our site, we may automatically collect:</p>
+        <ul>
+          <li>IP address</li>
+          <li>Browser type and version</li>
+          <li>Pages visited and time spent on each page</li>
+          <li>Device identifiers</li>
+          <li>Mobile device and browser information (if accessing via mobile)</li>
+        </ul>
+        <p>This data helps us maintain website functionality and improve user experience.</p>
+
+        <h2>Tracking Technologies and Cookies</h2>
+        <p>We use Cookies, pixels, and similar tracking tools to analyze website activity and remember your preferences. You may set your browser to refuse Cookies; however, doing so may limit certain website features.</p>
+        <p>We use several types of Cookies:</p>
+        <ul>
+          <li><strong>Essential Cookies:</strong> Required for core website functions and account security.</li>
+          <li><strong>Preference Cookies:</strong> Store your settings, such as language or login information.</li>
+          <li><strong>Analytics Cookies:</strong> Help us understand site usage and improve performance.</li>
+        </ul>
+        <p>For more details or to manage Cookies, please refer to the Cookies section of this policy or your browser settings.</p>
+
+        <h2>How We Use Your Personal Data</h2>
+        <p>We may use your information for the following purposes:</p>
+        <ul>
+          <li>To operate, maintain, and improve our website and services</li>
+          <li>To create and manage your Account</li>
+          <li>To respond to inquiries and provide customer support</li>
+          <li>To communicate with you by email, phone, or SMS</li>
+          <li>To send updates or information related to services similar to those you requested (unless you opt out)</li>
+          <li>To process loan-related requests or documentation</li>
+          <li>To analyze website performance and optimize content</li>
+          <li>For internal business purposes, including quality assurance and compliance</li>
+          <li>For legal, regulatory, or security obligations</li>
+          <li>For business continuity purposes, including potential transfers of company assets</li>
+        </ul>
+
+        <h2>Retention of Your Personal Data</h2>
+        <p>We retain Personal Data only as long as necessary to serve the purposes outlined in this Privacy Policy, comply with legal requirements, resolve disputes, and maintain accurate business and financial records. Usage Data is generally retained for shorter periods unless required for security, operational improvements, or legal reasons.</p>
+
+        <h2>Transfer of Your Personal Data</h2>
+        <p>Your information may be processed or stored outside your state or country. By using our Service, you consent to such transfers. We take reasonable steps to ensure your data remains protected under this Privacy Policy, regardless of location.</p>
+
+        <h2>Your Rights to Delete or Modify Your Information</h2>
+        <p>You may request to:</p>
+        <ul>
+          <li>Access your Personal Data</li>
+          <li>Update or correct your information</li>
+          <li>Delete information we maintain (unless we must retain it for legal or operational reasons)</li>
+        </ul>
+        <p>Some information can be managed directly through your Account. You may also contact us to request changes or deletion.</p>
+
+        <h2>Disclosure of Your Personal Data</h2>
+        <ul>
+          <li><strong>Business Transfers:</strong> If we undergo a merger, sale, or reorganization, your Personal Data may be transferred as part of the transaction.</li>
+          <li><strong>Legal Requirements:</strong> We may disclose information if required to comply with laws, court orders, or government requests.</li>
+          <li><strong>Protection Purposes:</strong> To safeguard the rights, property, or safety of our users, the public, or the Company.</li>
+        </ul>
+
+        <h2>Security of Your Personal Data</h2>
+        <p>We use reasonable administrative, technical, and physical safeguards to protect your data. However, no online transmission or storage method is entirely secure, and we cannot guarantee absolute protection.</p>
+
+        <h2>Links to External Websites</h2>
+        <p>Our website may link to third-party sites not operated by us. We are not responsible for their privacy practices or content. We encourage you to review the Privacy Policy of any external site you visit.</p>
+
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy periodically. Updates will be posted on this page with a revised “Last Updated” date. Continued use of our Service indicates acceptance of the updated terms.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or need assistance with your personal information, you may contact us at:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:corp@cliffmortgages.com">corp@cliffmortgages.com</a></li>
+          <li><strong>Mailing Address:</strong> 378 Nancy Court, Loveland, CO 80537</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
