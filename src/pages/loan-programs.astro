@@ -171,20 +171,24 @@ const buildingPrograms: Program[] = [
     </section>
 
     <section
-      class="relative bg-cover bg-center"
-      style={`background-image: url(${backgroundImageAssignments.loanProgramsEquitySelectBanner.src});`}
+      class="relative bg-cover bg-left-top h-[60vh]"
+      style={`background-image: url('${backgroundImageAssignments.homeEquitySelectBanner.src}')`}
     >
-      <div class="absolute inset-0 bg-black/60"></div>
-      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center text-white">
-        <p class="text-sm font-bold tracking-widest uppercase">New</p>
-        <h2 class="text-5xl md:text-6xl font-extrabold mt-2 leading-tight">Equity Select</h2>
-        <p class="mt-4 text-lg max-w-lg mx-auto">A flexible line of credit with required payment options as low as 1%</p>
-        <a
-          href="/loan-programs/equity-select"
-          class="mt-8 inline-block bg-[#09143e] text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-[#12215c] transition-colors"
-        >
-          Learn More
-        </a>
+      <div class="absolute inset-0 bg-[#09143e]/80"></div>
+      <div class="relative z-10 h-full">
+        <div class="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center text-white gap-4">
+          <p class="text-sm font-bold tracking-widest uppercase text-gray-300">New</p>
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Equity Select</h2>
+          <p class="text-lg max-w-xl mx-auto text-gray-200">
+            A flexible line of credit with payment plans as low as 1% of your annual loan balance.
+          </p>
+          <a
+            href="/loan-programs/equity-select"
+            class="mt-4 inline-block bg-[#bf9f5c] text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-[#a68a4c] transition-colors"
+          >
+            Learn More
+          </a>
+        </div>
       </div>
     </section>
 
