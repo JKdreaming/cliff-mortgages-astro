@@ -2,8 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GenericHero from '../components/GenericHero.astro';
 import { allPageData } from '../data/sitemap';
+import { heroImageAssignments } from '../data/imageAssignments';
 
 const pageData = allPageData['/about'];
+const hero = heroImageAssignments.aboutHero;
 
 const differentiators = [
   { icon: 'fa-solid fa-user-tie', title: 'Personalized Guidance', text: 'Every borrower’s situation is unique. We take time to listen and craft the right strategy for you.' },
@@ -16,8 +18,9 @@ const differentiators = [
   <GenericHero
     title={pageData.h1}
     subtitle={pageData.description}
-    imageUrl={pageData.imageUrl}
-    imageAlt={pageData.imageAlt}
+    imageUrl={hero.src}
+    imageAlt={hero.alt}
+    image={hero}
   />
 
   <section class="bg-white py-16 sm:py-20">

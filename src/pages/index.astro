@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { allPageData } from '../data/sitemap';
 import { heroImageAssignments, backgroundImageAssignments } from '../data/imageAssignments';
@@ -12,6 +13,23 @@ interface Program {
 }
 
 const pageData = allPageData['/'];
+const presetWidths = [320, 480, 640, 768, 1024, 1280, 1536, 1920];
+const computeWidths = (assetWidth: number) => {
+  let widths = presetWidths.filter((width) => width < assetWidth);
+  if (!widths.includes(assetWidth)) {
+    widths = [...widths, assetWidth];
+  }
+  if (!widths.length) {
+    widths = [assetWidth];
+  }
+  return widths;
+};
+
+const hero = heroImageAssignments.homeHero;
+const heroWidths = computeWidths(hero.width);
+
+const equityBanner = backgroundImageAssignments.homeEquitySelectBanner;
+const equityBannerWidths = computeWidths(equityBanner.width);
 
 const specializedPrograms: Program[] = [
   {
@@ -188,11 +206,14 @@ const expandedPrograms: Program[] = [
       </div>
     </div>
     <div class="mt-10 sm:mt-12 lg:mt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img
-        class="w-full h-64 sm:h-80 md:h-96 lg:h-full object-cover"
-        src={heroImageAssignments.homeHero.src}
-        alt={heroImageAssignments.homeHero.alt}
+      <Image
+        src={hero.asset}
+        alt={hero.alt}
+        widths={heroWidths}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        formats={['avif', 'webp', 'jpeg']}
         loading="eager"
+        class="w-full h-64 sm:h-80 md:h-96 lg:h-full object-cover"
       />
     </div>
   </div>
@@ -222,7 +243,8 @@ const expandedPrograms: Program[] = [
               href={program.path}
               class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
             >
-              Learn More <span class="transition-transform group-hover:translate-x-1 inline-block">&rarr;</span>
+              Learn more about {program.titleOverride ?? program.name}{' '}
+              <span class="transition-transform group-hover:translate-x-1 inline-block" aria-hidden="true">&rarr;</span>
             </a>
           </div>
         ))}
@@ -287,7 +309,8 @@ const expandedPrograms: Program[] = [
               href={program.path}
               class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
             >
-              Learn More <span class="transition-transform group-hover:translate-x-1 inline-block">&rarr;</span>
+              Learn more about {program.titleOverride ?? program.name}{' '}
+              <span class="transition-transform group-hover:translate-x-1 inline-block" aria-hidden="true">&rarr;</span>
             </a>
           </div>
         ))}
@@ -296,10 +319,21 @@ const expandedPrograms: Program[] = [
   </section>
 
   <section
-    class="relative bg-cover bg-left-top h-[60vh]"
-    style={`background-image: url('${backgroundImageAssignments.homeEquitySelectBanner.src}')`}
+    class="relative overflow-hidden h-[60vh]"
   >
-    <div class="absolute inset-0 bg-[#09143e]/80"></div>
+    <div class="absolute inset-0">
+      <Image
+        src={equityBanner.asset}
+        alt=""
+        widths={equityBannerWidths}
+        sizes="100vw"
+        formats={['avif', 'webp', 'jpeg']}
+        loading="lazy"
+        class="h-full w-full object-cover"
+        role="presentation"
+      />
+      <div class="absolute inset-0 bg-[#09143e]/80" aria-hidden="true"></div>
+    </div>
     <div class="relative z-10 h-full">
       <div class="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center text-white gap-4">
         <p class="text-sm font-bold tracking-widest uppercase text-gray-300">New</p>
@@ -342,7 +376,8 @@ const expandedPrograms: Program[] = [
               href={program.path}
               class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
             >
-              Learn More <span class="transition-transform group-hover:translate-x-1 inline-block">&rarr;</span>
+              Learn more about {program.titleOverride ?? program.name}{' '}
+              <span class="transition-transform group-hover:translate-x-1 inline-block" aria-hidden="true">&rarr;</span>
             </a>
           </div>
         ))}

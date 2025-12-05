@@ -6,14 +6,16 @@ import { heroImageAssignments, supplementalImageKeys } from '../../data/imageAss
 
 const pageData = allPageData['/about/cindy-cliff'];
 
+const hero = heroImageAssignments.cindyHero;
 const portrait = heroImageAssignments[supplementalImageKeys.cindyPortrait];
 ---
 <BaseLayout pageData={pageData}>
   <GenericHero
     title={pageData.h1}
     subtitle={pageData.description}
-    imageUrl={pageData.imageUrl}
-    imageAlt={pageData.imageAlt}
+    imageUrl={hero.src}
+    imageAlt={hero.alt}
+    image={hero}
   />
 
   <section class="bg-white py-16 sm:py-20">

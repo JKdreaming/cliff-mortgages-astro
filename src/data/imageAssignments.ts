@@ -1,3 +1,5 @@
+import type { ImageMetadata } from 'astro';
+
 import homeHeroImage from '../assets/images/black-real-estate-agent-showing-property-to-her-cl-2024-12-13-22-29-55-utc.jpg';
 import homeEquityBannerBackground from '../assets/images/Depositphotos_600595700_L.jpg';
 import aboutHeroImage from '../assets/images/multiracial-team-of-architects-having-a-meeting-wh-2025-04-01-13-10-07-utc.jpg';
@@ -54,112 +56,54 @@ export type NamedImageKey =
   | 'nonQmHero';
 
 export interface ImageAssignment {
+  asset: ImageMetadata;
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 export interface BackgroundAssignment {
+  asset: ImageMetadata;
   src: string;
+  width: number;
+  height: number;
   description: string;
 }
 
+const createHeroAssignment = (asset: ImageMetadata, alt: string): ImageAssignment => ({
+  asset,
+  src: asset.src,
+  width: asset.width,
+  height: asset.height,
+  alt,
+});
+
 export const heroImageAssignments: Record<NamedImageKey, ImageAssignment> = {
-  homeHero: {
-    src: conventionalHeroImage.src,
-    alt: 'Happy couple sitting on their patio discussing finances.',
-  },
-  loanProgramsHero: {
-    src: loanProgramsHeroImage.src,
-    alt: 'Contemporary Colorado home with a clean modern exterior.',
-  },
-  aboutHero: {
-    src: aboutHeroImage.src,
-    alt: 'Mortgage advisory team collaborating around a table.',
-  },
-  cindyHero: {
-    src: cindyHeroImage.src,
-    alt: 'Mortgage professional celebrating clients with a handshake.',
-  },
-  cindyPortrait: {
-    src: cindyPortraitImage.src,
-    alt: 'Friendly mortgage advisor smiling while offering guidance.',
-  },
-  getQuoteHero: {
-    src: getQuoteHeroImage.src,
-    alt: "Client signing mortgage documents through an e-sign platform.",
-  },
-  privacyPolicyHero: {
-    src: privacyHeroImage.src,
-    alt: 'Borrowers reviewing documents in a modern condominium office.',
-  },
-  accessibilityHero: {
-    src: accessibilityHeroImage.src,
-    alt: 'Smiling senior couple standing outside an accessible home entrance.',
-  },
-  disclosuresHero: {
-    src: disclosuresHeroImage.src,
-    alt: 'Architects examining blueprints for compliance and licensing.',
-  },
-  equitySelectProgramHero: {
-    src: equitySelectProgramHeroImage.src,
-    alt: 'Senior couple holding keys after unlocking home equity.',
-  },
-  purchaseHero: {
-    src: purchaseHeroImage.src,
-    alt: 'Family moving into a new Colorado home with their dog.',
-  },
-  refinanceHero: {
-    src: refinanceHeroImage.src,
-    alt: 'Homeowners embracing in their garden after refinancing success.',
-  },
-  helocHero: {
-    src: helocHeroImage.src,
-    alt: 'Couple reviewing home equity options together at their kitchen table.',
-  },
-  dscrHero: {
-    src: dscrHeroImage.src,
-    alt: 'Modern multifamily building representing a Colorado investment property.',
-  },
-  vaHero: {
-    src: vaHeroImage.src,
-    alt: 'Veteran and spouse smiling outside their new Colorado home.',
-  },
-  fhaHero: {
-    src: fhaHeroImage.src,
-    alt: 'Young family relaxing together on a bright living room sofa.',
-  },
-  reverseMortgageHero: {
-    src: reverseMortgageHeroImage.src,
-    alt: 'Senior couple relaxing together in a bright living room.',
-  },
-  jumboHero: {
-    src: jumboHeroImage.src,
-    alt: 'Expansive luxury home showcasing a spacious Colorado estate.',
-  },
-  conventionalHero: {
-    src: homeHeroImage.src,
-    alt: 'Real estate agent guiding clients through a Colorado home showing.',
-  },
-  usdaHero: {
-    src: usdaHeroImage.src,
-    alt: 'Scenic rural landscape with open fields and a farmhouse.',
-  },
-  constructionHero: {
-    src: constructionHeroImage.src,
-    alt: 'Crew framing a new single-family home under blue skies.',
-  },
-  commercialHero: {
-    src: commercialHeroImage.src,
-    alt: 'Commercial property owners meeting inside a modern office building.',
-  },
-  fha203kHero: {
-    src: fha203kHeroImage.src,
-    alt: 'Contractor managing a renovation project in a new space.',
-  },
-  nonQmHero: {
-    src: nonQmHeroImage.src,
-    alt: 'Successful business team collaborating on financing solutions.',
-  },
+  homeHero: createHeroAssignment(conventionalHeroImage, 'Happy couple sitting on their patio discussing finances.'),
+  loanProgramsHero: createHeroAssignment(loanProgramsHeroImage, 'Contemporary Colorado home with a clean modern exterior.'),
+  aboutHero: createHeroAssignment(aboutHeroImage, 'Mortgage advisory team collaborating around a table.'),
+  cindyHero: createHeroAssignment(cindyHeroImage, 'Mortgage professional celebrating clients with a handshake.'),
+  cindyPortrait: createHeroAssignment(cindyPortraitImage, 'Friendly mortgage advisor smiling while offering guidance.'),
+  getQuoteHero: createHeroAssignment(getQuoteHeroImage, "Client signing mortgage documents through an e-sign platform."),
+  privacyPolicyHero: createHeroAssignment(privacyHeroImage, 'Borrowers reviewing documents in a modern condominium office.'),
+  accessibilityHero: createHeroAssignment(accessibilityHeroImage, 'Smiling senior couple standing outside an accessible home entrance.'),
+  disclosuresHero: createHeroAssignment(disclosuresHeroImage, 'Architects examining blueprints for compliance and licensing.'),
+  equitySelectProgramHero: createHeroAssignment(equitySelectProgramHeroImage, 'Senior couple holding keys after unlocking home equity.'),
+  purchaseHero: createHeroAssignment(purchaseHeroImage, 'Family moving into a new Colorado home with their dog.'),
+  refinanceHero: createHeroAssignment(refinanceHeroImage, 'Homeowners embracing in their garden after refinancing success.'),
+  helocHero: createHeroAssignment(helocHeroImage, 'Couple reviewing home equity options together at their kitchen table.'),
+  dscrHero: createHeroAssignment(dscrHeroImage, 'Modern multifamily building representing a Colorado investment property.'),
+  vaHero: createHeroAssignment(vaHeroImage, 'Veteran and spouse smiling outside their new Colorado home.'),
+  fhaHero: createHeroAssignment(fhaHeroImage, 'Young family relaxing together on a bright living room sofa.'),
+  reverseMortgageHero: createHeroAssignment(reverseMortgageHeroImage, 'Senior couple relaxing together in a bright living room.'),
+  jumboHero: createHeroAssignment(jumboHeroImage, 'Expansive luxury home showcasing a spacious Colorado estate.'),
+  conventionalHero: createHeroAssignment(homeHeroImage, 'Real estate agent guiding clients through a Colorado home showing.'),
+  usdaHero: createHeroAssignment(usdaHeroImage, 'Scenic rural landscape with open fields and a farmhouse.'),
+  constructionHero: createHeroAssignment(constructionHeroImage, 'Crew framing a new single-family home under blue skies.'),
+  commercialHero: createHeroAssignment(commercialHeroImage, 'Commercial property owners meeting inside a modern office building.'),
+  fha203kHero: createHeroAssignment(fha203kHeroImage, 'Contractor managing a renovation project in a new space.'),
+  nonQmHero: createHeroAssignment(nonQmHeroImage, 'Successful business team collaborating on financing solutions.'),
 };
 
 export const supplementalImageKeys = {
@@ -191,21 +135,29 @@ export const pageHeroImageKeys: Record<string, NamedImageKey> = {
   '/loan-programs/non-qm': 'nonQmHero',
 };
 
+const createBackgroundAssignment = (asset: ImageMetadata, description: string): BackgroundAssignment => ({
+  asset,
+  src: asset.src,
+  width: asset.width,
+  height: asset.height,
+  description,
+});
+
 export const backgroundImageAssignments: Record<string, BackgroundAssignment> = {
-  homeEquitySelectBanner: {
-    src: homeEquityBannerBackground.src,
-    description: 'Modern Colorado home exterior with impressive architectural details.',
-  },
-  loanProgramsEquitySelectBanner: {
-    src: loanProgramsEquityBackground.src,
-    description: 'Young couple outside their home discussing flexible financing.',
-  },
-  loanProgramsHeroRightPanel: {
-    src: loanProgramsHeroPanelBackground.src,
-    description: 'Contemporary home exterior with a welcoming entryway.',
-  },
-  equitySelectProgramHighlight: {
-    src: equitySelectBannerBackground.src,
-    description: 'Happy Latinx family spending time together at home.',
-  },
+  homeEquitySelectBanner: createBackgroundAssignment(
+    homeEquityBannerBackground,
+    'Modern Colorado home exterior with impressive architectural details.'
+  ),
+  loanProgramsEquitySelectBanner: createBackgroundAssignment(
+    loanProgramsEquityBackground,
+    'Young couple outside their home discussing flexible financing.'
+  ),
+  loanProgramsHeroRightPanel: createBackgroundAssignment(
+    loanProgramsHeroPanelBackground,
+    'Contemporary home exterior with a welcoming entryway.'
+  ),
+  equitySelectProgramHighlight: createBackgroundAssignment(
+    equitySelectBannerBackground,
+    'Happy Latinx family spending time together at home.'
+  ),
 };

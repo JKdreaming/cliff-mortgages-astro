@@ -75,7 +75,14 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
       <div class="space-y-4">
         <a href="/" class="inline-block footer-logo">
-          <img src={cliffmortgagesLogo.src} alt="Cliff Mortgages Logo" class="h-10 w-auto rounded-[10px]" />
+          <img
+            src={cliffmortgagesLogo.src}
+            alt="Cliff Mortgages Logo"
+            class="h-10 w-auto rounded-[10px]"
+            width="160"
+            height="40"
+            loading="lazy"
+          />
         </a>
         <div class="flex items-center gap-3 text-xs text-gray-300">
           <svg class="h-8 w-8 flex-shrink-0 text-white" viewBox="0 0 64 64" role="img" aria-labelledby="equal-housing-title">
@@ -92,8 +99,18 @@ const currentYear = new Date().getFullYear();
             src={nrmlaLogo.src}
             alt="National Reverse Mortgage Lenders Association member"
             class="w-[48%] h-auto object-contain"
+            width="180"
+            height="90"
+            loading="lazy"
           />
-          <img src={bbbAPlusLogo.src} alt="Better Business Bureau A+ rating" class="w-[48%] h-auto object-contain" />
+          <img
+            src={bbbAPlusLogo.src}
+            alt="Better Business Bureau A+ rating"
+            class="w-[48%] h-auto object-contain"
+            width="180"
+            height="90"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -116,16 +133,27 @@ const currentYear = new Date().getFullYear();
           ))}
         </ul>
         <h4 class="font-semibold text-white mt-6 mb-3">Contact</h4>
-        <p class="text-sm leading-relaxed font-bold">Serving all of Colorado</p>
-        <a href="tel:+1970-699-3900" class="text-sm leading-relaxed">Phone: 970-699-3900</a><br>
-        <a href="tel:+1970-308-2540" class="text-sm leading-relaxed">Alt Phone: 970-308-2540</a>
+        <p class="text-sm leading-relaxed font-semibold text-white/90">Serving all of Colorado</p>
+        <a href="tel:+1970-699-3900" class="text-sm leading-relaxed text-white/90">Phone: 970-699-3900</a><br />
+        <a href="tel:+1970-308-2540" class="text-sm leading-relaxed text-white/90">Alt Phone: 970-308-2540</a>
       </div>
 
       <div class="flex flex-col items-center text-center gap-3">
-        <img src={cindyProfilePic.src} alt="Cindy Cliff" class="w-1/2 rounded-[200px] object-cover" />
+        <img
+          src={cindyProfilePic.src}
+          alt="Cindy Cliff"
+          class="w-1/2 rounded-[200px] object-cover"
+          width="200"
+          height="200"
+          loading="lazy"
+        />
         <h2 class="text-white font-semibold text-xl">Cindy Cliff</h2>
         <p class="text-sm text-gray-300 -mt-[10px]">Loan Originator</p>
-        <p class="text-xs text-gray-400">NMLS #2075376</br>DRE #100524014</p>
+        <p class="text-xs text-gray-400">
+          NMLS #2075376
+          <br />
+          DRE #100524014
+        </p>
       </div>
     </div>
 
@@ -133,7 +161,7 @@ const currentYear = new Date().getFullYear();
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-sm leading-relaxed">
         {footerColumns.map(column => (
           <div class="space-y-3">
-            <h5 class="text-white font-semibold text-sm uppercase tracking-wide">{column.title}</h5>
+            <h4 class="text-white font-semibold text-sm uppercase tracking-wide">{column.title}</h4>
             {column.content.map((item, index) => (
               item.type === 'text' ? (
                 <p class="text-gray-300 text-xs leading-relaxed">{item.value}</p>
@@ -173,22 +201,4 @@ const currentYear = new Date().getFullYear();
       <p>Copyright © {currentYear} Cliff Mortgages and its licensors. All rights reserved.</p>
     </div>
   </div>
-  <!-- begin Widget Tracker Code -->
-  <script is:inline>
-    (function (w, i, d, g, e, t) {
-      w['WidgetTrackerObject'] = g;
-      (w[g] = w[g] || function () {
-        (w[g].q = w[g].q || []).push(arguments);
-      }),
-        (w[g].ds = 1 * new Date());
-      (t = d.createElement('script')),
-        (e = d.getElementsByTagName('script')[0]);
-      t.async = 1;
-      t.src = i;
-      e.parentNode.insertBefore(t, e);
-    })(window, 'https://widgetbe.com/agent', document, 'widgetTracker');
-    window.widgetTracker('create', 'WT-JUVWSUQG');
-    window.widgetTracker('send', 'pageview');
-  </script>
-  <!-- end Widget Tracker Code -->
 </footer>

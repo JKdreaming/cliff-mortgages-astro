@@ -19,7 +19,7 @@ import ReverseMortgageSections from '../../components/program-sections/ReverseMo
 import JumboSections from '../../components/program-sections/JumboSections.astro';
 import ConstructionSections from '../../components/program-sections/ConstructionSections.astro';
 import { allPageData, sitemap } from '../../data/sitemap';
-import { heroImageAssignments } from '../../data/imageAssignments';
+import { heroImageAssignments, pageHeroImageKeys } from '../../data/imageAssignments';
 import type { PageData } from '../../data/types';
 
 export interface Props {
@@ -46,9 +46,12 @@ if (!pageData) {
   throw new Error(`Loan program not found for path: ${programPath}`);
 }
 
+const heroKey = pageHeroImageKeys[programPath];
 const fallbackHero = heroImageAssignments.loanProgramsHero;
-const heroImageUrl = pageData.imageUrl ?? fallbackHero.src;
-const heroImageAlt = pageData.imageAlt ?? fallbackHero.alt;
+const heroAssignment = heroKey ? heroImageAssignments[heroKey] : undefined;
+const heroImageAssignment = heroAssignment ?? (pageData.imageUrl ? undefined : fallbackHero);
+const heroImageUrl = heroImageAssignment?.src ?? pageData.imageUrl ?? fallbackHero.src;
+const heroImageAlt = heroImageAssignment?.alt ?? pageData.imageAlt ?? fallbackHero.alt;
 const pageTitleForCta = pageData.title.split('|')[0]?.trim() ?? pageData.h1;
 const programDetails = pageData.programDetails;
 const benefits = programDetails?.benefits ?? [];
@@ -77,6 +80,7 @@ const isConstruction = programPath === '/loan-programs/construction';
     subtitle={pageData.description}
     imageUrl={heroImageUrl}
     imageAlt={heroImageAlt}
+    image={heroImageAssignment}
     imageObjectClassName="object-cover object-center"
   />
 

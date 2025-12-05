@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GenericHero from '../components/GenericHero.astro';
 import { allPageData } from '../data/sitemap';
-import { backgroundImageAssignments } from '../data/imageAssignments';
+import { backgroundImageAssignments, heroImageAssignments, pageHeroImageKeys } from '../data/imageAssignments';
 
 interface Program {
   path: string;
@@ -13,6 +13,8 @@ interface Program {
 }
 
 const pageData = allPageData['/loan-programs'];
+const heroKey = pageHeroImageKeys[pageData.path];
+const hero = heroKey ? heroImageAssignments[heroKey] : undefined;
 
 const corePrograms: Program[] = [
   {
@@ -128,8 +130,9 @@ const buildingPrograms: Program[] = [
   <GenericHero
     title={pageData.h1}
     subtitle={pageData.description}
-    imageUrl={pageData.imageUrl ?? ''}
-    imageAlt={pageData.imageAlt ?? ''}
+    imageUrl={hero?.src ?? pageData.imageUrl ?? ''}
+    imageAlt={hero?.alt ?? pageData.imageAlt ?? ''}
+    image={hero}
     imageObjectClassName="object-cover object-left"
   />
 

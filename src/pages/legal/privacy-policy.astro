@@ -2,16 +2,20 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GenericHero from '../../components/GenericHero.astro';
 import { allPageData } from '../../data/sitemap';
+import { heroImageAssignments, pageHeroImageKeys } from '../../data/imageAssignments';
 
 const pageData = allPageData['/legal/privacy-policy'];
+const heroKey = pageHeroImageKeys[pageData.path];
+const hero = heroKey ? heroImageAssignments[heroKey] : undefined;
 const lastUpdated = new Date().toLocaleDateString();
 ---
 <BaseLayout pageData={pageData}>
   <GenericHero
     title={pageData.h1}
     subtitle={pageData.description}
-    imageUrl={pageData.imageUrl}
-    imageAlt={pageData.imageAlt}
+    imageUrl={hero?.src ?? pageData.imageUrl}
+    imageAlt={hero?.alt ?? pageData.imageAlt}
+    image={hero}
   />
 
   <section class="bg-white py-16 sm:py-20">

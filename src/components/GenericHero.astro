@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageAssignment } from '../data/imageAssignments';
+
 interface QuickStat {
   title: string;
   subtitle: string;
@@ -15,6 +18,9 @@ interface Props {
   primaryCtaHref?: string;
   hideContactCta?: boolean;
   imageObjectClassName?: string;
+  image?: ImageAssignment;
+  imageSizes?: string;
+  imageLoading?: 'eager' | 'lazy';
 }
 
 const defaultStats: QuickStat[] = [
@@ -33,11 +39,25 @@ const {
   primaryCtaHref = '/get-a-quote',
   hideContactCta = false,
   imageObjectClassName = 'object-cover',
+  image,
+  imageSizes = '(max-width: 1024px) 100vw, 50vw',
+  imageLoading = 'eager',
 } = Astro.props as Props;
 
 const titleParts = title.trim().split(' ');
 const lastWord = titleParts.pop();
 const titleStart = titleParts.join(' ');
+
+const presetWidths = [320, 480, 640, 768, 1024, 1280, 1536, 1920];
+let imageWidths = image ? presetWidths.filter((width) => width < image.width) : [];
+if (image) {
+  if (!imageWidths.includes(image.width)) {
+    imageWidths = [...imageWidths, image.width];
+  }
+  if (!imageWidths.length) {
+    imageWidths = [image.width];
+  }
+}
 ---
 <div class="relative bg-white">
   <div class="container mx-auto">
@@ -58,7 +78,7 @@ const titleStart = titleParts.join(' ');
           <div class="mt-8 flex flex-wrap gap-4">
             <a
               href={primaryCtaHref}
-              class="px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
+              class="px-8 py-4 bg-[#7a5a1f] text-white font-semibold rounded-lg shadow-md hover:bg-[#5c3f14] transition duration-300"
             >
               {primaryCtaLabel}
             </a>
@@ -88,11 +108,27 @@ const titleStart = titleParts.join(' ');
         </div>
       </div>
       <div class="relative h-80 lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          class={`absolute inset-0 h-full w-full ${imageObjectClassName}`}
-          src={imageUrl}
-          alt={imageAlt}
-        />
+        {image ? (
+          <div class="absolute inset-0">
+            <Image
+              src={image.asset}
+              alt={image.alt}
+              widths={imageWidths}
+              formats={['avif', 'webp', 'jpeg']}
+              sizes={imageSizes}
+              loading={imageLoading}
+              class={`h-full w-full ${imageObjectClassName}`}
+              style="height: 100%; width: 100%; object-fit: cover;"
+            />
+          </div>
+        ) : (
+          <img
+            class={`absolute inset-0 h-full w-full ${imageObjectClassName}`}
+            src={imageUrl}
+            alt={imageAlt}
+            loading="eager"
+          />
+        )}
       </div>
     </div>
   </div>
