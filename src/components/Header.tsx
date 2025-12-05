@@ -145,10 +145,10 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                       <a
                         key={program.path}
                         href={program.path}
-                        className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-4 text-left transition-colors hover:border-[#bf9f5c] hover:bg-[#f7f1e2]"
+                        className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-4 text-left transition-colors hover:border-[#5c3f14] hover:bg-[#f5efe1]"
                         role="menuitem"
                       >
-                        <i className={`${program.icon} mt-1 text-xl text-[#bf9f5c] flex-shrink-0`}></i>
+                        <i className={`${program.icon} mt-1 text-xl text-[#5c3f14] flex-shrink-0`}></i>
                         <div className="space-y-1">
                           <p className="text-sm font-semibold text-gray-900">{program.name}</p>
                           <p className="text-xs leading-snug text-gray-500">{program.description}</p>
@@ -204,7 +204,7 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                               key={program.path}
                               className="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors -mx-3"
                             >
-                              <i className={`${program.icon} text-[#bf9f5c] text-xl w-8 text-center mt-1`}></i>
+                              <i className={`${program.icon} text-[#5c3f14] text-xl w-8 text-center mt-1`}></i>
                               <div className="ml-4">
                                 <p className="font-semibold text-gray-900 text-sm">{program.name}</p>
                                 <p className="text-xs text-gray-500 mt-1">{program.description}</p>
@@ -223,7 +223,7 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                               key={program.path}
                               className="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors -mx-3"
                             >
-                              <i className={`${program.icon} text-[#bf9f5c] text-xl w-8 text-center mt-1`}></i>
+                              <i className={`${program.icon} text-[#5c3f14] text-xl w-8 text-center mt-1`}></i>
                               <div className="ml-4">
                                 <p className="font-semibold text-gray-900 text-sm">{program.name}</p>
                                 <p className="text-xs text-gray-500 mt-1">{program.description}</p>
@@ -242,7 +242,7 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                               key={program.path}
                               className="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors -mx-3"
                             >
-                              <i className={`${program.icon} text-[#bf9f5c] text-xl w-8 text-center mt-1`}></i>
+                              <i className={`${program.icon} text-[#5c3f14] text-xl w-8 text-center mt-1`}></i>
                               <div className="ml-4">
                                 <p className="font-semibold text-gray-900 text-sm">{program.name}</p>
                                 <p className="text-xs text-gray-500 mt-1">{program.description}</p>
@@ -286,7 +286,7 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
           <div className="hidden xl:block">
             <a
               href="/get-a-quote"
-              className="px-4 py-2 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-sm hover:bg-[#a68a4c] transition-transform hover:scale-105 text-sm"
+              className="px-4 py-2 bg-[#5c3f14] text-white font-semibold rounded-lg shadow-sm hover:bg-[#4b310f] transition-transform hover:scale-105 text-sm"
             >
               Get a Quote
             </a>
@@ -322,7 +322,7 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
             <div className="mt-4">
               <a
                 href="/get-a-quote"
-                className="block w-full text-center px-4 py-3 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-sm hover:bg-[#a68a4c] transition duration-300 text-sm"
+                className="block w-full text-center px-4 py-3 bg-[#5c3f14] text-white font-semibold rounded-lg shadow-sm hover:bg-[#4b310f] transition duration-300 text-sm"
               >
                 Get a Quote
               </a>
