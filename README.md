@@ -38,6 +38,27 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 🔐 Deployment checks
+
+After each deploy, verify that security headers are returned on a few key routes:
+
+```sh
+curl -I https://www.cliffmortgages.com/
+curl -I https://www.cliffmortgages.com/loan-programs
+curl -I https://www.cliffmortgages.com/contact
+```
+
+Confirm the response includes:
+
+- `Strict-Transport-Security`
+- `X-Frame-Options`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `Permissions-Policy`
+- `Content-Security-Policy-Report-Only`
+
+If any header is missing, redeploy after investigating middleware or proxy settings.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

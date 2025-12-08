@@ -71,14 +71,14 @@ if (image) {
           </div>
           <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             {titleStart}{' '}
-            {lastWord && <span class="text-[#5c3f14]">{lastWord}</span>}
+            {lastWord && <span class="text-[#bf9f5c]">{lastWord}</span>}
           </h1>
           <p class="mt-6 text-lg text-gray-600" set:html={subtitle} />
 
           <div class="mt-8 flex flex-wrap gap-4">
             <a
               href={primaryCtaHref}
-              class="px-8 py-4 bg-[#7a5a1f] text-white font-semibold rounded-lg shadow-md hover:bg-[#5c3f14] transition duration-300"
+              class="px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
             >
               {primaryCtaLabel}
             </a>
@@ -96,7 +96,7 @@ if (image) {
             {quickStats.map((stat) => (
               <div class="flex items-center" key={stat.title}>
                 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
-                  <i class={`${stat.iconClass} text-xl text-[#5c3f14]`}></i>
+                  <i class={`${stat.iconClass} text-xl text-[#bf9f5c]`}></i>
                 </div>
                 <div class="ml-4">
                   <p class="font-bold text-gray-900">{stat.title}</p>
