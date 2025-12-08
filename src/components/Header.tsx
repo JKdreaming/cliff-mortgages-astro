@@ -234,25 +234,6 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                       </div>
 
                       <div>
-                        <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Investor & Non-QM</h3>
-                        <div className="space-y-1">
-                          {investorPrograms.map(program => (
-                            <a
-                              href={program.path}
-                              key={program.path}
-                              className="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors -mx-3"
-                            >
-                              <i className={`${program.icon} text-[#bf9f5c] text-xl w-8 text-center mt-1`}></i>
-                              <div className="ml-4">
-                                <p className="font-semibold text-gray-900 text-sm">{program.name}</p>
-                                <p className="text-xs text-gray-500 mt-1">{program.description}</p>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
                         <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Specialized Financing</h3>
                         <div className="space-y-1">
                           {specializedPrograms.map(program => (
@@ -269,6 +250,34 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
                             </a>
                           ))}
                         </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Investor & Non-QM</h3>
+                        <div className="space-y-1">
+                          {investorPrograms.map(program => (
+                            <a
+                              href={program.path}
+                              key={program.path}
+                              className="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors -mx-3"
+                            >
+                              <i className={`${program.icon} text-[#bf9f5c] text-xl w-8 text-center mt-1`}></i>
+                              <div className="ml-4">
+                                <p className="font-semibold text-gray-900 text-sm">{program.name}</p>
+                                <p className="text-xs text-gray-500 mt-1">{program.description}</p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                        <a
+                          href="/loan-programs"
+                          className="mt-4 flex items-center justify-between rounded-2xl bg-[#09143e] px-4 py-3 text-xs font-semibold uppercase tracking-wide text-white shadow-lg transition hover:bg-[#0f1d5a]"
+                        >
+                          <span>Explore all loan programs</span>
+                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
+                            <i className="fas fa-compass text-sm" aria-hidden="true"></i>
+                          </span>
+                        </a>
                       </div>
                     </div>
                   )}
