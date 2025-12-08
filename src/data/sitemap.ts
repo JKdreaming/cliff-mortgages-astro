@@ -107,34 +107,36 @@ export const allPageData: { [key: string]: PageData } = {
     '/loan-programs/equity-select': {
     path: '/loan-programs/equity-select',
     title: 'Equity Select Loan in Colorado | Cliff Mortgages / C2 Financial',
-    h1: 'Equity Select – Flexible Line of Credit',
-    description: 'Equity Select is a first-position line of credit Colorado home loan offering flexible equity access with payment options as low as 1–2% of the annual balance.',
+    h1: 'Home Equity Line of Credit (HELOC) – EquitySelect Alternative',
+    description:
+      'EquitySelect is a flexible home-equity loan available as either a first- or second-lien. It lets homeowners access equity without replacing a low-rate mortgage (second-lien option) and offers payment plans starting around 1% of the balance. Designed for retirees, near-retirees, and homeowners seeking predictable, long-term payments.',
     imageUrl: heroImageAssignments.equitySelectProgramHero.src,
     imageAlt: heroImageAssignments.equitySelectProgramHero.alt,
     breadcrumbs: [{ name: 'Home', path: '/' }, { name: 'Loan Programs', path: '/loan-programs' }, { name: 'Equity Select', path: '/loan-programs/equity-select' }],
     programDetails: {
-      summary: 'Access your home’s equity with confidence. Equity Select is a flexible line of credit that offers required monthly payment options starting as low as 1%. Designed to support long-term planning, it’s a smart middle ground between a traditional HELOC and a Reverse Mortgage.',
+      summary:
+        'EquitySelect is a flexible home-equity line of credit offered as either a first- or second-lien. Keep your existing low-rate mortgage with the second-lien option or refinance into a first position while maintaining required payments that can start around 1% of the balance for predictable, long-term planning.',
       eligibility: [
-          'Homeowners who want to tap equity without refinancing their first mortgage',
-          'Retirees or near-retirees looking for predictable monthly payments',
-          'Families who need flexible access to funds for home improvements, medical costs, or debt payoff',
-          'Anyone seeking an alternative to a reverse mortgage with required payments'
+        'Homeowners who want to access equity without replacing a low-rate first mortgage',
+        'Retirees or near-retirees looking for structured payments and long-term stability',
+        'Borrowers who need flexible funds for improvements, medical costs, or debt payoff',
+        'Clients exploring an alternative to reverse mortgages with required monthly payments'
       ],
       benefits: [
-        'Required payments (as low as 1% of your balance) to keep budgeting on track',
-        'Ongoing flexible access to your equity, use it when you need it',
-        'Designed to support long-term financial planning',
-        'Not a reverse mortgage — available to more homeowners, with structured payments'
+        'Payment plans starting around 1% of the balance to help manage monthly budgets',
+        'Second-lien option preserves an existing low-rate first mortgage',
+        'First-lien option available for borrowers who prefer a single consolidated loan',
+        'Designed for predictable payments and long-range financial planning'
       ],
       howItWorks: [
-        { title: "Get Approved", description: "Open a credit line secured by your home.", icon: "fa-solid fa-thumbs-up" },
-        { title: "Your In Control", description: "Draw funds when needed — for projects, expenses, or opportunities.", icon: "fa-solid fa-hand-holding-dollar" },
-        { title: "Easy Payments", description: "Make required monthly payments (as low as 1%) and pay more anytime to reduce balance.", icon: "fa-solid fa-coins" },
+        { title: "Customize Your Lien Position", description: "Choose a first- or second-lien structure based on your goals and current mortgage rate.", icon: "fa-solid fa-diagram-project" },
+        { title: "Activate the Line", description: "Open the credit line and draw funds as needed for projects, expenses, or opportunities.", icon: "fa-solid fa-hand-holding-dollar" },
+        { title: "Follow Predictable Payments", description: "Make required payments starting around 1% and prepay anytime to reduce the balance sooner.", icon: "fa-solid fa-calendar-check" }
       ]
     },
     faqs: [
-      { question: "Is this a reverse mortgage?", answer: "No. Unlike a reverse mortgage, Equity Select includes required monthly payments and may be available to a broader group of homeowners." },
-      { question: "Would this replace my first mortgage?", answer: "Yes, your initial draw must pay off any liens on title." },
+      { question: "Is this a reverse mortgage?", answer: "No. EquitySelect is a line of credit with required payments and is available to a broader group of homeowners than reverse mortgages." },
+      { question: "Would this replace my first mortgage?", answer: "It can, but doesn’t have to. Borrowers can choose a first-lien option that replaces existing liens or a second-lien option that keeps today’s low-rate mortgage in place." },
       { question: "Is there a minimum loan amount?", answer: "Yes, $75,000 or 50% of the maximum line of credit, whichever is higher." },
        { question: "How long is the term for?", answer: "Monthly payments capped for up to 40 years." },
       { question: "Can I pay off early?", answer: "Yes. You can make larger payments anytime with no prepayment penalty on principal." }
