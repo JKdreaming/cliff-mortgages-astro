@@ -7,7 +7,7 @@ export const sitemap = {
     { path: '/loan-programs/purchase', name: 'Purchase Loans', icon: 'fa-solid fa-key', description: 'Finance your new home purchase.' },
     { path: '/loan-programs/refinance', name: 'Refinance', icon: 'fa-solid fa-arrows-rotate', description: 'Lower your rate or tap into equity.' },
     { path: '/loan-programs/heloc', name: 'HELOC', icon: 'fa-solid fa-house-chimney-window', description: 'Flexible line of credit using your equity.' },
-    { path: '/loan-programs/equity-select', name: 'Equity Select', icon: 'fa-solid fa-layer-group', description: 'Flexible line of credit with predictable payments.' },
+    { path: '/loan-programs/equity-select', name: 'EquitySelect', icon: 'fa-solid fa-layer-group', description: 'Flexible line of credit with predictable payments.' },
     { path: '/loan-programs/dscr', name: 'DSCR / Investor', icon: 'fa-solid fa-building-columns', description: 'For real estate investment properties.' },
     { path: '/loan-programs/reverse-mortgage', name: 'Reverse Mortgages', icon: 'fa-solid fa-user-clock', description: 'For seniors 62+ to access equity.' },
     { path: '/loan-programs/jumbo', name: 'Jumbo Loans', icon: 'fa-solid fa-gem', description: 'For loan amounts above conforming limits.' },
@@ -106,13 +106,13 @@ export const allPageData: { [key: string]: PageData } = {
   },
     '/loan-programs/equity-select': {
     path: '/loan-programs/equity-select',
-    title: 'Equity Select Loan in Colorado | Cliff Mortgages / C2 Financial',
+    title: 'Home Equity Line of Credit (HELOC) – EquitySelect Alternative',
     h1: 'Home Equity Line of Credit (HELOC) – EquitySelect Alternative',
     description:
-      'EquitySelect is a flexible home-equity loan available as either a first- or second-lien. It lets homeowners access equity without replacing a low-rate mortgage (second-lien option) and offers payment plans starting around 1% of the balance. Designed for retirees, near-retirees, and homeowners seeking predictable, long-term payments.',
+      'Access home equity through a flexible first- or second-lien HELOC alternative with predictable payments. EquitySelect supports retirement planning, cash-flow stability, and long-term financial goals.',
     imageUrl: heroImageAssignments.equitySelectProgramHero.src,
     imageAlt: heroImageAssignments.equitySelectProgramHero.alt,
-    breadcrumbs: [{ name: 'Home', path: '/' }, { name: 'Loan Programs', path: '/loan-programs' }, { name: 'Equity Select', path: '/loan-programs/equity-select' }],
+    breadcrumbs: [{ name: 'Home', path: '/' }, { name: 'Loan Programs', path: '/loan-programs' }, { name: 'EquitySelect', path: '/loan-programs/equity-select' }],
     programDetails: {
       summary:
         'EquitySelect is a flexible home-equity line of credit offered as either a first- or second-lien. Keep your existing low-rate mortgage with the second-lien option or refinance into a first position while maintaining required payments that can start around 1% of the balance for predictable, long-term planning.',
