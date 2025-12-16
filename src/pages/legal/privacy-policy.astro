@@ -13,8 +13,8 @@ const lastUpdated = new Date().toLocaleDateString();
   <GenericHero
     title={pageData.h1}
     subtitle={pageData.description}
-    imageUrl={hero?.src ?? pageData.imageUrl}
-    imageAlt={hero?.alt ?? pageData.imageAlt}
+    imageUrl={hero?.src ?? pageData.imageUrl!}
+    imageAlt={hero?.alt ?? pageData.imageAlt!}
     image={hero}
   />
 

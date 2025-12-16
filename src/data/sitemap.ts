@@ -187,7 +187,7 @@ export const allPageData: { [key: string]: PageData } = {
     imageAlt: heroImageAssignments.refinanceHero.alt,
     breadcrumbs: [{ name: 'Home', path: '/' }, { name: 'Loan Programs', path: '/loan-programs' }, { name: 'Refinance', path: '/loan-programs/refinance' }],
     programDetails: {
-      summary: 'Refinancing your mortgage is a powerful financial tool that can help you achieve a variety of goals. Whether you want to explore lower interest rates, pay off your home faster, consolidate high-interest debt, or access cash for major expenses, we can help. Through C2 Financial, we have access to over 100+ wholesale lenders, allowing us to compare a wide range of refinance programs and options based on your situation.',
+      summary: 'Refinancing your mortgage is a powerful financial tool that can help you achieve a variety of goals. With recent interest-rate improvements throughout 2025, many Colorado homeowners are finding new opportunities to lower their rate, reduce monthly payments, or access equity for important financial needs. Whether you’re looking to improve your loan terms, pay off your home faster, consolidate high-interest debt, or take cash out for major expenses, we can help. Through C2 Financial, we have access to over 100 wholesale lenders, allowing us to compare a wide range of refinance programs based on your goals.<br/><br/><strong>Featured Program: High-Equity Cash-Out Refinance (Up to 89.99% LTV)</strong><br/>Within our network of wholesale lenders, we have access to high-equity cash-out refinance programs that allow eligible borrowers to tap up to 89.99% LTV without mortgage insurance. This option can support debt consolidation, education or tax planning, home improvements, or general financial flexibility. We’ll help you evaluate whether this program—or a traditional rate-and-term refinance—best fits your needs.',
       eligibility: [
         'Current Colorado homeowners looking to improve their loan terms.',
         'Borrowers who want to lower their interest rate and monthly payment.',
@@ -196,13 +196,13 @@ export const allPageData: { [key: string]: PageData } = {
       ],
       benefits: [
         'Potentially lower your interest rate and reduce your monthly payment.',
-        'Access cash from your home\'s equity for a variety of purposes.',
-        'Shorten your loan term to pay off your mortgage faster and save on interest.',
-        'Consolidate other debts into a single payment (if eligible).'
+        'Access cash from your home’s equity for a variety of purposes, including higher-equity options when eligible.',
+        'Shorten your loan term to pay off your mortgage faster and reduce total interest.',
+        'Consolidate other debts into a single monthly payment (if eligible).'
       ],
       howItWorks: [
-        { title: "Define Your Goals", description: "We'll discuss what you want to achieve with a refinance to determine the best loan program for you.", icon: "fa-solid fa-bullseye" },
-        { title: "Lock Your Rate", description: "We'll shop our network of lenders to find you a great rate and lock it in.", icon: "fa-solid fa-lock" },
+        { title: "Define Your Goals", description: "We\'ll discuss what you want to achieve with a refinance to determine the best loan program for you.", icon: "fa-solid fa-bullseye" },
+        { title: "Lock Your Rate", description: "We\'ll shop our network of lenders to find you a great rate and lock it in.", icon: "fa-solid fa-lock" },
         { title: "Simple Application", description: "Our streamlined process and online portal make submitting your documentation quick and secure.", icon: "fa-solid fa-file-alt" },
         { title: "Close Your Loan", description: "Sign the final paperwork—often from the comfort of your own home—and start enjoying the benefits of your new loan.", icon: "fa-solid fa-pen-fancy" }
       ]

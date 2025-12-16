@@ -91,14 +91,14 @@ const isConstruction = programPath === '/loan-programs/construction';
           <div>
             <p class="text-sm font-semibold uppercase tracking-wide text-[#09143e]">Program Overview</p>
             <h2 class="mt-2 text-3xl font-bold text-gray-900">{pageData.h1}</h2>
-            <p class="mt-4 text-lg text-gray-600">{programDetails.summary}</p>
+            <p class="mt-4 text-lg text-gray-600" set:html={programDetails.summary}></p>
 
             {benefits.length > 0 && (
               <div class="mt-8">
                 <h3 class="text-xl font-semibold text-gray-800">Key Benefits</h3>
                 <ul class="mt-4 space-y-3">
                   {benefits.map((benefit, index) => (
-                    <li class="flex items-start" key={index}>
+                    <li class="flex items-start">
                       <span class="text-[#bf9f5c] font-bold mr-3">&raquo;</span>
                       <span class="text-gray-700">{benefit}</span>
                     </li>
@@ -116,7 +116,7 @@ const isConstruction = programPath === '/loan-programs/construction';
               </p>
               <ul class="mt-6 space-y-4">
                 {eligibility.map((item, index) => (
-                  <li class="flex items-start" key={index}>
+                  <li class="flex items-start">
                     <span class="text-[#09143e] font-bold mr-3">&raquo;</span>
                     <span class="text-gray-700">{item}</span>
                   </li>
@@ -161,7 +161,7 @@ const isConstruction = programPath === '/loan-programs/construction';
           <div class="absolute top-0 left-12 w-0.5 h-full bg-gray-200 hidden md:block" aria-hidden="true"></div>
           <div class="space-y-12">
             {howItWorks.map((step, index) => (
-              <div class="md:flex items-start" key={step.title}>
+              <div class="md:flex items-start">
                 <div class="flex-shrink-0 w-24 flex justify-center">
                   <span class={`w-12 h-12 ${index === howItWorks.length - 1 ? 'bg-[#bf9f5c]' : 'bg-[#09143e]'} text-white font-bold text-lg rounded-full flex items-center justify-center ring-8 ring-white z-10`}>
                     {index === howItWorks.length - 1 ? (
@@ -229,6 +229,11 @@ const isConstruction = programPath === '/loan-programs/construction';
       >
         Request a Free Quote
       </a>
+      {isRefinance && (
+        <p class="mt-6 text-xs text-gray-200 opacity-80 max-w-2xl mx-auto">
+          Loan approval is subject to lender review and conditions. Rates, terms, and product availability may change with market conditions.
+        </p>
+      )}
     </div>
   </section>
 </BaseLayout>
