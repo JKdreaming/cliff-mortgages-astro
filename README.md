@@ -57,6 +57,10 @@ Confirm the response includes:
 - `Permissions-Policy`
 - `Content-Security-Policy-Report-Only`
 
+## 📊 Analytics guardrail
+
+- `src/layouts/BaseLayout.astro` **must** continue to inline the Google Analytics loader for property `G-RTE0P19P15`. Removing or renaming that snippet breaks site-wide tracking and is not permitted.
+
 If any header is missing, redeploy after investigating middleware or proxy settings.
 
 ## 👀 Want to learn more?
