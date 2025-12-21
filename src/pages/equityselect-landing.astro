@@ -4,14 +4,51 @@ import GenericHero from '../components/GenericHero.astro';
 import EquitySelectSections from '../components/program-sections/EquitySelectSections.astro';
 import { heroImageAssignments } from '../data/imageAssignments';
 import { allPageData } from '../data/sitemap';
+import type { FAQItem } from '../data/types';
+
+const hero = heroImageAssignments.equitySelectLandingHero;
+
+const landingFaqs: FAQItem[] = [
+  {
+    question: 'Does a HELOC replace my existing mortgage?',
+    answer:
+      'Not necessarily. Many HELOC options can be structured as a second lien, which may let you keep a low-rate first mortgage in place while accessing equity separately.',
+  },
+  {
+    question: 'How is a HELOC different from a cash-out refinance?',
+    answer:
+      'A cash-out refinance replaces your existing mortgage with a new one. A HELOC is typically a separate line of credit that can provide access to equity without refinancing your primary mortgage.',
+  },
+  {
+    question: 'Can I draw funds over time, or do I receive a lump sum?',
+    answer:
+      'Many HELOCs allow you to draw funds as needed during a draw period, which can be useful for projects or planned expenses that happen in stages.',
+  },
+  {
+    question: 'Are HELOC rates fixed or variable?',
+    answer:
+      'Many HELOCs have variable rates, though some lenders offer fixed-rate options for portions of the balance. We’ll help you compare what’s available and how payments may change.',
+  },
+  {
+    question: 'How do I know if a HELOC is a good fit for me?',
+    answer:
+      'It depends on your equity, credit profile, timeline, and whether keeping your current first mortgage matters. The quickest way to confirm options is to request a free quote so we can review eligibility and structure.',
+  },
+];
 
 const pageData = {
   path: '/equityselect-landing',
-  title: 'EquitySelect Landing Page | Cliff Mortgages',
+  title: 'EquitySelect Home-Equity Line Alternative | Cliff Mortgages',
   h1: 'Use Your Home’s Equity — Without Touching Your Low-Rate First Mortgage',
   description: 'A flexible Home Equity Line of Credit for cash, repairs, or planned expenses — not a refinance.',
-  breadcrumbs: [],
-  faqs: [],
+  seoDescription:
+    'Explore EquitySelect, a first- or second-lien home-equity line designed for predictable long-term planning. Request a free quote from Cliff Mortgages to confirm eligibility and payment options.',
+  seoImageUrl: hero.src,
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'EquitySelect Landing', path: '/equityselect-landing' },
+  ],
+  faqs: landingFaqs,
 };
 
 const equitySelectProgram = allPageData['/loan-programs/equity-select'];
@@ -35,7 +72,6 @@ const howItWorks =
     },
   ];
 
-const hero = heroImageAssignments.equitySelectLandingHero;
 ---
 <LandingLayout pageData={pageData}>
   <GenericHero
@@ -82,65 +118,17 @@ const hero = heroImageAssignments.equitySelectLandingHero;
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">HELOC FAQs</h2>
       <div class="max-w-3xl mx-auto">
-        <details class="group border-b">
-          <summary class="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-gray-50 cursor-pointer">
-            <span class="font-semibold text-lg text-gray-800">Does a HELOC replace my existing mortgage?</span>
-            <i class="fa-solid fa-chevron-down text-[#bf9f5c] transform transition-transform duration-300 group-open:rotate-180"></i>
-          </summary>
-          <div class="px-2 pb-4 text-gray-600">
-            <p>
-              Not necessarily. Many HELOC options can be structured as a second lien, which may let you keep a low-rate first mortgage in place while accessing equity separately.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border-b">
-          <summary class="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-gray-50 cursor-pointer">
-            <span class="font-semibold text-lg text-gray-800">How is a HELOC different from a cash-out refinance?</span>
-            <i class="fa-solid fa-chevron-down text-[#bf9f5c] transform transition-transform duration-300 group-open:rotate-180"></i>
-          </summary>
-          <div class="px-2 pb-4 text-gray-600">
-            <p>
-              A cash-out refinance replaces your existing mortgage with a new one. A HELOC is typically a separate line of credit that can provide access to equity without refinancing your primary mortgage.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border-b">
-          <summary class="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-gray-50 cursor-pointer">
-            <span class="font-semibold text-lg text-gray-800">Can I draw funds over time, or do I receive a lump sum?</span>
-            <i class="fa-solid fa-chevron-down text-[#bf9f5c] transform transition-transform duration-300 group-open:rotate-180"></i>
-          </summary>
-          <div class="px-2 pb-4 text-gray-600">
-            <p>
-              Many HELOCs allow you to draw funds as needed during a draw period, which can be useful for projects or planned expenses that happen in stages.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border-b">
-          <summary class="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-gray-50 cursor-pointer">
-            <span class="font-semibold text-lg text-gray-800">Are HELOC rates fixed or variable?</span>
-            <i class="fa-solid fa-chevron-down text-[#bf9f5c] transform transition-transform duration-300 group-open:rotate-180"></i>
-          </summary>
-          <div class="px-2 pb-4 text-gray-600">
-            <p>
-              Many HELOCs have variable rates, though some lenders offer fixed-rate options for portions of the balance. We’ll help you compare what’s available and how payments may change.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border-b">
-          <summary class="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-gray-50 cursor-pointer">
-            <span class="font-semibold text-lg text-gray-800">How do I know if a HELOC is a good fit for me?</span>
-            <i class="fa-solid fa-chevron-down text-[#bf9f5c] transform transition-transform duration-300 group-open:rotate-180"></i>
-          </summary>
-          <div class="px-2 pb-4 text-gray-600">
-            <p>
-              It depends on your equity, credit profile, timeline, and whether keeping your current first mortgage matters. The quickest way to confirm options is to request a free quote so we can review eligibility and structure.
-            </p>
-          </div>
-        </details>
+        {landingFaqs.map((faq) => (
+          <details class="group border-b">
+            <summary class="w-full flex justify-between items-center text-left py-4 px-2 hover:bg-gray-50 cursor-pointer">
+              <span class="font-semibold text-lg text-gray-800">{faq.question}</span>
+              <i class="fa-solid fa-chevron-down text-[#bf9f5c] transform transition-transform duration-300 group-open:rotate-180"></i>
+            </summary>
+            <div class="px-2 pb-4 text-gray-600">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
       </div>
 
       <script is:inline>

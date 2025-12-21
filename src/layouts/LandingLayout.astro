@@ -7,8 +7,9 @@ interface Props {
   pageData: PageData;
 }
 
-const { pageData } = Astro.props as Props;
+const { pageData } = Astro.props;
 const SITE_BASE_URL = 'https://cliffmortgages.com';
+const DEFAULT_SOCIAL_IMAGE_URL = `${SITE_BASE_URL}/cliff-default-social-share-image.jpg`;
 
 const sanitizePath = (path: string | undefined) => {
   if (!path) return '/';
@@ -21,6 +22,12 @@ const canonicalUrl = (() => {
   if (pageData.path.startsWith('http')) return pageData.path;
   return `${SITE_BASE_URL}${sanitizePath(pageData.path)}`;
 })();
+
+const resolveAbsoluteUrl = (url: string) => {
+  if (!url) return DEFAULT_SOCIAL_IMAGE_URL;
+  if (url.startsWith('http')) return url;
+  return `${SITE_BASE_URL}${sanitizePath(url)}`;
+};
 
 const BRAND_SUFFIX = 'Cliff Mortgages / C2 Financial / Colorado Mortgage Broker';
 const LEGACY_SUFFIX_PATTERN = /\s*\|\s*Cliff Mortgages\b/;
@@ -36,6 +43,92 @@ const normalizeTitle = (rawTitle: string) => {
 
 const normalisedTitle = normalizeTitle(pageData.title);
 const metaDescription = pageData.seoDescription ?? pageData.description;
+const socialImage = resolveAbsoluteUrl(pageData.seoImageUrl ?? DEFAULT_SOCIAL_IMAGE_URL);
+
+const faqSchema = pageData.faqs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: pageData.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    }
+  : null;
+
+const breadcrumbSchema = pageData.breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: pageData.breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.name,
+        item: `${SITE_BASE_URL}${sanitizePath(crumb.path)}`,
+      })),
+    }
+  : null;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MortgageBroker',
+  name: 'Cliff Mortgages',
+  url: SITE_BASE_URL,
+  logo: `${SITE_BASE_URL}/cliffmortgages-logo.webp`,
+  image: DEFAULT_SOCIAL_IMAGE_URL,
+  telephone: '970-699-3900',
+  email: 'cindy@cliffmortgages.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '12230 El Camino Real, Suite 100',
+    addressLocality: 'San Diego',
+    addressRegion: 'CA',
+    postalCode: '92130',
+    addressCountry: 'US',
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Colorado',
+  },
+  sameAs: ['https://www.facebook.com/profile.php?id=61557149998918', 'https://www.linkedin.com/company/cliff-mortgages/'],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Cliff Mortgages',
+  url: SITE_BASE_URL,
+};
+
+const webpageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonicalUrl}#webpage`,
+  url: canonicalUrl,
+  name: normalisedTitle,
+  description: metaDescription,
+  inLanguage: 'en',
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: socialImage,
+  },
+  isPartOf: {
+    '@type': 'WebSite',
+    url: SITE_BASE_URL,
+    name: 'Cliff Mortgages',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Cliff Mortgages',
+    url: SITE_BASE_URL,
+  },
+};
+
+const schemas = [webpageSchema, faqSchema, breadcrumbSchema, organizationSchema, websiteSchema].filter(Boolean);
 ---
 <html lang="en">
   <head>
@@ -43,6 +136,18 @@ const metaDescription = pageData.seoDescription ?? pageData.description;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{normalisedTitle}</title>
     <meta name="description" content={metaDescription} />
+    <meta name="title" content={normalisedTitle} />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta property="og:title" content={normalisedTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:site_name" content="Cliff Mortgages" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={normalisedTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={socialImage} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/png" href="/cliffmortgages-favicon.png" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
@@ -76,6 +181,9 @@ const metaDescription = pageData.seoDescription ?? pageData.description;
         gtag('config', 'G-RTE0P19P15');
       `}
     </script>
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    ))}
   </head>
   <body class="bg-gray-50 min-h-screen font-sans text-gray-800">
     <div class="min-h-screen">
