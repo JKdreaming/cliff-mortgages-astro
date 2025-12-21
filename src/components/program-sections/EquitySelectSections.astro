@@ -61,13 +61,19 @@ const landingWhoForCards = [
   },
 ];
 
-const equitySelectCompareColumns = [
+type EquitySelectCompareKey = 'equitySelect' | 'cashOutRefi' | 'personalLoan';
+type EquitySelectCompareRow = {
+  feature: string;
+  delay: string;
+} & Record<EquitySelectCompareKey, boolean>;
+
+const equitySelectCompareColumns: Array<{ key: EquitySelectCompareKey; label: string }> = [
   { key: 'equitySelect', label: 'EquitySelect (HELOC)' },
   { key: 'cashOutRefi', label: 'Cash-Out Refi' },
   { key: 'personalLoan', label: 'Personal Loan' },
 ];
 
-const equitySelectCompareRows = [
+const equitySelectCompareRows: EquitySelectCompareRow[] = [
   {
     feature: 'Keep low-rate 1st mortgage',
     equitySelect: true,
@@ -97,6 +103,8 @@ const equitySelectCompareRows = [
     delay: '300ms',
   },
 ];
+
+const getCompareValue = (row: EquitySelectCompareRow, key: EquitySelectCompareKey) => row[key];
 ---
 {!landing && (
   <section class="py-10 md:py-16">
@@ -155,7 +163,7 @@ const equitySelectCompareRows = [
                 href="https://www.cliffmortgages.com/get-a-quote"
                 class="inline-flex items-center justify-center px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300 whitespace-nowrap"
               >
-                Check EquitySelect Options
+                Check HELOC Options
               </a>
             </div>
           </div>
@@ -187,7 +195,7 @@ const equitySelectCompareRows = [
                       {equitySelectCompareColumns.map((col) => (
                         <div class="flex items-center justify-between gap-3">
                           <span class="text-xs text-gray-600">{col.label}</span>
-                          {row[col.key] ? (
+                          {getCompareValue(row, col.key) ? (
                             <i class="fa-solid fa-circle-check text-[#bf9f5c]"></i>
                           ) : (
                             <i class="fa-solid fa-circle-xmark text-gray-400"></i>
@@ -219,7 +227,7 @@ const equitySelectCompareRows = [
                         <td class="py-3 pr-4 font-medium text-gray-900">{row.feature}</td>
                         {equitySelectCompareColumns.map((col) => (
                           <td class="py-3 px-3">
-                            {row[col.key] ? (
+                            {getCompareValue(row, col.key) ? (
                               <i class="fa-solid fa-circle-check text-[#bf9f5c]"></i>
                             ) : (
                               <i class="fa-solid fa-circle-xmark text-gray-400"></i>
@@ -312,7 +320,7 @@ const equitySelectCompareRows = [
             href="https://www.cliffmortgages.com/get-a-quote"
             class="inline-flex items-center justify-center px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300 whitespace-nowrap"
           >
-            Check EquitySelect Options
+            Check HELOC Options
           </a>
         </div>
       </div>
@@ -541,7 +549,7 @@ const equitySelectCompareRows = [
                       href="https://www.cliffmortgages.com/get-a-quote"
                       class="inline-flex items-center justify-center w-full px-6 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
                     >
-                      Check EquitySelect Options
+                      Check HELOC Options
                     </a>
                     <p class="mt-3 text-xs text-muted-foreground">
                       We’ll confirm eligibility, pricing, and the best structure for your situation.
