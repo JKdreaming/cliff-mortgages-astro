@@ -1,10 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GenericHero from '../components/GenericHero.astro';
 import { allPageData } from '../data/sitemap';
+import { heroImageAssignments, pageHeroImageKeys } from '../data/imageAssignments';
 
 const pageData = allPageData['/get-a-quote'];
+const heroKey = pageHeroImageKeys[pageData.path];
+const hero = heroKey ? heroImageAssignments[heroKey] : undefined;
 ---
 <BaseLayout pageData={pageData}>
+  <GenericHero
+    title={pageData.h1}
+    subtitle={pageData.description}
+    imageUrl={hero?.src ?? pageData.imageUrl!}
+    imageAlt={hero?.alt ?? pageData.imageAlt!}
+    image={hero}
+    primaryCtaLabel="Fill Out The Form"
+    primaryCtaHref="#quote-form-section"
+    hideContactCta
+    imageObjectClassName="object-cover"
+  />
+
   <section class="bg-gray-50 py-16 sm:py-20">
     <div id="quote-form-section" class="container mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
       <div
