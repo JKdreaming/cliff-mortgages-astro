@@ -1,147 +1,501 @@
 ---
+interface Props {
+  landing?: boolean;
+}
+
+const { landing = false } = Astro.props as Props;
+
+const landingKeyBenefits = [
+  {
+    icon: 'fa-solid fa-chart-line',
+    title: 'Predictable Payments',
+    text: 'Payment plans starting around 1% of the balance for steady, predictable budgeting',
+  },
+  {
+    icon: 'fa-solid fa-shield-halved',
+    title: 'Preserve Your Low-Rate First',
+    text: 'Second-lien structure preserves your existing low-rate first mortgage',
+  },
+  {
+    icon: 'fa-solid fa-layer-group',
+    title: 'Consolidated Option',
+    text: 'First-lien option consolidates everything into a single long-term solution',
+  },
+  {
+    icon: 'fa-solid fa-hand-holding-dollar',
+    title: 'Flexible Access',
+    text: 'Flexible draws over time—use funds for improvements, medical costs, or strategic investments',
+  },
+];
+
+const landingWhoForCards = [
+  {
+    icon: 'fa-solid fa-lock',
+    title: 'Keep Your First Mortgage',
+    text: 'Homeowners who want to unlock equity without refinancing out of a low-rate mortgage',
+  },
+  {
+    icon: 'fa-solid fa-calendar-check',
+    title: 'Long-Term Planning',
+    text: 'Retirees and near-retirees seeking structured, long-term payments',
+  },
+  {
+    icon: 'fa-solid fa-screwdriver-wrench',
+    title: 'Ongoing Projects & Needs',
+    text: 'Families needing ongoing access to funds for renovations, healthcare, or debt payoff',
+  },
+  {
+    icon: 'fa-solid fa-scale-balanced',
+    title: 'Explore Alternatives',
+    text: 'Clients exploring alternatives to reverse mortgages while maintaining required payments',
+  },
+];
 ---
-<section class="py-10 md:py-16">
-  <div class="max-w-5xl mx-auto px-4 text-center">
-    <h1 class="text-3xl md:text-4xl font-semibold mb-4">
-      EquitySelect – Flexible Home-Equity Line of Credit
-    </h1>
-    <p class="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-      EquitySelect is a home-equity line available as either a first- or second-lien. Keep an existing low-rate mortgage in place with the second-lien structure, or consolidate everything into a first position—while unlocking payment plans that can begin around <strong>1% of the balance</strong> for predictable, long-term planning.
-    </p>
-  </div>
-
-  <div class="max-w-5xl mx-auto px-4 mt-10 grid md:grid-cols-3 gap-6">
-    <div class="p-5 rounded-2xl border bg-muted/30 shadow-sm">
-      <h3 class="font-medium mb-1">Expert Guidance</h3>
-      <p class="text-sm text-muted-foreground">
-        Work with a local mortgage broker who understands specialized equity programs and can walk you through the options step by step.
+{!landing && (
+  <section class="py-10 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-semibold mb-4">
+        EquitySelect – Flexible Home-Equity Line of Credit
+      </h1>
+      <p class="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+        EquitySelect is a home-equity line available as either a first- or second-lien. Keep an existing low-rate mortgage in place with the second-lien structure, or consolidate everything into a first position—while unlocking payment plans that can begin around <strong>1% of the balance</strong> for predictable, long-term planning.
       </p>
     </div>
-    <div class="p-5 rounded-2xl border bg-muted/30 shadow-sm">
-      <h3 class="font-medium mb-1">More Options</h3>
-      <p class="text-sm text-muted-foreground">
-        Compare EquitySelect alongside HELOCs, cash-out refinances, and Reverse Mortgages to find the best fit for your situation.
-      </p>
-    </div>
-    <div class="p-5 rounded-2xl border bg-muted/30 shadow-sm">
-      <h3 class="font-medium mb-1">Colorado Focus</h3>
-      <p class="text-sm text-muted-foreground">
-        Designed with Colorado homeowners in mind, with lenders and guidelines that understand our local markets.
-      </p>
-    </div>
-  </div>
-</section>
 
-<section class="py-12 md:py-16 bg-white">
-  <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
-    <div>
-      <h2 class="text-2xl font-semibold mb-3">Program Overview</h2>
-      <p class="text-sm md:text-base text-muted-foreground mb-5">
-        EquitySelect is a flexible home-equity line designed to complement today’s low-rate mortgage market. Borrowers can opt for a second-lien that keeps their original mortgage intact or refinance into a first-lien for a consolidated solution. Either way, predictable payments that can start around 1% of the balance help support long-term budgets, renovations, and retirement planning.
-      </p>
-
-      <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
-      <ul class="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-        <li>Payment plans starting around 1% of the balance for steady, predictable budgeting</li>
-        <li>Second-lien structure preserves your existing low-rate first mortgage</li>
-        <li>First-lien option consolidates everything into a single long-term solution</li>
-        <li>Flexible draws over time—use funds for improvements, medical costs, or strategic investments</li>
-      </ul>
-    </div>
-
-    <div>
-      <h2 class="text-2xl font-semibold mb-3">Who is this for?</h2>
-      <p class="text-sm text-muted-foreground mb-3">
-        This loan may be a great fit if you meet the following general criteria:
-      </p>
-      <ul class="space-y-1 text-sm text-muted-foreground">
-        <li>» Homeowners who want to unlock equity without refinancing out of a low-rate mortgage</li>
-        <li>» Retirees and near-retirees seeking structured, long-term payments</li>
-        <li>» Families needing ongoing access to funds for renovations, healthcare, or debt payoff</li>
-        <li>» Clients exploring alternatives to reverse mortgages while maintaining required payments</li>
-      </ul>
-
-      <p class="text-xs text-muted-foreground mt-3">
-        *These are general guidelines. Contact us for a personalized assessment. Not a commitment to lend.*
-      </p>
-      <p class="text-xs text-muted-foreground italic mt-1">
-        EquitySelect allows monthly payment options that may be less than the interest accrued. If the selected monthly payment does not cover all interest due, the unpaid interest will be added to the loan balance. This may result in a larger balance and a balloon payment due at loan payoff or at the end of the loan term.
-      </p>
-      <p class="text-xs text-muted-foreground italic mt-1">
-        EquitySelect requires a minimum initial draw of 50% of the available line of credit or $75,000, whichever is greater. The program includes a defined draw period, after which additional funds may not be withdrawn.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="py-12">
-  <div class="max-w-5xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold text-center mb-4">
-      Why Choose Cliff Mortgages for EquitySelect
-    </h2>
-    <p class="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-sm md:text-base">
-      This specialized product requires expert guidance. We provide clear, unbiased guidance to help you determine whether <strong>EquitySelect</strong> is the right fit for your long-term financial goals.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
-        <h3 class="font-medium text-lg mb-2">Unbiased Equity Advice</h3>
+    <div class="max-w-5xl mx-auto px-4 mt-10 grid md:grid-cols-3 gap-6">
+      <div class="p-5 rounded-2xl border bg-muted/30 shadow-sm">
+        <h3 class="font-medium mb-1">Expert Guidance</h3>
         <p class="text-sm text-muted-foreground">
-          Compare EquitySelect with traditional HELOCs and Reverse Mortgages to understand the pros and cons of each option.
+          Work with a local mortgage broker who understands specialized equity programs and can walk you through the options step by step.
         </p>
       </div>
-      <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
-        <h3 class="font-medium text-lg mb-2">Access to Specialized Lenders</h3>
+      <div class="p-5 rounded-2xl border bg-muted/30 shadow-sm">
+        <h3 class="font-medium mb-1">More Options</h3>
         <p class="text-sm text-muted-foreground">
-          Not all lenders offer programs like EquitySelect. Our broker relationships ensure access and competitive terms.
+          Compare EquitySelect alongside HELOCs, cash-out refinances, and Reverse Mortgages to find the best fit for your situation.
         </p>
       </div>
-      <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
-        <h3 class="font-medium text-lg mb-2">Clear, Simple Explanations</h3>
+      <div class="p-5 rounded-2xl border bg-muted/30 shadow-sm">
+        <h3 class="font-medium mb-1">Colorado Focus</h3>
         <p class="text-sm text-muted-foreground">
-          We break down complex concepts so you understand how required payments and credit line features work.
+          Designed with Colorado homeowners in mind, with lenders and guidelines that understand our local markets.
         </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+)}
 
-<section class="py-12 pb-16">
-  <div class="max-w-5xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold text-center mb-4">
-      Find Your Perfect Equity Solution
-    </h2>
-    <p class="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-sm md:text-base">
-      <strong>EquitySelect</strong> bridges the gap between traditional HELOCs and Reverse Mortgages — helping you choose the right solution for your long-term financial needs.
-    </p>
+{landing ? (
+  <>
+    <section class="py-12 md:py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="max-w-3xl flex flex-col justify-center md:min-h-[360px]">
+            <div class="mb-4">
+              <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 border">
+                <i class="fa-solid fa-house-circle-check text-xl text-[#bf9f5c]"></i>
+              </div>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Program Overview</h2>
+            <p class="mt-4 text-sm md:text-base text-muted-foreground">
+              EquitySelect is a flexible home-equity line designed to complement today’s low-rate mortgage market. Borrowers can opt for a second-lien that keeps their original mortgage intact or refinance into a first-lien for a consolidated solution. Either way, predictable payments that can start around 1% of the balance help support long-term budgets, renovations, and retirement planning.
+            </p>
+          </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
-        <h3 class="font-medium text-lg mb-2">HELOC</h3>
-        <ul class="space-y-2 text-sm text-muted-foreground">
-          <li><strong>Best for:</strong> Short-term projects, flexible access.</li>
-          <li><strong>Payment:</strong> Often interest-only; can be variable.</li>
-          <li><strong>Key Feature:</strong> Revolving credit for a set “draw” period.</li>
+          <div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-sm opacity-0 translate-y-3" data-animate="es-compare">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Home Equity Options at a Glance</h3>
+                <p class="mt-1 text-sm text-muted-foreground">A quick, high-level comparison (general guidelines).</p>
+              </div>
+              <div class="hidden sm:flex items-center gap-2 text-xs text-gray-600">
+                <span class="inline-flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-[#bf9f5c]"></i>
+                  <span>Typically</span>
+                </span>
+                <span class="inline-flex items-center gap-1">
+                  <i class="fa-solid fa-circle-xmark text-gray-400"></i>
+                  <span>Typically not</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-5 overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead>
+                  <tr class="text-xs uppercase tracking-wide text-gray-500">
+                    <th class="py-3 pr-4">Feature</th>
+                    <th class="py-3 px-3 whitespace-nowrap">EquitySelect (HELOC)</th>
+                    <th class="py-3 px-3 whitespace-nowrap">Cash-Out Refi</th>
+                    <th class="py-3 px-3 whitespace-nowrap">Personal Loan</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                  <tr class="border-t border-gray-200 opacity-0 translate-y-2" data-animate-row="es-compare" style="transition-delay: 60ms">
+                    <td class="py-3 pr-4 font-medium text-gray-900">Keep low-rate 1st mortgage</td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-check text-[#bf9f5c]"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-xmark text-gray-400"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-check text-[#bf9f5c]"></i></td>
+                  </tr>
+                  <tr class="border-t border-gray-200 opacity-0 translate-y-2" data-animate-row="es-compare" style="transition-delay: 140ms">
+                    <td class="py-3 pr-4 font-medium text-gray-900">Access funds over time</td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-check text-[#bf9f5c]"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-xmark text-gray-400"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-xmark text-gray-400"></i></td>
+                  </tr>
+                  <tr class="border-t border-gray-200 opacity-0 translate-y-2" data-animate-row="es-compare" style="transition-delay: 220ms">
+                    <td class="py-3 pr-4 font-medium text-gray-900">Lower closing costs (vs mortgage)</td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-check text-[#bf9f5c]"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-xmark text-gray-400"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-check text-[#bf9f5c]"></i></td>
+                  </tr>
+                  <tr class="border-t border-gray-200 opacity-0 translate-y-2" data-animate-row="es-compare" style="transition-delay: 300ms">
+                    <td class="py-3 pr-4 font-medium text-gray-900">Payment flexibility options</td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-check text-[#bf9f5c]"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-xmark text-gray-400"></i></td>
+                    <td class="py-3 px-3"><i class="fa-solid fa-circle-xmark text-gray-400"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="mt-4 text-xs text-muted-foreground">
+              Actual eligibility, costs, and terms vary by lender, credit, equity, and market conditions.
+            </p>
+
+            <style>
+              [data-animate="es-compare"],
+              [data-animate-row="es-compare"] {
+                transition: opacity 600ms ease, transform 600ms ease;
+              }
+              [data-animate="es-compare"].is-visible {
+                opacity: 1;
+                transform: translateY(0);
+              }
+              [data-animate-row="es-compare"].is-visible {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            </style>
+
+            <script is:inline>
+              (() => {
+                const container = document.querySelector('[data-animate="es-compare"]');
+                if (!container) return;
+                const rows = Array.from(document.querySelectorAll('[data-animate-row="es-compare"]'));
+                const observer = new IntersectionObserver(
+                  (entries) => {
+                    for (const entry of entries) {
+                      if (!entry.isIntersecting) continue;
+                      container.classList.add('is-visible');
+                      rows.forEach((row) => row.classList.add('is-visible'));
+                      observer.disconnect();
+                    }
+                  },
+                  { threshold: 0.25 }
+                );
+                observer.observe(container);
+              })();
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl bg-white shadow-sm p-6 md:p-8">
+          <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Key Benefits</h2>
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {landingKeyBenefits.map((benefit) => (
+              <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
+                    <i class={`${benefit.icon} text-xl text-[#bf9f5c]`}></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900">{benefit.title}</p>
+                    <p class="mt-1 text-sm text-muted-foreground">{benefit.text}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 bg-[#09143e]">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div class="max-w-2xl">
+            <h3 class="text-xl md:text-2xl font-semibold text-white">See if EquitySelect is a fit</h3>
+            <p class="mt-2 text-sm md:text-base text-gray-200">
+              Request a free quote to explore HELOC options without refinancing your low-rate first mortgage.
+            </p>
+          </div>
+          <a
+            href="https://www.cliffmortgages.com/get-a-quote"
+            class="inline-flex items-center justify-center px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300 whitespace-nowrap"
+          >
+            👉  Check HELOC Options
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-10 items-stretch">
+          <div class="flex flex-col justify-center">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Who is this for?</h2>
+            <p class="mt-4 text-sm md:text-base text-muted-foreground">
+              This loan may be a great fit if you meet the following general criteria:
+            </p>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {landingWhoForCards.map((item) => (
+                <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
+                      <i class={`${item.icon} text-xl text-[#bf9f5c]`}></i>
+                    </div>
+                    <div>
+                      <p class="text-sm font-semibold text-gray-900">{item.title}</p>
+                      <p class="mt-1 text-sm text-muted-foreground">{item.text}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-sm" data-heloc-quiz>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
+                <i class="fa-solid fa-clipboard-check text-xl text-[#bf9f5c]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Quick HELOC Fit Questionnaire</h3>
+                <p class="mt-1 text-sm text-muted-foreground">
+                  Answer a few quick questions. This is general guidance—no obligation.
+                </p>
+              </div>
+            </div>
+
+            <fieldset class="mt-5 space-y-3">
+              <legend class="sr-only">HELOC Fit Questionnaire</legend>
+
+              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
+                <span class="text-sm text-gray-800">I want to access cash but keep my current low-rate first mortgage in place.</span>
+              </label>
+
+              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
+                <span class="text-sm text-gray-800">I prefer flexibility (draw funds when I need them) instead of taking one lump sum.</span>
+              </label>
+
+              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
+                <span class="text-sm text-gray-800">I’m planning a project or expense (repairs, remodel, debt payoff, planned costs) over the next 6–24 months.</span>
+              </label>
+
+              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
+                <span class="text-sm text-gray-800">I want a payment structure that may be easier to budget for long-term planning.</span>
+              </label>
+
+              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
+                <span class="text-sm text-gray-800">I’m exploring alternatives to refinancing (especially if today’s rates are higher than my current mortgage).</span>
+              </label>
+            </fieldset>
+
+            <div class="mt-5 rounded-xl bg-white border p-5">
+              <p class="text-sm font-semibold text-gray-900" data-heloc-quiz-heading>
+                Select any that apply.
+              </p>
+              <p class="mt-2 text-sm text-muted-foreground" data-heloc-quiz-body>
+                Your answers will help highlight whether a HELOC-style option could be worth a closer look.
+              </p>
+
+              <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-3">
+                <a
+                  href="https://www.cliffmortgages.com/get-a-quote"
+                  class="inline-flex items-center justify-center px-6 py-3 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
+                >
+                  👉  Get a Free Quote
+                </a>
+                <p class="text-xs text-muted-foreground">
+                  Why choose a HELOC? It can help you access equity while keeping a low-rate first mortgage and giving you flexible access to funds.
+                </p>
+              </div>
+            </div>
+
+            <script is:inline>
+              (() => {
+                const root = document.querySelector('[data-heloc-quiz]');
+                if (!root) return;
+                const checks = Array.from(root.querySelectorAll('[data-heloc-quiz-q]'));
+                const heading = root.querySelector('[data-heloc-quiz-heading]');
+                const body = root.querySelector('[data-heloc-quiz-body]');
+                if (!heading || !body) return;
+
+                const update = () => {
+                  const yes = checks.filter((c) => c.checked).length;
+                  if (yes === 0) {
+                    heading.textContent = 'Select any that apply.';
+                    body.textContent = 'Your answers will help highlight whether a HELOC-style option could be worth a closer look.';
+                    return;
+                  }
+
+                  if (yes <= 2) {
+                    heading.textContent = 'You may be exploring the right questions.';
+                    body.textContent = 'A HELOC can still be a fit, but it depends on your timeline, equity, and payment preferences. A free quote can confirm what options are available.';
+                    return;
+                  }
+
+                  heading.textContent = 'A HELOC-style option may be a strong fit.';
+                  body.textContent = 'Based on your answers, you may benefit from flexible access to funds while keeping a low-rate first mortgage. Request a free quote to review your options.';
+                };
+
+                checks.forEach((c) => c.addEventListener('change', update));
+                update();
+              })();
+            </script>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-2xl border bg-gray-50 p-6 md:p-8">
+          <p class="text-xs text-muted-foreground">
+            *These are general guidelines. Contact us for a personalized assessment. Not a commitment to lend.*
+          </p>
+          <p class="text-xs text-muted-foreground italic mt-2">
+            EquitySelect allows monthly payment options that may be less than the interest accrued. If the selected monthly payment does not cover all interest due, the unpaid interest will be added to the loan balance. This may result in a larger balance and a balloon payment due at loan payoff or at the end of the loan term.
+          </p>
+          <p class="text-xs text-muted-foreground italic mt-2">
+            EquitySelect requires a minimum initial draw of 50% of the available line of credit or $75,000, whichever is greater. The program includes a defined draw period, after which additional funds may not be withdrawn.
+          </p>
+        </div>
+      </div>
+    </section>
+  </>
+) : (
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-semibold mb-3">Program Overview</h2>
+        <p class="text-sm md:text-base text-muted-foreground mb-5">
+          EquitySelect is a flexible home-equity line designed to complement today’s low-rate mortgage market. Borrowers can opt for a second-lien that keeps their original mortgage intact or refinance into a first-lien for a consolidated solution. Either way, predictable payments that can start around 1% of the balance help support long-term budgets, renovations, and retirement planning.
+        </p>
+
+        <h3 class="text-lg font-semibold mb-2">Key Benefits</h3>
+        <ul class="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+          <li>Payment plans starting around 1% of the balance for steady, predictable budgeting</li>
+          <li>Second-lien structure preserves your existing low-rate first mortgage</li>
+          <li>First-lien option consolidates everything into a single long-term solution</li>
+          <li>Flexible draws over time—use funds for improvements, medical costs, or strategic investments</li>
         </ul>
       </div>
 
-      <div class="p-6 rounded-2xl border bg-yellow-50 shadow-sm border-yellow-300">
-        <h3 class="font-medium text-lg mb-2">EquitySelect</h3>
-        <ul class="space-y-2 text-sm text-muted-foreground">
-          <li><strong>Best for:</strong> Long-term planning with manageable payments.</li>
-          <li><strong>Payment:</strong> Required, low monthly payments (as low as 1%).</li>
-          <li><strong>Key Feature:</strong> A flexible, long-term financial tool.</li>
+      <div>
+        <h2 class="text-2xl font-semibold mb-3">Who is this for?</h2>
+        <p class="text-sm text-muted-foreground mb-3">
+          This loan may be a great fit if you meet the following general criteria:
+        </p>
+        <ul class="space-y-1 text-sm text-muted-foreground">
+          <li>» Homeowners who want to unlock equity without refinancing out of a low-rate mortgage</li>
+          <li>» Retirees and near-retirees seeking structured, long-term payments</li>
+          <li>» Families needing ongoing access to funds for renovations, healthcare, or debt payoff</li>
+          <li>» Clients exploring alternatives to reverse mortgages while maintaining required payments</li>
         </ul>
-      </div>
 
-      <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
-        <h3 class="font-medium text-lg mb-2">Reverse Mortgage</h3>
-        <ul class="space-y-2 text-sm text-muted-foreground">
-          <li><strong>Best for:</strong> Seniors (62+) wanting to eliminate payments.</li>
-          <li><strong>Payment:</strong> No monthly mortgage payments required.</li>
-          <li><strong>Key Feature:</strong> Access equity without payment burden.</li>
-        </ul>
+        <p class="text-xs text-muted-foreground mt-3">
+          *These are general guidelines. Contact us for a personalized assessment. Not a commitment to lend.*
+        </p>
+        <p class="text-xs text-muted-foreground italic mt-1">
+          EquitySelect allows monthly payment options that may be less than the interest accrued. If the selected monthly payment does not cover all interest due, the unpaid interest will be added to the loan balance. This may result in a larger balance and a balloon payment due at loan payoff or at the end of the loan term.
+        </p>
+        <p class="text-xs text-muted-foreground italic mt-1">
+          EquitySelect requires a minimum initial draw of 50% of the available line of credit or $75,000, whichever is greater. The program includes a defined draw period, after which additional funds may not be withdrawn.
+        </p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+)}
+
+{!landing && (
+  <>
+    <section class="py-12">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center mb-4">
+          Why Choose Cliff Mortgages for EquitySelect
+        </h2>
+        <p class="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-sm md:text-base">
+          This specialized product requires expert guidance. We provide clear, unbiased guidance to help you determine whether <strong>EquitySelect</strong> is the right fit for your long-term financial goals.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
+            <h3 class="font-medium text-lg mb-2">Unbiased Equity Advice</h3>
+            <p class="text-sm text-muted-foreground">
+              Compare EquitySelect with traditional HELOCs and Reverse Mortgages to understand the pros and cons of each option.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
+            <h3 class="font-medium text-lg mb-2">Access to Specialized Lenders</h3>
+            <p class="text-sm text-muted-foreground">
+              Not all lenders offer programs like EquitySelect. Our broker relationships ensure access and competitive terms.
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
+            <h3 class="font-medium text-lg mb-2">Clear, Simple Explanations</h3>
+            <p class="text-sm text-muted-foreground">
+              We break down complex concepts so you understand how required payments and credit line features work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 pb-16">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-center mb-4">
+          Find Your Perfect Equity Solution
+        </h2>
+        <p class="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-sm md:text-base">
+          <strong>EquitySelect</strong> bridges the gap between traditional HELOCs and Reverse Mortgages — helping you choose the right solution for your long-term financial needs.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
+            <h3 class="font-medium text-lg mb-2">HELOC</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><strong>Best for:</strong> Short-term projects, flexible access.</li>
+              <li><strong>Payment:</strong> Often interest-only; can be variable.</li>
+              <li><strong>Key Feature:</strong> Revolving credit for a set “draw” period.</li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl border bg-yellow-50 shadow-sm border-yellow-300">
+            <h3 class="font-medium text-lg mb-2">EquitySelect</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><strong>Best for:</strong> Long-term planning with manageable payments.</li>
+              <li><strong>Payment:</strong> Required, low monthly payments (as low as 1%).</li>
+              <li><strong>Key Feature:</strong> A flexible, long-term financial tool.</li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl border bg-muted/30 shadow-sm">
+            <h3 class="font-medium text-lg mb-2">Reverse Mortgage</h3>
+            <ul class="space-y-2 text-sm text-muted-foreground">
+              <li><strong>Best for:</strong> Seniors (62+) wanting to eliminate payments.</li>
+              <li><strong>Payment:</strong> No monthly mortgage payments required.</li>
+              <li><strong>Key Feature:</strong> Access equity without payment burden.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </>
+)}

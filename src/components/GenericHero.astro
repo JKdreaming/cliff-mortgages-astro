@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import type { ImageAssignment } from '../data/imageAssignments';
 
 interface QuickStat {
@@ -14,6 +14,8 @@ interface Props {
   imageUrl: string;
   imageAlt: string;
   quickStats?: QuickStat[];
+  hideBadge?: boolean;
+  badgeText?: string;
   primaryCtaLabel?: string;
   primaryCtaHref?: string;
   hideContactCta?: boolean;
@@ -35,6 +37,8 @@ const {
   imageUrl,
   imageAlt,
   quickStats = defaultStats,
+  hideBadge = false,
+  badgeText = 'Your Trusted Colorado Mortgage Specialist',
   primaryCtaLabel = 'Get a Free Quote',
   primaryCtaHref = '/get-a-quote',
   hideContactCta = false,
@@ -64,11 +68,13 @@ if (image) {
     <div class="relative lg:grid lg:grid-cols-2 lg:gap-x-8">
       <div class="relative z-10 px-4 sm:px-6 py-16 sm:py-24 lg:py-32 lg:px-8 flex flex-col justify-center">
         <div class="lg:max-w-xl">
-          <div class="mb-4">
-            <span class="inline-block bg-gray-200 text-gray-700 rounded-full px-4 py-1.5 text-sm font-semibold">
-              Your Trusted Colorado Mortgage Specialist
-            </span>
-          </div>
+          {!hideBadge && badgeText && (
+            <div class="mb-4">
+              <span class="inline-block bg-gray-200 text-gray-700 rounded-full px-4 py-1.5 text-sm font-semibold">
+                {badgeText}
+              </span>
+            </div>
+          )}
           <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             {titleStart}{' '}
             {lastWord && <span class="text-[#bf9f5c]">{lastWord}</span>}
@@ -92,29 +98,32 @@ if (image) {
             )}
           </div>
 
-          <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 text-left">
-            {quickStats.map((stat) => (
-              <div class="flex items-center" key={stat.title}>
-                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
-                  <i class={`${stat.iconClass} text-xl text-[#bf9f5c]`}></i>
+          {quickStats.length > 0 && (
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 text-left">
+              {quickStats.map((stat) => (
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+                    <i class={`${stat.iconClass} text-xl text-[#bf9f5c]`}></i>
+                  </div>
+                  <div class="ml-4">
+                    <p class="font-bold text-gray-900">{stat.title}</p>
+                    <p class="text-sm text-gray-600">{stat.subtitle}</p>
+                  </div>
                 </div>
-                <div class="ml-4">
-                  <p class="font-bold text-gray-900">{stat.title}</p>
-                  <p class="text-sm text-gray-600">{stat.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <div class="relative h-80 lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         {image ? (
           <div class="absolute inset-0">
-            <Image
+            <Picture
               src={image.asset}
               alt={image.alt}
               widths={imageWidths}
-              formats={['avif', 'webp', 'jpeg']}
+              formats={['avif', 'webp']}
+              fallbackFormat="jpeg"
               sizes={imageSizes}
               loading={imageLoading}
               class={`h-full w-full ${imageObjectClassName}`}

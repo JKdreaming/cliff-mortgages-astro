@@ -1,0 +1,51 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import GenericHero from '../components/GenericHero.astro';
+import EquitySelectSections from '../components/program-sections/EquitySelectSections.astro';
+import { heroImageAssignments } from '../data/imageAssignments';
+
+const pageData = {
+  path: '/equityselect-landing',
+  title: 'EquitySelect Landing Page | Cliff Mortgages',
+  h1: 'Use Your Home’s Equity — Without Touching Your Low-Rate First Mortgage',
+  description: 'A flexible Home Equity Line of Credit for cash, repairs, or planned expenses — not a refinance.',
+  breadcrumbs: [],
+  faqs: [],
+};
+
+const hero = heroImageAssignments.equitySelectProgramHero;
+---
+<LandingLayout pageData={pageData}>
+  <GenericHero
+    title={pageData.h1}
+    subtitle={pageData.description}
+    imageUrl={hero.src}
+    imageAlt={hero.alt}
+    image={hero}
+    hideBadge
+    hideContactCta
+    quickStats={[]}
+    primaryCtaLabel="👉  Check HELOC Options"
+    primaryCtaHref="https://www.cliffmortgages.com/get-a-quote"
+  />
+
+  <EquitySelectSections landing />
+
+  <section class="bg-[#09143e]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl font-bold text-white">Ready to Check Your HELOC Options?</h2>
+      <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
+        Request a free quote to see if EquitySelect is a fit for your goals.
+      </p>
+      <a
+        href="https://www.cliffmortgages.com/get-a-quote"
+        class="mt-8 inline-block bg-white text-[#09143e] font-bold py-4 px-10 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300"
+      >
+        👉  Check HELOC Options
+      </a>
+      <p class="mt-6 text-xs text-gray-200 opacity-80 max-w-2xl mx-auto">
+        Loan approval is subject to lender review and conditions. Rates, terms, and product availability may change with market conditions.
+      </p>
+    </div>
+  </section>
+</LandingLayout>

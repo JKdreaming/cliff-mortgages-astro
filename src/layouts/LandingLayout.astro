@@ -1,0 +1,99 @@
+---
+import '../styles/global.css';
+import type { PageData } from '../data/types';
+import cliffmortgagesLogo from '../assets/images/cliffmortgages-logo.webp';
+
+interface Props {
+  pageData: PageData;
+}
+
+const { pageData } = Astro.props as Props;
+const SITE_BASE_URL = 'https://cliffmortgages.com';
+
+const sanitizePath = (path: string | undefined) => {
+  if (!path) return '/';
+  if (path.startsWith('http')) return path;
+  return path.startsWith('/') ? path : `/${path}`;
+};
+
+const canonicalUrl = (() => {
+  if (!pageData.path) return SITE_BASE_URL;
+  if (pageData.path.startsWith('http')) return pageData.path;
+  return `${SITE_BASE_URL}${sanitizePath(pageData.path)}`;
+})();
+
+const BRAND_SUFFIX = 'Cliff Mortgages / C2 Financial / Colorado Mortgage Broker';
+const LEGACY_SUFFIX_PATTERN = /\s*\|\s*Cliff Mortgages\b/;
+
+const normalizeTitle = (rawTitle: string) => {
+  if (!rawTitle) return BRAND_SUFFIX;
+  if (rawTitle.includes(BRAND_SUFFIX)) return rawTitle;
+  if (LEGACY_SUFFIX_PATTERN.test(rawTitle)) {
+    return rawTitle.replace(LEGACY_SUFFIX_PATTERN, ` / ${BRAND_SUFFIX}`);
+  }
+  return `${rawTitle} | ${BRAND_SUFFIX}`;
+};
+
+const normalisedTitle = normalizeTitle(pageData.title);
+const metaDescription = pageData.seoDescription ?? pageData.description;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{normalisedTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/cliffmortgages-favicon.png" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+    </noscript>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTE0P19P15"></script>
+    <script>
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RTE0P19P15');
+      `}
+    </script>
+  </head>
+  <body class="bg-gray-50 min-h-screen font-sans text-gray-800">
+    <div class="min-h-screen">
+      <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
+          <img
+            src={cliffmortgagesLogo.src}
+            alt="Cliff Mortgages Logo"
+            class="h-10 w-auto rounded-[10px]"
+            width="160"
+            height="40"
+            loading="eager"
+          />
+        </div>
+      </header>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
