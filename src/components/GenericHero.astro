@@ -23,6 +23,8 @@ interface Props {
   image?: ImageAssignment;
   imageSizes?: string;
   imageLoading?: 'eager' | 'lazy';
+  statsOnRight?: boolean;
+  compactPadding?: boolean;
 }
 
 const defaultStats: QuickStat[] = [
@@ -46,6 +48,8 @@ const {
   image,
   imageSizes = '(max-width: 1024px) 100vw, 50vw',
   imageLoading = 'eager',
+  statsOnRight = false,
+  compactPadding = false,
 } = Astro.props as Props;
 
 const titleParts = title.trim().split(' ');
@@ -66,7 +70,7 @@ if (image) {
 <div class="relative bg-white">
   <div class="container mx-auto">
     <div class="relative lg:grid lg:grid-cols-2 lg:gap-x-8">
-      <div class="relative z-10 px-4 sm:px-6 py-16 sm:py-24 lg:py-32 lg:px-8 flex flex-col justify-center">
+      <div class={`relative z-10 px-4 sm:px-6 ${compactPadding ? 'py-8 sm:py-12 lg:py-16' : 'py-16 sm:py-24 lg:py-32'} lg:px-8 flex flex-col justify-center`}>
         <div class="lg:max-w-xl">
           {!hideBadge && badgeText && (
             <div class="mb-4">
@@ -98,7 +102,7 @@ if (image) {
             )}
           </div>
 
-          {quickStats.length > 0 && (
+          {quickStats.length > 0 && !statsOnRight && (
             <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 text-left">
               {quickStats.map((stat) => (
                 <div class="flex items-center">
@@ -115,30 +119,50 @@ if (image) {
           )}
         </div>
       </div>
-      <div class="relative h-80 lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        {image ? (
-          <div class="absolute inset-0">
-            <Picture
-              src={image.asset}
-              alt={image.alt}
-              widths={imageWidths}
-              formats={['avif', 'webp']}
-              fallbackFormat="jpeg"
-              sizes={imageSizes}
-              loading={imageLoading}
-              class={`h-full w-full ${imageObjectClassName}`}
-              style="height: 100%; width: 100%; object-fit: cover;"
+      {statsOnRight ? (
+        <div class={`relative px-4 sm:px-6 ${compactPadding ? 'py-8 sm:py-12 lg:py-16' : 'py-16 sm:py-24 lg:py-32'} lg:px-8 flex flex-col justify-center`}>
+          {quickStats.length > 0 && (
+            <div class="grid grid-cols-1 gap-6 text-left">
+              {quickStats.map((stat) => (
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+                    <i class={`${stat.iconClass} text-xl text-[#bf9f5c]`}></i>
+                  </div>
+                  <div class="ml-4">
+                    <p class="font-bold text-gray-900">{stat.title}</p>
+                    <p class="text-sm text-gray-600">{stat.subtitle}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div class="relative h-80 lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+          {image ? (
+            <div class="absolute inset-0">
+              <Picture
+                src={image.asset}
+                alt={image.alt}
+                widths={imageWidths}
+                formats={['avif', 'webp']}
+                fallbackFormat="jpeg"
+                sizes={imageSizes}
+                loading={imageLoading}
+                class={`h-full w-full ${imageObjectClassName}`}
+                style="height: 100%; width: 100%; object-fit: cover;"
+              />
+            </div>
+          ) : (
+            <img
+              class={`absolute inset-0 h-full w-full ${imageObjectClassName}`}
+              src={imageUrl}
+              alt={imageAlt}
+              loading="eager"
             />
-          </div>
-        ) : (
-          <img
-            class={`absolute inset-0 h-full w-full ${imageObjectClassName}`}
-            src={imageUrl}
-            alt={imageAlt}
-            loading="eager"
-          />
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   </div>
 </div>
