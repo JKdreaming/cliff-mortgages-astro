@@ -3,7 +3,7 @@ interface Props {
   landing?: boolean;
 }
 
-const { landing = false } = Astro.props as Props;
+const { landing = false } = Astro.props;
 
 const landingKeyBenefits = [
   {
@@ -282,8 +282,8 @@ const landingWhoForCards = [
               </div>
             </div>
 
-            <div class="relative mt-5 min-h-[680px]">
-              <div class="absolute inset-0 transition-opacity duration-500" data-heloc-wizard>
+            <div class="mt-5" data-heloc-swap>
+              <div class="transition-opacity duration-500" data-heloc-wizard>
                 <div>
                   <div class="flex items-center justify-between text-xs text-gray-600">
                     <span data-heloc-progress-label>Step 1 of 5</span>
@@ -434,13 +434,6 @@ const landingWhoForCards = [
                   >
                     Back
                   </button>
-                  <button
-                    type="button"
-                    class="px-5 py-2 rounded-lg bg-[#09143e] text-white text-sm font-semibold hover:bg-[#0f1d5a] transition"
-                    data-heloc-next
-                  >
-                    Next
-                  </button>
                 </div>
 
                 <p class="mt-4 text-xs text-muted-foreground">
@@ -448,7 +441,7 @@ const landingWhoForCards = [
                 </p>
               </div>
 
-              <div class="absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-heloc-results>
+              <div class="transition-opacity duration-500 opacity-0 pointer-events-none hidden" data-heloc-results>
                 <div class="rounded-xl bg-white border p-5">
                   <div class="flex items-center justify-between">
                     <p class="text-sm font-semibold text-gray-900">HELOC Confidence</p>
@@ -501,7 +494,6 @@ const landingWhoForCards = [
                 const steps = Array.from(stepsWrap.querySelectorAll('[data-step]'));
 
                 const backBtn = root.querySelector('[data-heloc-back]');
-                const nextBtn = root.querySelector('[data-heloc-next]');
                 const progressLabel = root.querySelector('[data-heloc-progress-label]');
                 const progressPct = root.querySelector('[data-heloc-progress-pct]');
                 const progressBar = root.querySelector('[data-heloc-progress-bar]');
@@ -600,9 +592,13 @@ const landingWhoForCards = [
                   wizard.classList.add('opacity-0');
                   wizard.classList.add('pointer-events-none');
                   window.setTimeout(() => {
-                    results.classList.remove('opacity-0');
+                    wizard.classList.add('hidden');
+                    results.classList.remove('hidden');
                     results.classList.remove('pointer-events-none');
-                  }, 220);
+                    window.requestAnimationFrame(() => {
+                      results.classList.remove('opacity-0');
+                    });
+                  }, 260);
                 };
 
                 const restart = () => {
@@ -616,8 +612,10 @@ const landingWhoForCards = [
                   if (results) {
                     results.classList.add('opacity-0');
                     results.classList.add('pointer-events-none');
+                    results.classList.add('hidden');
                   }
                   if (wizard) {
+                    wizard.classList.remove('hidden');
                     wizard.classList.remove('opacity-0');
                     wizard.classList.remove('pointer-events-none');
                   }
@@ -638,12 +636,6 @@ const landingWhoForCards = [
                   if (backBtn) backBtn.disabled = idx === 0;
                   if (backBtn) backBtn.classList.toggle('opacity-50', idx === 0);
                   if (backBtn) backBtn.classList.toggle('cursor-not-allowed', idx === 0);
-
-                  const stepAnswered = !!root.querySelector(`input[name="q${idx}"]:checked`);
-                  if (nextBtn) nextBtn.textContent = idx === totalSteps - 1 ? 'Finish' : 'Next';
-                  if (nextBtn) nextBtn.disabled = !stepAnswered;
-                  if (nextBtn) nextBtn.classList.toggle('opacity-50', !stepAnswered);
-                  if (nextBtn) nextBtn.classList.toggle('cursor-not-allowed', !stepAnswered);
 
                   const score = getScore();
                   if (scoreEl) scoreEl.textContent = `${score}%`;
@@ -704,8 +696,6 @@ const landingWhoForCards = [
 
                 const restartBtn = root.querySelector('[data-heloc-restart]');
                 if (restartBtn) restartBtn.addEventListener('click', restart);
-
-                if (nextBtn) nextBtn.addEventListener('click', onNext);
                 if (backBtn) backBtn.addEventListener('click', onBack);
 
                 render();
