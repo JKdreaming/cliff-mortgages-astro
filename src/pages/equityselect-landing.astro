@@ -3,6 +3,7 @@ import LandingLayout from '../layouts/LandingLayout.astro';
 import GenericHero from '../components/GenericHero.astro';
 import EquitySelectSections from '../components/program-sections/EquitySelectSections.astro';
 import { heroImageAssignments } from '../data/imageAssignments';
+import { allPageData } from '../data/sitemap';
 
 const pageData = {
   path: '/equityselect-landing',
@@ -12,6 +13,27 @@ const pageData = {
   breadcrumbs: [],
   faqs: [],
 };
+
+const equitySelectProgram = allPageData['/loan-programs/equity-select'];
+const howItWorks =
+  (equitySelectProgram && equitySelectProgram.programDetails && equitySelectProgram.programDetails.howItWorks) ||
+  [
+    {
+      title: 'Customize Your Lien Position',
+      description: 'Choose a first- or second-lien structure based on your goals and current mortgage rate.',
+      icon: 'fa-solid fa-diagram-project',
+    },
+    {
+      title: 'Activate the Line',
+      description: 'Open the credit line and draw funds as needed for projects, expenses, or opportunities.',
+      icon: 'fa-solid fa-hand-holding-dollar',
+    },
+    {
+      title: 'Follow Predictable Payments',
+      description: 'Make required payments starting around 1% and prepay anytime to reduce the balance sooner.',
+      icon: 'fa-solid fa-calendar-check',
+    },
+  ];
 
 const hero = heroImageAssignments.equitySelectLandingHero;
 ---
@@ -30,6 +52,31 @@ const hero = heroImageAssignments.equitySelectLandingHero;
   />
 
   <EquitySelectSections landing />
+
+  <section class="bg-gray-50 py-16 sm:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900">How It Works</h2>
+      <p class="mt-4 text-center text-muted-foreground max-w-3xl mx-auto">
+        A simple overview of how EquitySelect is structured and how borrowers typically use it.
+      </p>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {howItWorks.map((step, index) => (
+          <div class="rounded-2xl border bg-white p-6 shadow-sm h-full">
+            <div class="flex items-center gap-4 h-full">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-50 border flex items-center justify-center">
+                <i class={`${step.icon} text-xl text-[#bf9f5c]`}></i>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-sm font-semibold text-gray-900">{step.title}</p>
+                <p class="mt-1 text-sm text-muted-foreground">{step.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <section class="bg-white py-16 sm:py-24" data-heloc-faqs>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
