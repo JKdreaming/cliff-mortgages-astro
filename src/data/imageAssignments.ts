@@ -12,7 +12,7 @@ import getQuoteHeroImage from '../assets/images/docusign-P9kDDB8APmE-unsplash.jp
 import privacyHeroImage from '../assets/images/customers-who-choose-to-buy-a-condominium-room-and-2024-11-01-18-28-48-utc.jpg';
 import accessibilityHeroImage from '../assets/images/portrait-of-senior-couple-standing-outside-front-d-2024-10-22-12-30-23-utc.jpg';
 import disclosuresHeroImage from '../assets/images/architect-engineer-team-discusses-modern-house-mod-2025-03-08-14-31-58-utc.jpg';
-import equitySelectProgramHeroImage from '../assets/images/senior-couple-holding-keys-and-standing-outside-th-2025-04-01-13-23-24-utc.jpg';
+import equitySelectProgramHeroImage from '../assets/images/EquitySelect_Landing_Page_Hero_Image.jpg';
 import purchaseHeroImage from '../assets/images/family-with-cardboard-boxes-and-labrador-dog-stand-2024-11-19-07-47-21-utc.jpg';
 import refinanceHeroImage from '../assets/images/smiling-mature-couple-embracing-in-garden-of-their-2024-09-19-01-31-00-utc.jpg';
 import helocHeroImage from '../assets/images/Depositphotos_587140642_L.jpg';
