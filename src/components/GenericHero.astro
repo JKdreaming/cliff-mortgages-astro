@@ -18,6 +18,7 @@ interface Props {
   badgeText?: string;
   primaryCtaLabel?: string;
   primaryCtaHref?: string;
+  hidePrimaryCta?: boolean;
   hideContactCta?: boolean;
   imageObjectClassName?: string;
   image?: ImageAssignment;
@@ -43,6 +44,7 @@ const {
   badgeText = 'Your Trusted Colorado Mortgage Specialist',
   primaryCtaLabel = 'Get a Free Quote',
   primaryCtaHref = '/get-a-quote',
+  hidePrimaryCta = false,
   hideContactCta = false,
   imageObjectClassName = 'object-cover',
   image,
@@ -55,6 +57,10 @@ const {
 const titleParts = title.trim().split(' ');
 const lastWord = titleParts.pop();
 const titleStart = titleParts.join(' ');
+
+const showPrimaryCta = !hidePrimaryCta && !!primaryCtaLabel && !!primaryCtaHref;
+const showContactCta = !hideContactCta;
+const showCtas = showPrimaryCta || showContactCta;
 
 const presetWidths = [320, 480, 640, 768, 1024, 1280, 1536, 1920];
 let imageWidths = image ? presetWidths.filter((width) => width < image.width) : [];
@@ -85,22 +91,26 @@ if (image) {
           </h1>
           <p class="mt-6 text-lg text-gray-600" set:html={subtitle} />
 
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a
-              href={primaryCtaHref}
-              class="px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
-            >
-              {primaryCtaLabel}
-            </a>
-            {!hideContactCta && (
-              <a
-                href="/contact"
-                class="px-8 py-4 bg-white text-[#09143e] font-semibold rounded-lg shadow-md border border-gray-200 hover:bg-gray-100 transition duration-300"
-              >
-                Contact Us
-              </a>
-            )}
-          </div>
+          {showCtas && (
+            <div class="mt-8 flex flex-wrap gap-4">
+              {showPrimaryCta && (
+                <a
+                  href={primaryCtaHref}
+                  class="px-8 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
+                >
+                  {primaryCtaLabel}
+                </a>
+              )}
+              {showContactCta && (
+                <a
+                  href="/contact"
+                  class="px-8 py-4 bg-white text-[#09143e] font-semibold rounded-lg shadow-md border border-gray-200 hover:bg-gray-100 transition duration-300"
+                >
+                  Contact Us
+                </a>
+              )}
+            </div>
+          )}
 
           {quickStats.length > 0 && !statsOnRight && (
             <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 text-left">

@@ -15,8 +15,7 @@ const hero = heroKey ? heroImageAssignments[heroKey] : undefined;
     imageUrl={hero?.src ?? pageData.imageUrl!}
     imageAlt={hero?.alt ?? pageData.imageAlt!}
     image={hero}
-    primaryCtaLabel="Fill Out The Form"
-    primaryCtaHref="#quote-form-section"
+    hidePrimaryCta
     statsOnRight
     compactPadding
     hideContactCta
