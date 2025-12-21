@@ -272,63 +272,222 @@ const landingWhoForCards = [
           <div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-sm" data-heloc-quiz>
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
-                <i class="fa-solid fa-clipboard-check text-xl text-[#bf9f5c]"></i>
+                <i class="fa-solid fa-wand-magic-sparkles text-xl text-[#bf9f5c]"></i>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900">Quick HELOC Fit Questionnaire</h3>
+                <h3 class="text-lg font-semibold text-gray-900">HELOC Decision Guide</h3>
                 <p class="mt-1 text-sm text-muted-foreground">
-                  Answer a few quick questions. This is general guidance—no obligation.
+                  A short, step-by-step questionnaire to help you decide. General guidance—no obligation.
                 </p>
               </div>
             </div>
 
-            <fieldset class="mt-5 space-y-3">
-              <legend class="sr-only">HELOC Fit Questionnaire</legend>
+            <div class="relative mt-5 min-h-[680px]">
+              <div class="absolute inset-0 transition-opacity duration-500" data-heloc-wizard>
+                <div>
+                  <div class="flex items-center justify-between text-xs text-gray-600">
+                    <span data-heloc-progress-label>Step 1 of 5</span>
+                    <span data-heloc-progress-pct>0%</span>
+                  </div>
+                  <div class="mt-2 h-2 rounded-full bg-gray-200 overflow-hidden">
+                    <div class="h-full bg-[#bf9f5c] w-0 transition-all duration-500" data-heloc-progress-bar></div>
+                  </div>
+                </div>
 
-              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
-                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
-                <span class="text-sm text-gray-800">I want to access cash but keep my current low-rate first mortgage in place.</span>
-              </label>
+                <div class="mt-5" data-heloc-steps>
+                  <div data-step="0">
+                    <p class="text-sm font-semibold text-gray-900">What are you using home equity for?</p>
+                    <div class="mt-3 space-y-3">
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q0" value="10" />
+                        <div class="flex items-start gap-3">
+                          <i class="fa-solid fa-hammer mt-0.5 text-[#bf9f5c]"></i>
+                          <div>
+                            <p class="text-sm font-semibold text-gray-900">Home repairs / remodel</p>
+                            <p class="mt-1 text-sm text-muted-foreground">Projects where flexible draw timing is helpful.</p>
+                          </div>
+                        </div>
+                      </label>
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q0" value="8" />
+                        <div class="flex items-start gap-3">
+                          <i class="fa-solid fa-credit-card mt-0.5 text-[#bf9f5c]"></i>
+                          <div>
+                            <p class="text-sm font-semibold text-gray-900">Debt payoff / consolidation</p>
+                            <p class="mt-1 text-sm text-muted-foreground">Potentially simplify payments (when appropriate).</p>
+                          </div>
+                        </div>
+                      </label>
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q0" value="7" />
+                        <div class="flex items-start gap-3">
+                          <i class="fa-solid fa-graduation-cap mt-0.5 text-[#bf9f5c]"></i>
+                          <div>
+                            <p class="text-sm font-semibold text-gray-900">Planned expenses</p>
+                            <p class="mt-1 text-sm text-muted-foreground">Education, medical, or other planned costs.</p>
+                          </div>
+                        </div>
+                      </label>
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q0" value="5" />
+                        <div class="flex items-start gap-3">
+                          <i class="fa-solid fa-life-ring mt-0.5 text-[#bf9f5c]"></i>
+                          <div>
+                            <p class="text-sm font-semibold text-gray-900">Emergency buffer / flexibility</p>
+                            <p class="mt-1 text-sm text-muted-foreground">A line you can access if you need it.</p>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
 
-              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
-                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
-                <span class="text-sm text-gray-800">I prefer flexibility (draw funds when I need them) instead of taking one lump sum.</span>
-              </label>
+                  <div data-step="1" class="hidden">
+                    <p class="text-sm font-semibold text-gray-900">Do you want to keep your current first mortgage in place?</p>
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q1" value="10" />
+                        <p class="text-sm font-semibold text-gray-900">Yes</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I don’t want to refinance it.</p>
+                      </label>
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q1" value="6" />
+                        <p class="text-sm font-semibold text-gray-900">Not sure</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I’m open to options.</p>
+                      </label>
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q1" value="2" />
+                        <p class="text-sm font-semibold text-gray-900">No</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I might refinance anyway.</p>
+                      </label>
+                    </div>
+                  </div>
 
-              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
-                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
-                <span class="text-sm text-gray-800">I’m planning a project or expense (repairs, remodel, debt payoff, planned costs) over the next 6–24 months.</span>
-              </label>
+                  <div data-step="2" class="hidden">
+                    <p class="text-sm font-semibold text-gray-900">Do you need flexibility to draw funds over time?</p>
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q2" value="10" />
+                        <p class="text-sm font-semibold text-gray-900">Yes</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I want access when needed.</p>
+                      </label>
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q2" value="6" />
+                        <p class="text-sm font-semibold text-gray-900">Maybe</p>
+                        <p class="mt-1 text-sm text-muted-foreground">Depends on the terms.</p>
+                      </label>
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q2" value="2" />
+                        <p class="text-sm font-semibold text-gray-900">No</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I prefer a lump sum.</p>
+                      </label>
+                    </div>
+                  </div>
 
-              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
-                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
-                <span class="text-sm text-gray-800">I want a payment structure that may be easier to budget for long-term planning.</span>
-              </label>
+                  <div data-step="3" class="hidden">
+                    <p class="text-sm font-semibold text-gray-900">What’s your timeline?</p>
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q3" value="8" />
+                        <p class="text-sm font-semibold text-gray-900">0–3 months</p>
+                        <p class="mt-1 text-sm text-muted-foreground">Soon / active project.</p>
+                      </label>
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q3" value="10" />
+                        <p class="text-sm font-semibold text-gray-900">3–12 months</p>
+                        <p class="mt-1 text-sm text-muted-foreground">Planning ahead.</p>
+                      </label>
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q3" value="6" />
+                        <p class="text-sm font-semibold text-gray-900">12+ months</p>
+                        <p class="mt-1 text-sm text-muted-foreground">Long-term option.</p>
+                      </label>
+                    </div>
+                  </div>
 
-              <label class="flex items-start gap-3 rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
-                <input type="checkbox" class="mt-1" data-heloc-quiz-q />
-                <span class="text-sm text-gray-800">I’m exploring alternatives to refinancing (especially if today’s rates are higher than my current mortgage).</span>
-              </label>
-            </fieldset>
+                  <div data-step="4" class="hidden">
+                    <p class="text-sm font-semibold text-gray-900">How do you feel about payment/rate flexibility?</p>
+                    <div class="mt-3 space-y-3">
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q4" value="10" />
+                        <p class="text-sm font-semibold text-gray-900">I’m comfortable with flexibility</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I can handle a line/variable-style structure.</p>
+                      </label>
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q4" value="6" />
+                        <p class="text-sm font-semibold text-gray-900">Not sure</p>
+                        <p class="mt-1 text-sm text-muted-foreground">I want to see options and understand tradeoffs.</p>
+                      </label>
+                      <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                        <input class="sr-only" type="radio" name="q4" value="2" />
+                        <p class="text-sm font-semibold text-gray-900">I strongly prefer fixed payments</p>
+                        <p class="mt-1 text-sm text-muted-foreground">A fixed-term loan may be better.</p>
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
-            <div class="mt-5 rounded-xl bg-white border p-5">
-              <p class="text-sm font-semibold text-gray-900" data-heloc-quiz-heading>
-                Select any that apply.
-              </p>
-              <p class="mt-2 text-sm text-muted-foreground" data-heloc-quiz-body>
-                Your answers will help highlight whether a HELOC-style option could be worth a closer look.
-              </p>
+                <div class="mt-5 flex items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    class="px-4 py-2 rounded-lg border bg-white text-sm font-semibold text-gray-800 hover:bg-gray-50 transition"
+                    data-heloc-back
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    class="px-5 py-2 rounded-lg bg-[#09143e] text-white text-sm font-semibold hover:bg-[#0f1d5a] transition"
+                    data-heloc-next
+                  >
+                    Next
+                  </button>
+                </div>
 
-              <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-3">
-                <a
-                  href="https://www.cliffmortgages.com/get-a-quote"
-                  class="inline-flex items-center justify-center px-6 py-3 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
-                >
-                  👉  Get a Free Quote
-                </a>
-                <p class="text-xs text-muted-foreground">
-                  Why choose a HELOC? It can help you access equity while keeping a low-rate first mortgage and giving you flexible access to funds.
+                <p class="mt-4 text-xs text-muted-foreground">
+                  Your results will appear after the final step.
                 </p>
+              </div>
+
+              <div class="absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-heloc-results>
+                <div class="rounded-xl bg-white border p-5">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-semibold text-gray-900">HELOC Confidence</p>
+                    <p class="text-sm font-semibold text-gray-900" data-heloc-score>0%</p>
+                  </div>
+                  <div class="mt-3 h-3 rounded-full bg-gray-200 overflow-hidden">
+                    <div class="h-full bg-[#bf9f5c] w-0 transition-all duration-700" data-heloc-score-bar></div>
+                  </div>
+                  <p class="mt-3 text-sm font-semibold text-gray-900" data-heloc-result-title>Results</p>
+                  <p class="mt-2 text-sm text-muted-foreground" data-heloc-score-text>
+                    Complete the steps to see how strongly a HELOC could match your goals.
+                  </p>
+
+                  <ul class="mt-4 space-y-2 text-sm text-muted-foreground" data-heloc-result-bullets>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#bf9f5c] font-bold">&raquo;</span>
+                      <span>Answer the questions to see your personalized guidance.</span>
+                    </li>
+                  </ul>
+
+                  <div class="mt-6">
+                    <a
+                      href="https://www.cliffmortgages.com/get-a-quote"
+                      class="inline-flex items-center justify-center w-full px-6 py-4 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-md hover:bg-[#a68a4c] transition duration-300"
+                    >
+                      👉  Check HELOC Options
+                    </a>
+                    <p class="mt-3 text-xs text-muted-foreground">
+                      We’ll confirm eligibility, pricing, and the best structure for your situation.
+                    </p>
+                    <button
+                      type="button"
+                      class="mt-4 text-xs underline text-gray-600 hover:text-gray-900"
+                      data-heloc-restart
+                    >
+                      Start over
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -336,31 +495,220 @@ const landingWhoForCards = [
               (() => {
                 const root = document.querySelector('[data-heloc-quiz]');
                 if (!root) return;
-                const checks = Array.from(root.querySelectorAll('[data-heloc-quiz-q]'));
-                const heading = root.querySelector('[data-heloc-quiz-heading]');
-                const body = root.querySelector('[data-heloc-quiz-body]');
-                if (!heading || !body) return;
 
-                const update = () => {
-                  const yes = checks.filter((c) => c.checked).length;
-                  if (yes === 0) {
-                    heading.textContent = 'Select any that apply.';
-                    body.textContent = 'Your answers will help highlight whether a HELOC-style option could be worth a closer look.';
-                    return;
+                const stepsWrap = root.querySelector('[data-heloc-steps]');
+                if (!stepsWrap) return;
+                const steps = Array.from(stepsWrap.querySelectorAll('[data-step]'));
+
+                const backBtn = root.querySelector('[data-heloc-back]');
+                const nextBtn = root.querySelector('[data-heloc-next]');
+                const progressLabel = root.querySelector('[data-heloc-progress-label]');
+                const progressPct = root.querySelector('[data-heloc-progress-pct]');
+                const progressBar = root.querySelector('[data-heloc-progress-bar]');
+
+                const scoreEl = root.querySelector('[data-heloc-score]');
+                const scoreBar = root.querySelector('[data-heloc-score-bar]');
+                const scoreText = root.querySelector('[data-heloc-score-text]');
+
+                const totalSteps = steps.length;
+                const maxPerStep = 10;
+                const maxScore = totalSteps * maxPerStep;
+
+                let idx = 0;
+
+                const getScore = () => {
+                  let sum = 0;
+                  for (let i = 0; i < totalSteps; i++) {
+                    const checked = root.querySelector(`input[name="q${i}"]:checked`);
+                    if (!checked) continue;
+                    const v = parseInt(checked.value, 10);
+                    sum += Number.isFinite(v) ? v : 0;
                   }
-
-                  if (yes <= 2) {
-                    heading.textContent = 'You may be exploring the right questions.';
-                    body.textContent = 'A HELOC can still be a fit, but it depends on your timeline, equity, and payment preferences. A free quote can confirm what options are available.';
-                    return;
-                  }
-
-                  heading.textContent = 'A HELOC-style option may be a strong fit.';
-                  body.textContent = 'Based on your answers, you may benefit from flexible access to funds while keeping a low-rate first mortgage. Request a free quote to review your options.';
+                  const pct = Math.round((sum / maxScore) * 100);
+                  return Math.max(0, Math.min(100, pct));
                 };
 
-                checks.forEach((c) => c.addEventListener('change', update));
-                update();
+                const scoreCopy = (pct) => {
+                  if (pct >= 80) {
+                    return 'High confidence: a HELOC-style option may match your goals (especially if keeping a low-rate first mortgage matters).';
+                  }
+                  if (pct >= 55) {
+                    return 'Moderate confidence: a HELOC could be a fit, but your best option depends on rates, equity, and structure.';
+                  }
+                  if (pct > 0) {
+                    return 'Lower confidence: a HELOC may still help, but a fixed loan or other option could be better depending on your goals.';
+                  }
+                  return 'Complete the steps to see how strongly a HELOC could match your goals.';
+                };
+
+                const resultTitleCopy = (pct) => {
+                  if (pct >= 80) return 'Strong HELOC fit based on your answers';
+                  if (pct >= 55) return 'Possible HELOC fit — worth comparing options';
+                  if (pct > 0) return 'HELOC may or may not be ideal — let’s confirm';
+                  return 'Results';
+                };
+
+                const resultBulletsCopy = (pct) => {
+                  if (pct >= 80) {
+                    return [
+                      'A HELOC can help you access equity while keeping a low-rate first mortgage in place.',
+                      'Flexible draw access can match projects or expenses that happen over time.',
+                      'Next step: get a free quote to confirm limits, payment options, and costs.',
+                    ];
+                  }
+                  if (pct >= 55) {
+                    return [
+                      'A HELOC could work, but you may also want to compare a fixed option depending on your goals.',
+                      'The best fit depends on your equity, credit profile, timeline, and how you want payments structured.',
+                      'Next step: get a free quote so we can compare options side-by-side.',
+                    ];
+                  }
+                  if (pct > 0) {
+                    return [
+                      'A HELOC may still help, but a fixed loan/refi could be more predictable depending on your situation.',
+                      'If keeping your first mortgage is important, a second-lien option may still be worth exploring.',
+                      'Next step: get a free quote to confirm what you qualify for and the pros/cons.',
+                    ];
+                  }
+                  return ['Complete the steps to see your personalized guidance.'];
+                };
+
+                const showResults = () => {
+                  const wizard = root.querySelector('[data-heloc-wizard]');
+                  const results = root.querySelector('[data-heloc-results]');
+                  if (!wizard || !results) return;
+
+                  const pct = getScore();
+                  if (scoreEl) scoreEl.textContent = `${pct}%`;
+                  if (scoreBar) scoreBar.style.width = `${pct}%`;
+                  if (scoreText) scoreText.textContent = scoreCopy(pct);
+
+                  const title = root.querySelector('[data-heloc-result-title]');
+                  if (title) title.textContent = resultTitleCopy(pct);
+
+                  const bullets = root.querySelector('[data-heloc-result-bullets]');
+                  if (bullets) {
+                    const items = resultBulletsCopy(pct);
+                    bullets.innerHTML = items
+                      .map(
+                        (t) =>
+                          `<li class="flex items-start gap-3"><span class="text-[#bf9f5c] font-bold">&raquo;</span><span>${t}</span></li>`
+                      )
+                      .join('');
+                  }
+
+                  wizard.classList.add('opacity-0');
+                  wizard.classList.add('pointer-events-none');
+                  window.setTimeout(() => {
+                    results.classList.remove('opacity-0');
+                    results.classList.remove('pointer-events-none');
+                  }, 220);
+                };
+
+                const restart = () => {
+                  for (let i = 0; i < totalSteps; i++) {
+                    const checked = root.querySelector(`input[name="q${i}"]:checked`);
+                    if (checked) checked.checked = false;
+                  }
+                  idx = 0;
+                  const wizard = root.querySelector('[data-heloc-wizard]');
+                  const results = root.querySelector('[data-heloc-results]');
+                  if (results) {
+                    results.classList.add('opacity-0');
+                    results.classList.add('pointer-events-none');
+                  }
+                  if (wizard) {
+                    wizard.classList.remove('opacity-0');
+                    wizard.classList.remove('pointer-events-none');
+                  }
+                  render();
+                };
+
+                const render = () => {
+                  steps.forEach((el, i) => {
+                    el.classList.toggle('hidden', i !== idx);
+                  });
+
+                  if (progressLabel) progressLabel.textContent = `Step ${idx + 1} of ${totalSteps}`;
+                  const answered = Array.from({ length: totalSteps }).filter((_, i) => !!root.querySelector(`input[name="q${i}"]:checked`)).length;
+                  const pctAnswered = Math.round((answered / totalSteps) * 100);
+                  if (progressPct) progressPct.textContent = `${pctAnswered}%`;
+                  if (progressBar) progressBar.style.width = `${pctAnswered}%`;
+
+                  if (backBtn) backBtn.disabled = idx === 0;
+                  if (backBtn) backBtn.classList.toggle('opacity-50', idx === 0);
+                  if (backBtn) backBtn.classList.toggle('cursor-not-allowed', idx === 0);
+
+                  const stepAnswered = !!root.querySelector(`input[name="q${idx}"]:checked`);
+                  if (nextBtn) nextBtn.textContent = idx === totalSteps - 1 ? 'Finish' : 'Next';
+                  if (nextBtn) nextBtn.disabled = !stepAnswered;
+                  if (nextBtn) nextBtn.classList.toggle('opacity-50', !stepAnswered);
+                  if (nextBtn) nextBtn.classList.toggle('cursor-not-allowed', !stepAnswered);
+
+                  const score = getScore();
+                  if (scoreEl) scoreEl.textContent = `${score}%`;
+                  if (scoreBar) scoreBar.style.width = `${score}%`;
+                  if (scoreText) scoreText.textContent = scoreCopy(score);
+                };
+
+                const onNext = () => {
+                  if (idx === totalSteps - 1) {
+                    const stepAnswered = !!root.querySelector(`input[name="q${idx}"]:checked`);
+                    if (stepAnswered) {
+                      showResults();
+                    }
+                    return;
+                  }
+                  idx += 1;
+                  render();
+                };
+
+                const onBack = () => {
+                  if (idx === 0) return;
+                  idx -= 1;
+                  render();
+                };
+
+                root.addEventListener('change', (e) => {
+                  const t = e.target;
+                  if (!(t instanceof HTMLInputElement)) return;
+                  if (t.type !== 'radio') return;
+
+                  const selectedStep = (() => {
+                    if (!t.name || !t.name.startsWith('q')) return null;
+                    const step = parseInt(t.name.slice(1), 10);
+                    return Number.isFinite(step) ? step : null;
+                  })();
+
+                  render();
+
+                  if (selectedStep === null) return;
+                  if (selectedStep !== idx) return;
+                  if (idx >= totalSteps - 1) {
+                    window.setTimeout(() => {
+                      const stillOnSameStep = idx === selectedStep;
+                      const stillAnswered = !!root.querySelector(`input[name="q${selectedStep}"]:checked`);
+                      if (!stillOnSameStep || !stillAnswered) return;
+                      showResults();
+                    }, 260);
+                    return;
+                  }
+
+                  window.setTimeout(() => {
+                    const stillOnSameStep = idx === selectedStep;
+                    const stillAnswered = !!root.querySelector(`input[name="q${selectedStep}"]:checked`);
+                    if (!stillOnSameStep || !stillAnswered) return;
+                    onNext();
+                  }, 220);
+                });
+
+                const restartBtn = root.querySelector('[data-heloc-restart]');
+                if (restartBtn) restartBtn.addEventListener('click', restart);
+
+                if (nextBtn) nextBtn.addEventListener('click', onNext);
+                if (backBtn) backBtn.addEventListener('click', onBack);
+
+                render();
               })();
             </script>
           </div>
