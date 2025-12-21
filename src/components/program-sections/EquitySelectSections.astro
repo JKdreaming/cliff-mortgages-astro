@@ -49,6 +49,16 @@ const landingWhoForCards = [
     title: 'Explore Alternatives',
     text: 'Clients exploring alternatives to reverse mortgages while maintaining required payments',
   },
+  {
+    icon: 'fa-solid fa-wallet',
+    title: 'Build a Cash Reserve',
+    text: 'Homeowners who want a flexible credit line available for planned or unexpected expenses',
+  },
+  {
+    icon: 'fa-solid fa-flag-checkered',
+    title: 'Prefer a Clear Next Step',
+    text: 'Borrowers who want to compare options quickly without committing to a refinance upfront',
+  },
 ];
 ---
 {!landing && (
@@ -206,14 +216,14 @@ const landingWhoForCards = [
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="rounded-2xl bg-white shadow-sm p-6 md:p-8">
           <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Key Benefits</h2>
-          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
             {landingKeyBenefits.map((benefit) => (
-              <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm">
-                <div class="flex items-start gap-4">
+              <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm h-full">
+                <div class="flex items-center gap-4 h-full">
                   <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
                     <i class={`${benefit.icon} text-xl text-[#bf9f5c]`}></i>
                   </div>
-                  <div>
+                  <div class="flex flex-col justify-center">
                     <p class="text-sm font-semibold text-gray-900">{benefit.title}</p>
                     <p class="mt-1 text-sm text-muted-foreground">{benefit.text}</p>
                   </div>
@@ -252,14 +262,14 @@ const landingWhoForCards = [
             <p class="mt-4 text-sm md:text-base text-muted-foreground">
               This loan may be a great fit if you meet the following general criteria:
             </p>
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
               {landingWhoForCards.map((item) => (
-                <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm">
-                  <div class="flex items-start gap-4">
+                <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm h-full">
+                  <div class="flex items-center gap-4 h-full">
                     <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
                       <i class={`${item.icon} text-xl text-[#bf9f5c]`}></i>
                     </div>
-                    <div>
+                    <div class="flex flex-col justify-center">
                       <p class="text-sm font-semibold text-gray-900">{item.title}</p>
                       <p class="mt-1 text-sm text-muted-foreground">{item.text}</p>
                     </div>
@@ -300,7 +310,7 @@ const landingWhoForCards = [
                     <div class="mt-3 space-y-3">
                       <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
                         <input class="sr-only" type="radio" name="q0" value="10" />
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-center gap-3">
                           <i class="fa-solid fa-hammer mt-0.5 text-[#bf9f5c]"></i>
                           <div>
                             <p class="text-sm font-semibold text-gray-900">Home repairs / remodel</p>
@@ -310,7 +320,7 @@ const landingWhoForCards = [
                       </label>
                       <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
                         <input class="sr-only" type="radio" name="q0" value="8" />
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-center gap-3">
                           <i class="fa-solid fa-credit-card mt-0.5 text-[#bf9f5c]"></i>
                           <div>
                             <p class="text-sm font-semibold text-gray-900">Debt payoff / consolidation</p>
@@ -320,7 +330,7 @@ const landingWhoForCards = [
                       </label>
                       <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
                         <input class="sr-only" type="radio" name="q0" value="7" />
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-center gap-3">
                           <i class="fa-solid fa-graduation-cap mt-0.5 text-[#bf9f5c]"></i>
                           <div>
                             <p class="text-sm font-semibold text-gray-900">Planned expenses</p>
@@ -330,7 +340,7 @@ const landingWhoForCards = [
                       </label>
                       <label class="block rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
                         <input class="sr-only" type="radio" name="q0" value="5" />
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-center gap-3">
                           <i class="fa-solid fa-life-ring mt-0.5 text-[#bf9f5c]"></i>
                           <div>
                             <p class="text-sm font-semibold text-gray-900">Emergency buffer / flexibility</p>
@@ -343,18 +353,18 @@ const landingWhoForCards = [
 
                   <div data-step="1" class="hidden">
                     <p class="text-sm font-semibold text-gray-900">Do you want to keep your current first mortgage in place?</p>
-                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q1" value="10" />
                         <p class="text-sm font-semibold text-gray-900">Yes</p>
                         <p class="mt-1 text-sm text-muted-foreground">I don’t want to refinance it.</p>
                       </label>
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q1" value="6" />
                         <p class="text-sm font-semibold text-gray-900">Not sure</p>
                         <p class="mt-1 text-sm text-muted-foreground">I’m open to options.</p>
                       </label>
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q1" value="2" />
                         <p class="text-sm font-semibold text-gray-900">No</p>
                         <p class="mt-1 text-sm text-muted-foreground">I might refinance anyway.</p>
@@ -364,18 +374,18 @@ const landingWhoForCards = [
 
                   <div data-step="2" class="hidden">
                     <p class="text-sm font-semibold text-gray-900">Do you need flexibility to draw funds over time?</p>
-                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q2" value="10" />
                         <p class="text-sm font-semibold text-gray-900">Yes</p>
                         <p class="mt-1 text-sm text-muted-foreground">I want access when needed.</p>
                       </label>
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q2" value="6" />
                         <p class="text-sm font-semibold text-gray-900">Maybe</p>
                         <p class="mt-1 text-sm text-muted-foreground">Depends on the terms.</p>
                       </label>
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q2" value="2" />
                         <p class="text-sm font-semibold text-gray-900">No</p>
                         <p class="mt-1 text-sm text-muted-foreground">I prefer a lump sum.</p>
@@ -385,18 +395,18 @@ const landingWhoForCards = [
 
                   <div data-step="3" class="hidden">
                     <p class="text-sm font-semibold text-gray-900">What’s your timeline?</p>
-                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q3" value="8" />
                         <p class="text-sm font-semibold text-gray-900">0–3 months</p>
                         <p class="mt-1 text-sm text-muted-foreground">Soon / active project.</p>
                       </label>
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q3" value="10" />
                         <p class="text-sm font-semibold text-gray-900">3–12 months</p>
                         <p class="mt-1 text-sm text-muted-foreground">Planning ahead.</p>
                       </label>
-                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50">
+                      <label class="rounded-xl bg-white border p-4 cursor-pointer hover:bg-gray-50 h-full flex flex-col justify-center">
                         <input class="sr-only" type="radio" name="q3" value="6" />
                         <p class="text-sm font-semibold text-gray-900">12+ months</p>
                         <p class="mt-1 text-sm text-muted-foreground">Long-term option.</p>
