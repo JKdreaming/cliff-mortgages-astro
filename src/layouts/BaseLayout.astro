@@ -152,13 +152,13 @@ const applyNowTitle = getApplyNowTitle(currentPath);
       }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTE0P19P15"></script>
-    <script>
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-RTE0P19P15');
-      `}
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-RTE0P19P15');
     </script>
     <script is:inline>
       const attachTrackEventListeners = () => {
