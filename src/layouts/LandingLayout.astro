@@ -175,6 +175,14 @@ const schemas = [webpageSchema, faqSchema, breadcrumbSchema, organizationSchema,
     </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTE0P19P15"></script>
     <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', 'G-RTE0P19P15');
+    </script>
+    <script is:inline>
       const waitForGtag = (callback, maxWait = 5000) => {
         const start = Date.now();
         const check = () => {
