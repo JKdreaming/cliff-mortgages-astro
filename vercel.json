@@ -1,68 +1,349 @@
 {
   "redirects": [
-    { "source": "/203k-loans", "destination": "/loan-programs/fha-203k", "permanent": true },
-    { "source": "/203k-loans/", "destination": "/loan-programs/fha-203k", "permanent": true },
-
-    { "source": "/fha-loans", "destination": "/loan-programs/fha", "permanent": true },
-    { "source": "/fha-loans/", "destination": "/loan-programs/fha", "permanent": true },
-
-    { "source": "/jumbo-loans", "destination": "/loan-programs/jumbo", "permanent": true },
-    { "source": "/jumbo-loans/", "destination": "/loan-programs/jumbo", "permanent": true },
-
-    { "source": "/usda-loans", "destination": "/loan-programs/usda", "permanent": true },
-    { "source": "/usda-loans/", "destination": "/loan-programs/usda", "permanent": true },
-
-    { "source": "/reverse-mortgage", "destination": "/loan-programs/reverse-mortgage", "permanent": true },
-    { "source": "/reverse-mortgage/", "destination": "/loan-programs/reverse-mortgage", "permanent": true },
-
-    { "source": "/refinance", "destination": "/loan-programs/refinance", "permanent": true },
-    { "source": "/refinance/", "destination": "/loan-programs/refinance", "permanent": true },
-
-    { "source": "/buy", "destination": "/loan-programs/purchase", "permanent": true },
-    { "source": "/buy/", "destination": "/loan-programs/purchase", "permanent": true },
-
-    { "source": "/adjustable-rate-mortgage", "destination": "/loan-programs/non-qm", "permanent": true },
-    { "source": "/adjustable-rate-mortgage/", "destination": "/loan-programs/non-qm", "permanent": true },
-
-    { "source": "/privacy-policy", "destination": "/legal/privacy-policy", "permanent": true },
-    { "source": "/privacy-policy/", "destination": "/legal/privacy-policy", "permanent": true },
-
-    { "source": "/landing/heloc", "destination": "/equityselect-landing", "permanent": true },
-    { "source": "/landing/heloc-form-lead", "destination": "/equityselect-landing", "permanent": true },
-
-    { "source": "/cindy/aboutus", "destination": "/about", "permanent": true },
-    { "source": "/cindy/contactus", "destination": "/contact", "permanent": true },
-
-    { "source": "/cindy/get-a-quote", "destination": "/get-a-quote", "permanent": true },
-    { "source": "/cindy/get-a-quote/:path*", "destination": "/get-a-quote", "permanent": true },
-
-    { "source": "/cindy/loan-programs", "destination": "/loan-programs", "permanent": true },
-    { "source": "/cindy/loan-programs/203k-loans", "destination": "/loan-programs/fha-203k", "permanent": true },
-    { "source": "/cindy/loan-programs/conventional-loans", "destination": "/loan-programs/conventional", "permanent": true },
-    { "source": "/cindy/loan-programs/heloc-loans", "destination": "/loan-programs/heloc", "permanent": true },
-    { "source": "/cindy/loan-programs/introduction-to-reverse-mortgages", "destination": "/loan-programs/reverse-mortgage", "permanent": true },
-    { "source": "/cindy/loan-programs/jumbo-loans", "destination": "/loan-programs/jumbo", "permanent": true },
-    { "source": "/cindy/loan-programs/non-qm-loans", "destination": "/loan-programs/non-qm", "permanent": true },
-    { "source": "/cindy/loan-programs/refinance-loans", "destination": "/loan-programs/refinance", "permanent": true },
-    { "source": "/cindy/loan-programs/usda-loans", "destination": "/loan-programs/usda", "permanent": true },
-
-    { "source": "/cindy/landing/heloc", "destination": "/equityselect-landing", "permanent": true },
-
-    { "source": "/cindy/mortgage-information/calculators", "destination": "/", "permanent": true },
-    { "source": "/cindy/mortgage-information/frequently-asked-mortgage-questions", "destination": "/", "permanent": true },
-    { "source": "/cindy/mortgage-information/requested-documents", "destination": "/", "permanent": true },
-    { "source": "/cindy/mortgage-information/:path*", "destination": "/", "permanent": true },
-
-    { "source": "/info/cash-out", "destination": "/loan-programs/refinance", "permanent": true },
-
-    { "source": "/blog", "destination": "/loan-programs", "permanent": true },
-    { "source": "/blog/:id/purchasing-a-home/:slug*", "destination": "/loan-programs/purchase", "permanent": true },
-    { "source": "/blog/:id/refinancing-a-home/:slug*", "destination": "/loan-programs/refinance", "permanent": true },
-    { "source": "/blog/:id/va-loans/:slug*", "destination": "/loan-programs/va", "permanent": true },
-    { "source": "/blog/:id/interest-rates/:slug*", "destination": "/loan-programs/refinance", "permanent": true },
-    { "source": "/blog/:id/mortgage-mondays/:slug*", "destination": "/loan-programs", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/loan-programs", "permanent": true },
-
-    { "source": "/cindy/blog/:path*", "destination": "/loan-programs", "permanent": true }
+    {
+      "source": "/203k-loans",
+      "destination": "/loan-programs/fha-203k",
+      "permanent": true
+    },
+    {
+      "source": "/203k-loans/",
+      "destination": "/loan-programs/fha-203k",
+      "permanent": true
+    },
+    {
+      "source": "/adjustable-rate-mortgage",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/adjustable-rate-mortgage/",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:id/interest-rates/:slug*",
+      "destination": "/loan-programs/refinance",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:id/mortgage-mondays/:slug*",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:id/purchasing-a-home/:slug*",
+      "destination": "/loan-programs/purchase",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:id/refinancing-a-home/:slug*",
+      "destination": "/loan-programs/refinance",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:id/va-loans/:slug*",
+      "destination": "/loan-programs/va",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/buy",
+      "destination": "/loan-programs/purchase",
+      "permanent": true
+    },
+    {
+      "source": "/buy/",
+      "destination": "/loan-programs/purchase",
+      "permanent": true
+    },
+    {
+      "source": "/cindy",
+      "destination": "/cindy",
+      "permanent": true
+    },
+    {
+      "source": "/cindy-cliff",
+      "destination": "/about/cindy-cliff",
+      "permanent": true
+    },
+    {
+      "source": "/cindy-cliff/",
+      "destination": "/about/cindy-cliff",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/aboutus",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/blog/:path*",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/contactus",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/get-a-quote",
+      "destination": "/get-a-quote",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/get-a-quote/:path*",
+      "destination": "/get-a-quote",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/landing/heloc",
+      "destination": "/equityselect-landing",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/203k-loans",
+      "destination": "/loan-programs/fha-203k",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/conventional-loans",
+      "destination": "/loan-programs/conventional",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/heloc-loans",
+      "destination": "/loan-programs/heloc",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/introduction-to-reverse-mortgages",
+      "destination": "/loan-programs/reverse-mortgage",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/jumbo-loans",
+      "destination": "/loan-programs/jumbo",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/non-qm-loans",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/refinance-loans",
+      "destination": "/loan-programs/refinance",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/loan-programs/usda-loans",
+      "destination": "/loan-programs/usda",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/mortgage-information/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/mortgage-information/calculators",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/mortgage-information/frequently-asked-mortgage-questions",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cindy/mortgage-information/requested-documents",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fha-loans",
+      "destination": "/loan-programs/fha",
+      "permanent": true
+    },
+    {
+      "source": "/fha-loans/",
+      "destination": "/loan-programs/fha",
+      "permanent": true
+    },
+    {
+      "source": "/get-a-quote/first-time-home-buyers",
+      "destination": "/get-a-quote",
+      "permanent": true
+    },
+    {
+      "source": "/get-a-quote/heloc-form",
+      "destination": "/loan-programs/heloc",
+      "permanent": true
+    },
+    {
+      "source": "/get-a-quote/refinance",
+      "destination": "/get-a-quote",
+      "permanent": true
+    },
+    {
+      "source": "/info/cash-out",
+      "destination": "/loan-programs/refinance",
+      "permanent": true
+    },
+    {
+      "source": "/info/heloc",
+      "destination": "/loan-programs/heloc",
+      "permanent": true
+    },
+    {
+      "source": "/info/home-purchase",
+      "destination": "/info/home-purchase",
+      "permanent": true
+    },
+    {
+      "source": "/info/reverse-mortgages",
+      "destination": "/loan-programs/reverse-mortgage",
+      "permanent": true
+    },
+    {
+      "source": "/jumbo-loans",
+      "destination": "/loan-programs/jumbo",
+      "permanent": true
+    },
+    {
+      "source": "/jumbo-loans/",
+      "destination": "/loan-programs/jumbo",
+      "permanent": true
+    },
+    {
+      "source": "/landing/heloc",
+      "destination": "/equityselect-landing",
+      "permanent": true
+    },
+    {
+      "source": "/landing/heloc-form-lead",
+      "destination": "/equityselect-landing",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/203k-loans",
+      "destination": "/loan-programs/fha-203k",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/commercial-loans",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/conventional-loans",
+      "destination": "/loan-programs/conventional",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/dscr-loans",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/foreign-national-loans",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/introduction-to-reverse-mortgages",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/non-qm-loans",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/private-money",
+      "destination": "/loan-programs/non-qm",
+      "permanent": true
+    },
+    {
+      "source": "/loan-programs/refinance-loans",
+      "destination": "/loan-programs",
+      "permanent": true
+    },
+    {
+      "source": "/mortgage-information/mortgage-news",
+      "destination": "/mortgage-information/mortgage-news",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/legal/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/legal/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/refinance",
+      "destination": "/loan-programs/refinance",
+      "permanent": true
+    },
+    {
+      "source": "/refinance/",
+      "destination": "/loan-programs/refinance",
+      "permanent": true
+    },
+    {
+      "source": "/reverse-mortgage",
+      "destination": "/loan-programs/reverse-mortgage",
+      "permanent": true
+    },
+    {
+      "source": "/reverse-mortgage/",
+      "destination": "/loan-programs/reverse-mortgage",
+      "permanent": true
+    },
+    {
+      "source": "/usda-loans",
+      "destination": "/loan-programs/usda",
+      "permanent": true
+    },
+    {
+      "source": "/usda-loans/",
+      "destination": "/loan-programs/usda",
+      "permanent": true
+    },
+    {
+      "source": "/va-loans",
+      "destination": "/loan-programs/va",
+      "permanent": true
+    },
+    {
+      "source": "/va-loans/",
+      "destination": "/loan-programs/va",
+      "permanent": true
+    }
   ]
 }
