@@ -608,7 +608,8 @@ export const allPageData: { [key: string]: PageData } = {
   '/about/cindy-cliff': {
     path: '/about/cindy-cliff',
     title: 'About Cindy Cliff | Colorado Mortgage Loan Originator',
-    h1: 'Cindy Cliff, NMLS #2075376\nDRE #100524014',
+    h1: 'Cindy Cliff, 
+    h3: NMLS #2075376\nDRE #100524014',
     description: 'Learn about Cindy Cliff’s experience as a Colorado mortgage broker and how she guides homeowners and investors with tailored loan strategies.',
     imageUrl: heroImageAssignments.cindyHero.src,
     imageAlt: heroImageAssignments.cindyHero.alt,

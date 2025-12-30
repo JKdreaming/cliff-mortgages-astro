@@ -67,7 +67,7 @@
     },
     {
       "source": "/cindy",
-      "destination": "/cindy",
+      "destination": "/about",
       "permanent": true
     },
     {
@@ -217,7 +217,7 @@
     },
     {
       "source": "/info/home-purchase",
-      "destination": "/info/home-purchase",
+      "destination": "/loan-programs/purchase",
       "permanent": true
     },
     {
@@ -292,7 +292,7 @@
     },
     {
       "source": "/mortgage-information/mortgage-news",
-      "destination": "/mortgage-information/mortgage-news",
+      "destination": "/",
       "permanent": true
     },
     {
