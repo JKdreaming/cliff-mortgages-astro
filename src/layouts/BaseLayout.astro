@@ -161,6 +161,18 @@ const applyNowTitle = getApplyNowTitle(currentPath);
       window.gtag('config', 'G-RTE0P19P15');
     </script>
     <script is:inline>
+      const waitForGtag = (callback, maxWait = 5000) => {
+        const start = Date.now();
+        const check = () => {
+          if (typeof window.gtag === 'function') {
+            callback();
+          } else if (Date.now() - start < maxWait) {
+            setTimeout(check, 100);
+          }
+        };
+        check();
+      };
+
       const attachTrackEventListeners = () => {
         const trackEvent = (eventName, params = {}) => {
           if (typeof window === 'undefined') return;
@@ -182,13 +194,7 @@ const applyNowTitle = getApplyNowTitle(currentPath);
         });
       };
 
-      if (typeof document !== 'undefined') {
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', attachTrackEventListeners, { once: true });
-        } else {
-          attachTrackEventListeners();
-        }
-      }
+      waitForGtag(attachTrackEventListeners);
     </script>
     {schemas.map((schema) => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>

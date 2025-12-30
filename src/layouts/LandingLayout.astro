@@ -175,12 +175,40 @@ const schemas = [webpageSchema, faqSchema, breadcrumbSchema, organizationSchema,
     </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTE0P19P15"></script>
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function gtag() {
-        window.dataLayer.push(arguments);
+      const waitForGtag = (callback, maxWait = 5000) => {
+        const start = Date.now();
+        const check = () => {
+          if (typeof window.gtag === 'function') {
+            callback();
+          } else if (Date.now() - start < maxWait) {
+            setTimeout(check, 100);
+          }
+        };
+        check();
       };
-      window.gtag('js', new Date());
-      window.gtag('config', 'G-RTE0P19P15');
+
+      const attachTrackEventListeners = () => {
+        const trackEvent = (eventName, params = {}) => {
+          if (typeof window === 'undefined') return;
+          const gtag = window.gtag;
+          if (!gtag) return;
+          gtag('event', eventName, params);
+        };
+
+        document.querySelectorAll('[data-track-event]').forEach((element) => {
+          element.addEventListener('click', () => {
+            const eventName = element.getAttribute('data-track-event');
+            if (!eventName) return;
+            const location = element.getAttribute('data-event-location');
+            const payload = location
+              ? { location, page: window.location.pathname }
+              : { page: window.location.pathname };
+            trackEvent(eventName, payload);
+          });
+        });
+      };
+
+      waitForGtag(attachTrackEventListeners);
     </script>
     {schemas.map((schema) => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
