@@ -5,6 +5,13 @@ interface Props {
 
 const { landing = false } = Astro.props;
 
+const landingBenefitsList = [
+  'Keep your existing first mortgage in place',
+  'Access home equity over time as needs arise',
+  'Flexible payment structures based on your goals',
+  'Guidance from a licensed mortgage professional',
+];
+
 const landingKeyBenefits = [
   {
     icon: 'fa-solid fa-chart-line',
@@ -28,83 +35,6 @@ const landingKeyBenefits = [
   },
 ];
 
-const landingWhoForCards = [
-  {
-    icon: 'fa-solid fa-lock',
-    title: 'Keep Your First Mortgage',
-    text: 'Homeowners who want to unlock equity without refinancing out of a low-rate mortgage',
-  },
-  {
-    icon: 'fa-solid fa-calendar-check',
-    title: 'Long-Term Planning',
-    text: 'Retirees and near-retirees seeking structured, long-term payments',
-  },
-  {
-    icon: 'fa-solid fa-screwdriver-wrench',
-    title: 'Ongoing Projects & Needs',
-    text: 'Families needing ongoing access to funds for renovations, healthcare, or debt payoff',
-  },
-  {
-    icon: 'fa-solid fa-scale-balanced',
-    title: 'Explore Alternatives',
-    text: 'Clients exploring alternatives to reverse mortgages while maintaining required payments',
-  },
-  {
-    icon: 'fa-solid fa-wallet',
-    title: 'Build a Cash Reserve',
-    text: 'Homeowners who want a flexible credit line available for planned or unexpected expenses',
-  },
-  {
-    icon: 'fa-solid fa-flag-checkered',
-    title: 'Prefer a Clear Next Step',
-    text: 'Borrowers who want to compare options quickly without committing to a refinance upfront',
-  },
-];
-
-type EquitySelectCompareKey = 'equitySelect' | 'cashOutRefi' | 'personalLoan';
-type EquitySelectCompareRow = {
-  feature: string;
-  delay: string;
-} & Record<EquitySelectCompareKey, boolean>;
-
-const equitySelectCompareColumns: Array<{ key: EquitySelectCompareKey; label: string }> = [
-  { key: 'equitySelect', label: 'EquitySelect (HELOC)' },
-  { key: 'cashOutRefi', label: 'Cash-Out Refi' },
-  { key: 'personalLoan', label: 'Personal Loan' },
-];
-
-const equitySelectCompareRows: EquitySelectCompareRow[] = [
-  {
-    feature: 'Keep low-rate 1st mortgage',
-    equitySelect: true,
-    cashOutRefi: false,
-    personalLoan: true,
-    delay: '60ms',
-  },
-  {
-    feature: 'Access funds over time',
-    equitySelect: true,
-    cashOutRefi: false,
-    personalLoan: false,
-    delay: '140ms',
-  },
-  {
-    feature: 'Lower closing costs (vs mortgage)',
-    equitySelect: true,
-    cashOutRefi: false,
-    personalLoan: true,
-    delay: '220ms',
-  },
-  {
-    feature: 'Payment flexibility options',
-    equitySelect: true,
-    cashOutRefi: false,
-    personalLoan: false,
-    delay: '300ms',
-  },
-];
-
-const getCompareValue = (row: EquitySelectCompareRow, key: EquitySelectCompareKey) => row[key];
 ---
 {!landing && (
   <section class="py-10 md:py-16">
@@ -168,58 +98,22 @@ const getCompareValue = (row: EquitySelectCompareRow, key: EquitySelectCompareKe
             </div>
           </div>
 
-          <div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-sm opacity-0 translate-y-3" data-animate="es-compare">
+          <div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-sm">
             <div>
               <h3 class="text-lg font-semibold text-gray-900">Why Homeowners Consider EquitySelect</h3>
+              <p class="mt-2 text-sm text-muted-foreground">
+                Compare easily against other HELOC options by focusing on what matters most.
+              </p>
             </div>
 
             <div class="mt-5 space-y-3">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-circle-check text-[#bf9f5c] mt-0.5"></i>
-                <p class="text-sm text-gray-700">Keep your existing first mortgage in place</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-circle-check text-[#bf9f5c] mt-0.5"></i>
-                <p class="text-sm text-gray-700">Access home equity over time as needs arise</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-circle-check text-[#bf9f5c] mt-0.5"></i>
-                <p class="text-sm text-gray-700">Flexible payment structures based on your goals</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-circle-check text-[#bf9f5c] mt-0.5"></i>
-                <p class="text-sm text-gray-700">Guidance from a licensed mortgage professional</p>
-              </div>
+              {landingBenefitsList.map((benefit) => (
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-check text-[#bf9f5c] mt-0.5"></i>
+                  <p class="text-sm text-gray-700">{benefit}</p>
+                </div>
+              ))}
             </div>
-
-            <style>
-              [data-animate="es-compare"] {
-                transition: opacity 600ms ease, transform 600ms ease;
-              }
-              [data-animate="es-compare"].is-visible {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            </style>
-
-            <script is:inline>
-              (() => {
-                const container = document.querySelector('[data-animate="es-compare"]');
-                if (!container) return;
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        container.classList.add('is-visible');
-                        observer.disconnect();
-                      }
-                    });
-                  },
-                  { threshold: 0.1 }
-                );
-                observer.observe(container);
-              })();
-            </script>
           </div>
         </div>
       </div>
@@ -252,7 +146,7 @@ const getCompareValue = (row: EquitySelectCompareRow, key: EquitySelectCompareKe
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div class="max-w-2xl">
-            <h3 class="text-xl md:text-2xl font-semibold text-white">See if EquitySelect is a fit</h3>
+            <h3 class="text-xl md:text-2xl font-semibold text-white">See if a HELOC option is a fit</h3>
             <p class="mt-2 text-sm md:text-base text-gray-200">
               Request a free quote to explore EquitySelect without refinancing your low-rate first mortgage.
             </p>
@@ -275,21 +169,12 @@ const getCompareValue = (row: EquitySelectCompareRow, key: EquitySelectCompareKe
             <p class="mt-4 text-sm md:text-base text-muted-foreground">
               This loan may be a great fit if you meet the following general criteria:
             </p>
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
-              {landingWhoForCards.map((item) => (
-                <div class="rounded-2xl border bg-gray-50 p-5 shadow-sm h-full">
-                  <div class="flex items-center gap-4 h-full">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-white border flex items-center justify-center">
-                      <i class={`${item.icon} text-xl text-[#bf9f5c]`}></i>
-                    </div>
-                    <div class="flex flex-col justify-center">
-                      <p class="text-sm font-semibold text-gray-900">{item.title}</p>
-                      <p class="mt-1 text-sm text-muted-foreground">{item.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ul class="mt-6 space-y-3 text-sm text-gray-700">
+              <li>» Homeowners who want to unlock equity without refinancing out of a low-rate mortgage</li>
+              <li>» Retirees and near-retirees seeking structured, long-term payments</li>
+              <li>» Families needing ongoing access to funds for renovations, healthcare, or debt payoff</li>
+              <li>» Clients exploring alternatives to reverse mortgages while maintaining required payments</li>
+            </ul>
           </div>
 
           <div class="rounded-2xl bg-gray-50 p-6 md:p-8 shadow-sm" data-heloc-quiz>
@@ -470,9 +355,7 @@ const getCompareValue = (row: EquitySelectCompareRow, key: EquitySelectCompareKe
                     <div class="h-full bg-[#bf9f5c] w-0 transition-all duration-700" data-heloc-score-bar></div>
                   </div>
                   <p class="mt-3 text-sm font-semibold text-gray-900" data-heloc-result-title>Results</p>
-                  <p class="mt-2 text-sm text-muted-foreground" data-heloc-score-text>
-                    Complete the steps to see how strongly a HELOC could match your goals.
-                  </p>
+                  <p class="mt-2 text-sm text-muted-foreground" data-heloc-score-text></p>
 
                   <ul class="mt-4 space-y-2 text-sm text-muted-foreground" data-heloc-result-bullets>
                     <li class="flex items-start gap-3">
