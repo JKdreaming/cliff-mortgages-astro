@@ -6,9 +6,10 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   pageData: PageData;
+  footerVariant?: 'default' | 'landing-page-footer-varient';
 }
 
-const { pageData } = Astro.props;
+const { pageData, footerVariant = 'default' } = Astro.props;
 const SITE_BASE_URL = 'https://cliffmortgages.com';
 const DEFAULT_SOCIAL_IMAGE_URL = `${SITE_BASE_URL}/cliff-default-social-share-image.jpg`;
 
@@ -239,7 +240,7 @@ const schemas = [webpageSchema, faqSchema, breadcrumbSchema, organizationSchema,
       <main class="flex-grow">
         <slot />
       </main>
-      <Footer />
+      <Footer variant={footerVariant} />
     </div>
   </body>
 </html>
