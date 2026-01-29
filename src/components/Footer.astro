@@ -1,67 +1,104 @@
 ---
-import { sitemap } from '../data/sitemap';
-import cliffmortgagesLogo from '../assets/images/cliffmortgages-logo.webp';
-import nrmlaLogo from '../assets/images/nrmla-logo.png';
-import bbbAPlusLogo from '../assets/images/bbb-a-plus-logo.png';
-import cindyProfilePic from '../assets/images/Cindy_Profile_Pic_200x200.jpg';
+import { sitemap } from "../data/sitemap";
+import cliffmortgagesLogo from "../assets/images/cliffmortgages-logo.webp";
+import nrmlaLogo from "../assets/images/nrmla-logo.png";
+import bbbAPlusLogo from "../assets/images/bbb-a-plus-logo.png";
+import cindyProfilePic from "../assets/images/Cindy_Profile_Pic_200x200.jpg";
 
-const quickLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/loan-programs', label: 'Loan Programs' },
-  { href: '/get-a-quote', label: 'Get a Quote' },
+type FooterLink = {
+  label: string;
+  href: string;
+};
+
+type FooterContentItem =
+  | { type: "text"; value: string }
+  | {
+      type: "tel";
+      value: {
+        prefix: string;
+        label: string;
+        href: string;
+        suffix: string;
+      };
+    }
+  | { type: "links"; value: FooterLink[] };
+
+type FooterColumn = {
+  title: string;
+  content: FooterContentItem[];
+};
+
+const quickLinks: FooterLink[] = [
+  { href: "/", label: "Home" },
+  { href: "/loan-programs", label: "Loan Programs" },
+  { href: "/get-a-quote", label: "Get a Quote" },
 ];
 
-const footerColumns = [
+const footerColumns: FooterColumn[] = [
   {
-    title: 'Company',
+    title: "Company",
     content: [
       {
-        type: 'text',
+        type: "text",
         value:
-          'C2 Financial Corporation is registered with the Colorado Division of Real Estate, NMLS #135622. Loan approval is not guaranteed and is subject to lender review of information. All approvals are conditional until issued in writing by the lender, and all conditions must be met by the borrower. Rates, terms, and availability are subject to change with market conditions and borrower eligibility.',
+          "C2 Financial Corporation is registered with the Colorado Division of Real Estate, NMLS #135622. Loan approval is not guaranteed and is subject to lender review of information. All approvals are conditional until issued in writing by the lender, and all conditions must be met by the borrower. Rates, terms, and availability are subject to change with market conditions and borrower eligibility.",
       },
-      { type: 'text', value: 'Corporate Office: 12230 El Camino Real, Suite 100, San Diego, CA 92130' },
+      {
+        type: "text",
+        value:
+          "Corporate Office: 12230 El Camino Real, Suite 100, San Diego, CA 92130",
+      },
     ],
   },
   {
-    title: 'Equal Housing & Disclosures',
+    title: "Equal Housing & Disclosures",
     content: [
       {
-        type: 'text',
+        type: "text",
         value:
           "C2 Financial Corporation is an Equal Housing Opportunity Mortgage Broker/Lender. C2 is not acting on behalf of, or at the direction of, HUD/FHA or the VA. VA loans are offered through C2’s relationships with VA-approved lenders.",
       },
       {
-        type: 'links',
+        type: "links",
         value: [
-          { label: 'C2 Financial Corporation', href: 'https://www.c2financialcorp.com/' },
-          { label: 'NMLS Consumer Access', href: 'https://www.nmlsconsumeraccess.org/' },
+          {
+            label: "C2 Financial Corporation",
+            href: "https://www.c2financialcorp.com/",
+          },
+          {
+            label: "NMLS Consumer Access",
+            href: "https://www.nmlsconsumeraccess.org/",
+          },
         ],
       },
     ],
   },
   {
-    title: 'Team Contacts',
+    title: "Team Contacts",
     content: [
-      { type: 'text', value: 'Cindy Cliff, Mortgage Loan Originator NMLS #2075376 | DRE #100524014 | 970-699-3900' },
       {
-        type: 'tel',
+        type: "text",
+        value:
+          "Cindy Cliff, Mortgage Loan Originator NMLS #2075376 | DRE #100524014 | 970-699-3900",
+      },
+      {
+        type: "tel",
         value: {
-          prefix: 'Cindy Cliff, ',
-          label: '970-699-3900',
-          href: 'tel:970-699-3900',
-          suffix: ', Loan Originator, NMLS #2075376 | DRE #100524014',
+          prefix: "Cindy Cliff, ",
+          label: "970-699-3900",
+          href: "tel:970-699-3900",
+          suffix: ", Loan Originator, NMLS #2075376 | DRE #100524014",
         },
       },
     ],
   },
   {
-    title: 'Service Area',
+    title: "Service Area",
     content: [
       {
-        type: 'text',
+        type: "text",
         value:
-          'Colorado-based mortgage services offering home loans throughout Colorado’s key markets: Denver Metro | Boulder | Fort Collins | Loveland | Greeley | Longmont | Colorado Springs | Northern Colorado | The Front Range — plus referral partnerships through C2 Financial for clients in 29 additional states.',
+          "Colorado-based mortgage services offering home loans throughout Colorado’s key markets: Denver Metro | Boulder | Fort Collins | Loveland | Greeley | Longmont | Colorado Springs | Northern Colorado | The Front Range — plus referral partnerships through C2 Financial for clients in 29 additional states.",
       },
     ],
   },
@@ -69,208 +106,298 @@ const footerColumns = [
 
 const currentYear = new Date().getFullYear();
 interface FooterProps {
-  variant?: 'default' | 'landing-page-footer-varient';
+  variant?: "default" | "landing-page-footer-varient";
 }
 
-const { variant = 'default' }: FooterProps = Astro.props;
-const showLandingVariant = variant === 'landing-page-footer-varient';
+const { variant = "default" }: FooterProps = Astro.props;
+const showLandingVariant = variant === "landing-page-footer-varient";
 const disclosureColumns =
-  variant === 'landing-page-footer-varient'
-    ? footerColumns.filter((column) => column.title !== 'Service Area')
+  variant === "landing-page-footer-varient"
+    ? footerColumns.filter((column) => column.title !== "Service Area")
     : footerColumns;
 ---
+
 <footer class="bg-gray-900 text-gray-200">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-    {showLandingVariant ? (
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        <div class="space-y-4">
-          <a href="/" class="inline-block footer-logo">
-            <img
-              src={cliffmortgagesLogo.src}
-              alt="Cliff Mortgages Logo"
-              class="h-10 w-auto rounded-[10px]"
-              width="160"
-              height="40"
-              loading="lazy"
-            />
-          </a>
-          <div class="flex items-center gap-3 text-xs text-gray-300">
-            <svg class="h-8 w-8 flex-shrink-0 text-white" viewBox="0 0 64 64" role="img" aria-labelledby="equal-housing-title">
-              <title id="equal-housing-title">Equal Housing Opportunity</title>
-              <path
-                fill="currentColor"
-                d="M32 6 4 24v6h6v28h44V30h6v-6L32 6zm16 46H16V30h32v22zm-24-4h16v-6H24v6zm0-10h16v-6H24v6z"
+    {
+      showLandingVariant ? (
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+          <div class="space-y-4">
+            <a href="/" class="inline-block footer-logo">
+              <img
+                src={cliffmortgagesLogo.src}
+                alt="Cliff Mortgages Logo"
+                class="h-10 w-auto rounded-[10px]"
+                width="160"
+                height="40"
+                loading="lazy"
               />
-            </svg>
-            <span class="uppercase tracking-wide">Equal Housing Opportunity</span>
+            </a>
+            <div class="flex items-center gap-3 text-xs text-gray-300">
+              <svg
+                class="h-8 w-8 flex-shrink-0 text-white"
+                viewBox="0 0 64 64"
+                role="img"
+                aria-labelledby="equal-housing-title"
+              >
+                <title id="equal-housing-title">
+                  Equal Housing Opportunity
+                </title>
+                <path
+                  fill="currentColor"
+                  d="M32 6 4 24v6h6v28h44V30h6v-6L32 6zm16 46H16V30h32v22zm-24-4h16v-6H24v6zm0-10h16v-6H24v6z"
+                />
+              </svg>
+              <span class="uppercase tracking-wide">
+                Equal Housing Opportunity
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h4 class="font-semibold text-white mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm">
-            {sitemap.legal.map(link => (
-              <li>
-                <a href={link.path} class="hover:text-white">{link.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="space-y-2">
-          <p class="text-sm leading-relaxed font-semibold text-white/90">Serving all of Colorado</p>
-          <a href="tel:+1970-699-3900" class="text-sm leading-relaxed text-white/90">Phone: 970-699-3900</a><br />
-          <a href="tel:+1970-308-2540" class="text-sm leading-relaxed text-white/90">Alt Phone: 970-308-2540</a>
-        </div>
-
-        <div class="flex items-start lg:justify-end">
-          <div class="inline-flex items-center gap-4 bg-white rounded-[10px] p-2.5 w-fit">
-            <img
-              src={nrmlaLogo.src}
-              alt="National Reverse Mortgage Lenders Association member"
-              class="w-[60px] h-auto object-contain"
-              width="60"
-              height="30"
-              loading="lazy"
-            />
-            <img
-              src={bbbAPlusLogo.src}
-              alt="Better Business Bureau A+ rating"
-              class="w-[60px] h-auto object-contain"
-              width="60"
-              height="30"
-              loading="lazy"
-            />
+          <div>
+            <h4 class="font-semibold text-white mb-3">Legal</h4>
+            <ul class="space-y-2 text-sm">
+              {sitemap.legal.map((link) => (
+                <li>
+                  <a href={link.path} class="hover:text-white">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </div>
-    ) : (
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        <div class="space-y-4">
-          <a href="/" class="inline-block footer-logo">
-            <img
-              src={cliffmortgagesLogo.src}
-              alt="Cliff Mortgages Logo"
-              class="h-10 w-auto rounded-[10px]"
-              width="160"
-              height="40"
-              loading="lazy"
-            />
-          </a>
-          <div class="flex items-center gap-3 text-xs text-gray-300">
-            <svg class="h-8 w-8 flex-shrink-0 text-white" viewBox="0 0 64 64" role="img" aria-labelledby="equal-housing-title">
-              <title id="equal-housing-title">Equal Housing Opportunity</title>
-              <path
-                fill="currentColor"
-                d="M32 6 4 24v6h6v28h44V30h6v-6L32 6zm16 46H16V30h32v22zm-24-4h16v-6H24v6zm0-10h16v-6H24v6z"
+
+          <div class="space-y-2">
+            <p class="text-sm leading-relaxed font-semibold text-white/90">
+              Serving all of Colorado
+            </p>
+            <>
+              <a
+                href="tel:+1970-699-3900"
+                class="text-sm leading-relaxed text-white/90"
+              >
+                Phone: 970-699-3900
+              </a>
+              <br />
+            </>
+            <a
+              href="tel:+1970-308-2540"
+              class="text-sm leading-relaxed text-white/90"
+            >
+              Alt Phone: 970-308-2540
+            </a>
+          </div>
+
+          <div class="flex items-start lg:justify-end">
+            <div class="inline-flex items-center gap-4 bg-white rounded-[10px] p-2.5 w-fit">
+              <img
+                src={nrmlaLogo.src}
+                alt="National Reverse Mortgage Lenders Association member"
+                class="w-[60px] h-auto object-contain"
+                width="60"
+                height="30"
+                loading="lazy"
               />
-            </svg>
-            <span class="uppercase tracking-wide">Equal Housing Opportunity</span>
-          </div>
-          <div class="inline-flex items-center gap-4 bg-white rounded-[10px] p-2.5 w-fit">
-            <img
-              src={nrmlaLogo.src}
-              alt="National Reverse Mortgage Lenders Association member"
-              class="w-[60px] h-auto object-contain"
-              width="60"
-              height="30"
-              loading="lazy"
-            />
-            <img
-              src={bbbAPlusLogo.src}
-              alt="Better Business Bureau A+ rating"
-              class="w-[60px] h-auto object-contain"
-              width="60"
-              height="30"
-              loading="lazy"
-            />
+              <img
+                src={bbbAPlusLogo.src}
+                alt="Better Business Bureau A+ rating"
+                class="w-[60px] h-auto object-contain"
+                width="60"
+                height="30"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
+      ) : (
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+          <div class="space-y-4">
+            <a href="/" class="inline-block footer-logo">
+              <img
+                src={cliffmortgagesLogo.src}
+                alt="Cliff Mortgages Logo"
+                class="h-10 w-auto rounded-[10px]"
+                width="160"
+                height="40"
+                loading="lazy"
+              />
+            </a>
+            <div class="flex items-center gap-3 text-xs text-gray-300">
+              <svg
+                class="h-8 w-8 flex-shrink-0 text-white"
+                viewBox="0 0 64 64"
+                role="img"
+                aria-labelledby="equal-housing-title"
+              >
+                <title id="equal-housing-title">
+                  Equal Housing Opportunity
+                </title>
+                <path
+                  fill="currentColor"
+                  d="M32 6 4 24v6h6v28h44V30h6v-6L32 6zm16 46H16V30h32v22zm-24-4h16v-6H24v6zm0-10h16v-6H24v6z"
+                />
+              </svg>
+              <span class="uppercase tracking-wide">
+                Equal Housing Opportunity
+              </span>
+            </div>
+            <div class="inline-flex items-center gap-4 bg-white rounded-[10px] p-2.5 w-fit">
+              <img
+                src={nrmlaLogo.src}
+                alt="National Reverse Mortgage Lenders Association member"
+                class="w-[60px] h-auto object-contain"
+                width="60"
+                height="30"
+                loading="lazy"
+              />
+              <img
+                src={bbbAPlusLogo.src}
+                alt="Better Business Bureau A+ rating"
+                class="w-[60px] h-auto object-contain"
+                width="60"
+                height="30"
+                loading="lazy"
+              />
+            </div>
+          </div>
 
-        <div>
-          <h4 class="font-semibold text-white mb-3">Quick Links</h4>
-          <ul class="space-y-2 text-sm">
-            {quickLinks.map(link => (
-              <li><a href={link.href} class="hover:text-white">{link.label}</a></li>
-            ))}
-          </ul>
-        </div>
+          <div>
+            <h4 class="font-semibold text-white mb-3">Quick Links</h4>
+            <ul class="space-y-2 text-sm">
+              {quickLinks.map((link) => (
+                <li>
+                  <a href={link.href} class="hover:text-white">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div>
-          <h4 class="font-semibold text-white mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm">
-            {sitemap.legal.map(link => (
-              <li>
-                <a href={link.path} class="hover:text-white">{link.name}</a>
-              </li>
-            ))}
-          </ul>
-          <h4 class="font-semibold text-white mt-6 mb-3">Contact</h4>
-          <p class="text-sm leading-relaxed font-semibold text-white/90">Serving all of Colorado</p>
-          <a href="tel:+1970-699-3900" class="text-sm leading-relaxed text-white/90">Phone: 970-699-3900</a><br />
-          <a href="tel:+1970-308-2540" class="text-sm leading-relaxed text-white/90">Alt Phone: 970-308-2540</a>
-        </div>
+          <div>
+            <h4 class="font-semibold text-white mb-3">Legal</h4>
+            <ul class="space-y-2 text-sm">
+              {sitemap.legal.map((link) => (
+                <li>
+                  <a href={link.path} class="hover:text-white">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <h4 class="font-semibold text-white mt-6 mb-3">Contact</h4>
+            <p class="text-sm leading-relaxed font-semibold text-white/90">
+              Serving all of Colorado
+            </p>
+            <>
+              <a
+                href="tel:+1970-699-3900"
+                class="text-sm leading-relaxed text-white/90"
+              >
+                Phone: 970-699-3900
+              </a>
+              <br />
+            </>
+            <a
+              href="tel:+1970-308-2540"
+              class="text-sm leading-relaxed text-white/90"
+            >
+              Alt Phone: 970-308-2540
+            </a>
+          </div>
 
-        <div class="flex flex-col items-center text-center gap-3">
-          <img
-            src={cindyProfilePic.src}
-            alt="Cindy Cliff"
-            class="w-1/2 rounded-[200px] object-cover"
-            width="200"
-            height="200"
-            loading="lazy"
-          />
-          <h2 class="text-white font-semibold text-xl">Cindy Cliff</h2>
-          <p class="text-sm text-gray-300 -mt-[10px]">Loan Originator</p>
-          <p class="text-xs text-gray-400">
-            NMLS #2075376
-            <br />
-            DRE #100524014
-          </p>
+          <div class="flex flex-col items-center text-center gap-3">
+            <img
+              src={cindyProfilePic.src}
+              alt="Cindy Cliff"
+              class="w-1/2 rounded-[200px] object-cover"
+              width="200"
+              height="200"
+              loading="lazy"
+            />
+            <h2 class="text-white font-semibold text-xl">Cindy Cliff</h2>
+            <p class="text-sm text-gray-300 -mt-[10px]">Loan Originator</p>
+            <p class="text-xs text-gray-400">
+              NMLS #2075376
+              <br />
+              DRE #100524014
+            </p>
+          </div>
         </div>
-      </div>
-    )}
+      )
+    }
 
     <div class="border-t border-gray-700 pt-10">
-      <div class={`grid grid-cols-1 md:grid-cols-2 ${showLandingVariant ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-8 text-sm leading-relaxed`}>
-        {disclosureColumns.map(column => (
-          <div class="space-y-3">
-            <h4 class="text-white font-semibold text-sm uppercase tracking-wide">{column.title}</h4>
-            {column.content.map((item, index) => (
-              item.type === 'text' ? (
-                <p class="text-gray-300 text-xs leading-relaxed">{item.value}</p>
-              ) : item.type === 'tel' ? (
-                <p class="text-gray-300 text-xs leading-relaxed">
-                  {item.value.prefix}
-                  <a href={item.value.href} class="underline hover:text-white">{item.value.label}</a>
-                  {item.value.suffix}
-                </p>
-              ) : (
-                <p class="text-gray-300 text-xs leading-relaxed space-x-2">
-                  {item.value.map((link, linkIdx) => (
-                    <>
-                      {linkIdx > 0 && <span>&nbsp;</span>}
-                      <a href={link.href} class="underline hover:text-white" target="_blank" rel="noopener noreferrer">
-                        {link.label}
+      <div
+        class={`grid grid-cols-1 md:grid-cols-2 ${showLandingVariant ? "lg:grid-cols-3" : "lg:grid-cols-4"} gap-8 text-sm leading-relaxed`}
+      >
+        {
+          disclosureColumns.map((column) => (
+            <div class="space-y-3">
+              <h4 class="text-white font-semibold text-sm uppercase tracking-wide">
+                {column.title}
+              </h4>
+              {column.content.map((item) => {
+                if (item.type === "text") {
+                  return (
+                    <p class="text-gray-300 text-xs leading-relaxed">
+                      {item.value}
+                    </p>
+                  );
+                }
+
+                if (item.type === "tel") {
+                  const { prefix, href, label, suffix } = item.value;
+                  return (
+                    <p class="text-gray-300 text-xs leading-relaxed">
+                      {prefix}
+                      <a href={href} class="underline hover:text-white">
+                        {label}
                       </a>
-                    </>
-                  ))}
-                </p>
-              )
-            ))}
-          </div>
-        ))}
+                      {suffix}
+                    </p>
+                  );
+                }
+
+                return (
+                  <p class="text-gray-300 text-xs leading-relaxed space-x-2">
+                    {item.value.map((link, linkIdx) => (
+                      <>
+                        {linkIdx > 0 && <span>&nbsp;</span>}
+                        <a
+                          href={link.href}
+                          class="underline hover:text-white"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                );
+              })}
+            </div>
+          ))
+        }
       </div>
     </div>
 
-    <div class="border-t border-gray-700 pt-6 text-center text-xs text-gray-400 space-y-2">
+    <div
+      class="border-t border-gray-700 pt-6 text-center text-xs text-gray-400 space-y-2"
+    >
       <p>
-        C2 Financial Corporation — NMLS #135622. Equal Housing Opportunity. See our 
-        <a href="/legal/privacy-policy" class="underline hover:text-white">Privacy Policy</a>
-        {' '}
-        and 
-        <a href="/legal/accessibility" class="underline hover:text-white">Accessibility</a>
-        {' '}pages for details.
+        C2 Financial Corporation — NMLS #135622. Equal Housing Opportunity. See
+        our
+        <a href="/legal/privacy-policy" class="underline hover:text-white"
+          >Privacy Policy</a
+        >
+        {" "}
+        and
+        <a href="/legal/accessibility" class="underline hover:text-white"
+          >Accessibility</a
+        >
+        {" "}pages for details.
       </p>
       <p>Copyright © {currentYear} Cliff Mortgages. All rights reserved.</p>
     </div>

@@ -1,8 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { allPageData } from '../data/sitemap';
-import { heroImageAssignments, backgroundImageAssignments } from '../data/imageAssignments';
+import { Picture } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { allPageData } from "../data/sitemap";
+import {
+  heroImageAssignments,
+  backgroundImageAssignments,
+} from "../data/imageAssignments";
 
 interface Program {
   path: string;
@@ -12,7 +15,7 @@ interface Program {
   titleOverride?: string;
 }
 
-const pageData = allPageData['/'];
+const pageData = allPageData["/"];
 const presetWidths = [320, 480, 640, 768, 1024, 1280, 1536, 1920];
 const computeWidths = (assetWidth: number) => {
   let widths = presetWidths.filter((width) => width < assetWidth);
@@ -33,127 +36,135 @@ const equityBannerWidths = computeWidths(equityBanner.width);
 
 const specializedPrograms: Program[] = [
   {
-    path: '/loan-programs/purchase',
-    name: 'Purchase Loans',
-    icon: 'fa-solid fa-key',
+    path: "/loan-programs/purchase",
+    name: "Purchase Loans",
+    icon: "fa-solid fa-key",
     description:
       "Find the right loan to buy your first home or next property. We guide you through every step with flexible options and local expertise.",
-    titleOverride: 'Purchase Loans Made Simple',
+    titleOverride: "Purchase Loans Made Simple",
   },
   {
-    path: '/loan-programs/heloc',
-    name: 'HELOC',
-    icon: 'fa-solid fa-house-chimney-window',
+    path: "/loan-programs/heloc",
+    name: "HELOC",
+    icon: "fa-solid fa-house-chimney-window",
     description:
       "Tap into your home's equity to fund renovations, debt consolidation, or new investments with our competitive HELOC programs.",
-    titleOverride: 'Flexible Home Equity Lines of Credit',
+    titleOverride: "Flexible Home Equity Lines of Credit",
   },
   {
-    path: '/loan-programs/dscr',
-    name: 'DSCR / Investor',
-    icon: 'fa-solid fa-building-columns',
+    path: "/loan-programs/dscr",
+    name: "DSCR / Investor",
+    icon: "fa-solid fa-building-columns",
     description:
       "Qualify based on rental income or alternative criteria. Our DSCR and Non-QM programs are built for today's investors.",
-    titleOverride: 'Smart Investor Solutions with DSCR & Non-QM',
+    titleOverride: "Smart Investor Solutions with DSCR & Non-QM",
   },
   {
-    path: '/loan-programs/reverse-mortgage',
-    name: 'Reverse Mortgages',
-    icon: 'fa-solid fa-user-clock',
+    path: "/loan-programs/reverse-mortgage",
+    name: "Reverse Mortgages",
+    icon: "fa-solid fa-user-clock",
     description:
-      'Stay in your home while accessing your equity. Our reverse mortgage solutions provide financial freedom in retirement.',
-    titleOverride: 'Secure Your Future with a Reverse Mortgage',
+      "Stay in your home while accessing your equity. Our reverse mortgage solutions provide financial freedom in retirement.",
+    titleOverride: "Secure Your Future with a Reverse Mortgage",
   },
 ];
 
 const governmentPrograms: Program[] = [
   {
-    path: '/loan-programs/fha',
-    name: 'FHA Loans',
-    icon: 'fa-solid fa-house-flag',
+    path: "/loan-programs/fha",
+    name: "FHA Loans",
+    icon: "fa-solid fa-house-flag",
     description:
-      'Benefit from low down payments and easier qualification. FHA loans make homeownership more accessible for many buyers.',
-    titleOverride: 'Affordable FHA Loans',
+      "Benefit from low down payments and easier qualification. FHA loans make homeownership more accessible for many buyers.",
+    titleOverride: "Affordable FHA Loans",
   },
   {
-    path: '/loan-programs/fha-203k',
-    name: 'FHA 203(k) Loans',
-    icon: 'fa-solid fa-hammer',
+    path: "/loan-programs/fha-203k",
+    name: "FHA 203(k) Loans",
+    icon: "fa-solid fa-hammer",
     description:
-      'Finance both the purchase and improvements of a home with one loan. Perfect for fixer-uppers or remodels.',
-    titleOverride: 'FHA 203(k) Renovation Loans',
+      "Finance both the purchase and improvements of a home with one loan. Perfect for fixer-uppers or remodels.",
+    titleOverride: "FHA 203(k) Renovation Loans",
   },
   {
-    path: '/loan-programs/va',
-    name: 'VA Loans',
-    icon: 'fa-solid fa-shield-halved',
+    path: "/loan-programs/va",
+    name: "VA Loans",
+    icon: "fa-solid fa-shield-halved",
     description:
-      'Take advantage of exclusive benefits for veterans and active service members, including no down payment and reduced fees.',
-    titleOverride: 'VA Loans for Military Families',
+      "Take advantage of exclusive benefits for veterans and active service members, including no down payment and reduced fees.",
+    titleOverride: "VA Loans for Military Families",
   },
   {
-    path: '/loan-programs/usda',
-    name: 'USDA Loans',
-    icon: 'fa-solid fa-tractor',
+    path: "/loan-programs/usda",
+    name: "USDA Loans",
+    icon: "fa-solid fa-tractor",
     description:
-      'Designed for rural and suburban buyers, USDA loans offer affordable financing with no down payment required.',
-    titleOverride: 'USDA Rural Housing Loans',
+      "Designed for rural and suburban buyers, USDA loans offer affordable financing with no down payment required.",
+    titleOverride: "USDA Rural Housing Loans",
   },
 ];
 
 const expandedPrograms: Program[] = [
   {
-    path: '/loan-programs/conventional',
-    name: 'Conventional Loans',
-    icon: 'fa-solid fa-handshake',
+    path: "/loan-programs/conventional",
+    name: "Conventional Loans",
+    icon: "fa-solid fa-handshake",
     description:
-      'Choose from flexible term options and competitive rates. Conventional loans are a reliable choice for well-qualified borrowers.',
-    titleOverride: 'Conventional Loan Programs',
+      "Choose from flexible term options and competitive rates. Conventional loans are a reliable choice for well-qualified borrowers.",
+    titleOverride: "Conventional Loan Programs",
   },
   {
-    path: '/loan-programs/jumbo',
-    name: 'Jumbo Loans',
-    icon: 'fa-solid fa-gem',
+    path: "/loan-programs/jumbo",
+    name: "Jumbo Loans",
+    icon: "fa-solid fa-gem",
     description:
-      'Finance luxury properties with larger loan amounts and tailored terms to fit your unique goals.',
-    titleOverride: 'Jumbo Loans for High-Value Homes',
+      "Finance luxury properties with larger loan amounts and tailored terms to fit your unique goals.",
+    titleOverride: "Jumbo Loans for High-Value Homes",
   },
   {
-    path: '/loan-programs/commercial',
-    name: 'Commercial Loans',
-    icon: 'fa-solid fa-city',
+    path: "/loan-programs/commercial",
+    name: "Commercial Loans",
+    icon: "fa-solid fa-city",
     description:
       "Whether you're building new or financing business property, we provide solutions for growth and expansion.",
-    titleOverride: 'Commercial & Construction Loans',
+    titleOverride: "Commercial & Construction Loans",
   },
   {
-    path: '/loan-programs/refinance',
-    name: 'Refinance',
-    icon: 'fa-solid fa-arrows-rotate',
+    path: "/loan-programs/refinance",
+    name: "Refinance",
+    icon: "fa-solid fa-arrows-rotate",
     description:
-      'Lower your rate, access cash, or restructure your mortgage. Explore refinancing and other creative lending strategies.',
-    titleOverride: 'Refinance & Alternative Loan Options',
+      "Lower your rate, access cash, or restructure your mortgage. Explore refinancing and other creative lending strategies.",
+    titleOverride: "Refinance & Alternative Loan Options",
   },
 ];
-
 ---
+
 <BaseLayout pageData={pageData}>
   <div class="relative bg-white overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative z-10 py-20 sm:py-28 lg:max-w-[50%] lg:pr-12">
         <div class="max-w-xl">
           <div class="mb-4">
-            <span class="inline-block bg-gray-200 text-gray-700 rounded-full px-4 py-1.5 text-sm font-semibold">
+            <span
+              class="inline-block bg-gray-200 text-gray-700 rounded-full px-4 py-1.5 text-sm font-semibold"
+            >
               Personal Mortgage Guidance • Serving All of Colorado
             </span>
           </div>
 
-          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            Your Trusted Partner for <span class="text-[#bf9f5c]">Colorado Home Financing</span>
+          <h1
+            class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
+          >
+            Your Trusted Partner for <span class="text-[#bf9f5c]"
+              >Colorado Home Financing</span
+            >
           </h1>
 
           <p class="mt-6 text-lg text-gray-600">
-            From buying your first home to tapping equity for renovations or retirement, Cliff Mortgages helps Coloradans find smart, flexible loan solutions with clarity and personalized care.
+            From buying your first home to tapping equity for renovations or
+            retirement, Cliff Mortgages helps Coloradans find smart, flexible
+            loan solutions with clarity and personalized care.
           </p>
 
           <div class="mt-8 flex flex-wrap gap-4">
@@ -173,45 +184,63 @@ const expandedPrograms: Program[] = [
             </a>
           </div>
 
-          <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 text-left">
+          <div
+            class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 text-left"
+          >
             <div class="flex items-center">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center"
+              >
                 <i class="fa-solid fa-user-tie text-xl text-[#bf9f5c]"></i>
               </div>
               <div class="ml-4">
                 <p class="font-bold text-gray-900">Expert Guidance</p>
-                <p class="text-sm text-gray-600">Local support with a personal touch.</p>
+                <p class="text-sm text-gray-600">
+                  Local support with a personal touch.
+                </p>
               </div>
             </div>
             <div class="flex items-center">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center"
+              >
                 <i class="fa-solid fa-list-check text-xl text-[#bf9f5c]"></i>
               </div>
               <div class="ml-4">
                 <p class="font-bold text-gray-900">More Options</p>
-                <p class="text-sm text-gray-600">Access to 100+ wholesale lenders through C2 Financial.</p>
+                <p class="text-sm text-gray-600">
+                  Access to 100+ wholesale lenders through C2 Financial.
+                </p>
               </div>
             </div>
             <div class="flex items-center">
-              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
-                <i class="fa-solid fa-map-marker-alt text-xl text-[#bf9f5c]"></i>
+              <div
+                class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-map-marker-alt text-xl text-[#bf9f5c]"
+                ></i>
               </div>
               <div class="ml-4">
                 <p class="font-bold text-gray-900">Colorado Focused</p>
-                <p class="text-sm text-gray-600">Experience with Colorado buyers, homeowners, and investors.</p>
+                <p class="text-sm text-gray-600">
+                  Experience with Colorado buyers, homeowners, and investors.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="mt-10 sm:mt-12 lg:mt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <Image
+    <div
+      class="mt-10 sm:mt-12 lg:mt-0 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+    >
+      <Picture
         src={hero.asset}
         alt={hero.alt}
         widths={heroWidths}
         sizes="(max-width: 1024px) 100vw, 50vw"
-        formats={['avif', 'webp', 'jpeg']}
+        formats={["avif", "webp"]}
+        fallbackFormat="jpeg"
         loading="eager"
         class="w-full h-64 sm:h-80 md:h-96 lg:h-full object-cover"
       />
@@ -224,60 +253,85 @@ const expandedPrograms: Program[] = [
         <div class="lg:col-span-1">
           <p class="font-semibold text-[#09143e]">Flexible Loan Options</p>
           <h2 class="text-3xl font-bold text-gray-900 mt-2">
-            Specialized Mortgage Services in Colorado – HELOC, DSCR, Reverse, and Purchase Loans
+            Specialized Mortgage Services in Colorado – HELOC, DSCR, Reverse,
+            and Purchase Loans
           </h2>
         </div>
         <div class="lg:col-span-2">
           <p class="text-gray-600">
-            Not every borrower fits a traditional lending box — that’s where we specialize. From home purchases and refinances to HELOCs, Reverse Mortgages, DSCR loans, and creative financing, we provide clear guidance and flexible solutions for every stage of homeownership. Backed by C2 Financial’s competitive wholesale network, we help you access smart mortgage options with confidence.
+            Not every borrower fits a traditional lending box — that’s where we
+            specialize. From home purchases and refinances to HELOCs, Reverse
+            Mortgages, DSCR loans, and creative financing, we provide clear
+            guidance and flexible solutions for every stage of homeownership.
+            Backed by C2 Financial’s competitive wholesale network, we help you
+            access smart mortgage options with confidence.
           </p>
         </div>
       </div>
       <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {specializedPrograms.map(program => (
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80 h-full flex flex-col" key={program.path}>
-            <i class={`${program.icon} fa-2x text-[#bf9f5c] mb-4`}></i>
-            <h3 class="text-lg font-bold text-gray-900">{program.titleOverride ?? program.name}</h3>
-            <p class="mt-2 text-gray-600 text-sm flex-grow">{program.description}</p>
-            <a
-              href={program.path}
-              class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
-            >
-              Learn more about {program.titleOverride ?? program.name}{' '}
-              <span class="transition-transform group-hover:translate-x-1 inline-block" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        ))}
+        {
+          specializedPrograms.map((program) => (
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80 h-full flex flex-col">
+              <i class={`${program.icon} fa-2x text-[#bf9f5c] mb-4`} />
+              <h3 class="text-lg font-bold text-gray-900">
+                {program.titleOverride ?? program.name}
+              </h3>
+              <p class="mt-2 text-gray-600 text-sm flex-grow">
+                {program.description}
+              </p>
+              <a
+                href={program.path}
+                class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
+              >
+                Learn more about {program.titleOverride ?? program.name}{" "}
+                <span
+                  class="transition-transform group-hover:translate-x-1 inline-block"
+                  aria-hidden="true"
+                >
+                  &rarr;
+                </span>
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <section class="bg-white py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold text-gray-900">Your Partner in Colorado Homeownership</h2>
+      <h2 class="text-3xl font-bold text-gray-900">
+        Your Partner in Colorado Homeownership
+      </h2>
       <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
-        As a mortgage broker, we work for you, not the banks. We're committed to finding the right loan for your unique situation.
+        As a mortgage broker, we work for you, not the banks. We're committed to
+        finding the right loan for your unique situation.
       </p>
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         <div class="p-6 text-center">
           <i class="fa-solid fa-user-tie fa-3x text-[#bf9f5c] mb-4"></i>
           <h3 class="font-bold text-lg text-gray-800">Expert Guidance</h3>
           <p class="mt-2 text-gray-600">
-            Navigate the complex mortgage landscape with a knowledgeable guide by your side, ensuring you make informed decisions.
+            Navigate the complex mortgage landscape with a knowledgeable guide
+            by your side, ensuring you make informed decisions.
           </p>
         </div>
         <div class="p-6 text-center">
           <i class="fa-solid fa-list-check fa-3x text-[#bf9f5c] mb-4"></i>
           <h3 class="font-bold text-lg text-gray-800">More Loan Options</h3>
           <p class="mt-2 text-gray-600">
-            We shop dozens of lenders to provide you with a wide array of loan programs, finding competitive rates and terms you might not find on your own.
+            We shop dozens of lenders to provide you with a wide array of loan
+            programs, finding competitive rates and terms you might not find on
+            your own.
           </p>
         </div>
         <div class="p-6 text-center">
           <i class="fa-solid fa-handshake-simple fa-3x text-[#bf9f5c] mb-4"></i>
           <h3 class="font-bold text-lg text-gray-800">Personalized Service</h3>
           <p class="mt-2 text-gray-600">
-            You're more than just a number. We take the time to understand your goals to provide a tailored, seamless experience from start to finish.
+            You're more than just a number. We take the time to understand your
+            goals to provide a tailored, seamless experience from start to
+            finish.
           </p>
         </div>
       </div>
@@ -290,44 +344,60 @@ const expandedPrograms: Program[] = [
         <div class="lg:col-span-1">
           <p class="font-semibold text-[#09143e]">Trusted Loan Programs</p>
           <h2 class="text-3xl font-bold text-gray-900 mt-2">
-            Government-Backed Loan Programs – FHA, VA, USDA, and Renovation Loans
+            Government-Backed Loan Programs – FHA, VA, USDA, and Renovation
+            Loans
           </h2>
         </div>
         <div class="lg:col-span-2">
           <p class="text-gray-600">
-            Government-backed loan programs provide more accessible paths to homeownership, especially for buyers who need lower down payments, reduced interest rates, or flexible qualification standards. Whether you're purchasing your first home, renovating a property, or taking advantage of veteran benefits, these programs deliver trusted options supported by federal agencies.
+            Government-backed loan programs provide more accessible paths to
+            homeownership, especially for buyers who need lower down payments,
+            reduced interest rates, or flexible qualification standards. Whether
+            you're purchasing your first home, renovating a property, or taking
+            advantage of veteran benefits, these programs deliver trusted
+            options supported by federal agencies.
           </p>
         </div>
       </div>
       <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {governmentPrograms.map(program => (
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80 h-full flex flex-col" key={program.path}>
-            <i class={`${program.icon} fa-2x text-[#bf9f5c] mb-4`}></i>
-            <h3 class="text-lg font-bold text-gray-900">{program.titleOverride ?? program.name}</h3>
-            <p class="mt-2 text-gray-600 text-sm flex-grow">{program.description}</p>
-            <a
-              href={program.path}
-              class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
-            >
-              Learn more about {program.titleOverride ?? program.name}{' '}
-              <span class="transition-transform group-hover:translate-x-1 inline-block" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        ))}
+        {
+          governmentPrograms.map((program) => (
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80 h-full flex flex-col">
+              <i class={`${program.icon} fa-2x text-[#bf9f5c] mb-4`} />
+              <h3 class="text-lg font-bold text-gray-900">
+                {program.titleOverride ?? program.name}
+              </h3>
+              <p class="mt-2 text-gray-600 text-sm flex-grow">
+                {program.description}
+              </p>
+              <a
+                href={program.path}
+                class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
+              >
+                Learn more about {program.titleOverride ?? program.name}{" "}
+                <span
+                  class="transition-transform group-hover:translate-x-1 inline-block"
+                  aria-hidden="true"
+                >
+                  &rarr;
+                </span>
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section
-    class="relative overflow-hidden h-[60vh]"
-  >
+  <section class="relative overflow-hidden h-[60vh]">
     <div class="absolute inset-0">
-      <Image
+      <Picture
         src={equityBanner.asset}
         alt=""
         widths={equityBannerWidths}
         sizes="100vw"
-        formats={['avif', 'webp', 'jpeg']}
+        formats={["avif", "webp"]}
+        fallbackFormat="jpeg"
         loading="lazy"
         class="h-full w-full object-cover"
         role="presentation"
@@ -335,11 +405,18 @@ const expandedPrograms: Program[] = [
       <div class="absolute inset-0 bg-[#09143e]/80" aria-hidden="true"></div>
     </div>
     <div class="relative z-10 h-full">
-      <div class="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center text-white gap-4">
-        <p class="text-sm font-bold tracking-widest uppercase text-gray-300">New</p>
-        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">EquitySelect</h2>
+      <div
+        class="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center text-white gap-4"
+      >
+        <p class="text-sm font-bold tracking-widest uppercase text-gray-300">
+          New
+        </p>
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          EquitySelect
+        </h2>
         <p class="text-lg max-w-xl mx-auto text-gray-200">
-          A flexible line of credit with payment plans as low as 1% of your annual loan balance.
+          A flexible line of credit with payment plans as low as 1% of your
+          annual loan balance.
         </p>
         <a
           href="/loan-programs/equity-select"
@@ -357,39 +434,58 @@ const expandedPrograms: Program[] = [
         <div class="lg:col-span-1">
           <p class="font-semibold text-[#09143e]">More Ways to Finance</p>
           <h2 class="text-3xl font-bold text-gray-900 mt-2">
-            Expanded Mortgage Solutions – Conventional, Jumbo, Commercial & Refinance Options
+            Expanded Mortgage Solutions – Conventional, Jumbo, Commercial &
+            Refinance Options
           </h2>
         </div>
         <div class="lg:col-span-2 flex items-center">
           <p class="text-gray-600">
-            For borrowers with diverse financial needs, we provide expanded loan solutions that go beyond the basics. From financing high-value luxury homes to commercial properties or simply lowering your current mortgage payment, these programs offer competitive rates and terms designed to support growth, stability, and long-term success.
+            For borrowers with diverse financial needs, we provide expanded loan
+            solutions that go beyond the basics. From financing high-value
+            luxury homes to commercial properties or simply lowering your
+            current mortgage payment, these programs offer competitive rates and
+            terms designed to support growth, stability, and long-term success.
           </p>
         </div>
       </div>
       <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {expandedPrograms.map(program => (
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80 h-full flex flex-col" key={program.path}>
-            <i class={`${program.icon} fa-2x text-[#bf9f5c] mb-4`}></i>
-            <h3 class="text-lg font-bold text-gray-900">{program.titleOverride ?? program.name}</h3>
-            <p class="mt-2 text-gray-600 text-sm flex-grow">{program.description}</p>
-            <a
-              href={program.path}
-              class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
-            >
-              Learn more about {program.titleOverride ?? program.name}{' '}
-              <span class="transition-transform group-hover:translate-x-1 inline-block" aria-hidden="true">&rarr;</span>
-            </a>
-          </div>
-        ))}
+        {
+          expandedPrograms.map((program) => (
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200/80 h-full flex flex-col">
+              <i class={`${program.icon} fa-2x text-[#bf9f5c] mb-4`} />
+              <h3 class="text-lg font-bold text-gray-900">
+                {program.titleOverride ?? program.name}
+              </h3>
+              <p class="mt-2 text-gray-600 text-sm flex-grow">
+                {program.description}
+              </p>
+              <a
+                href={program.path}
+                class="mt-4 inline-block font-semibold text-[#09143e] hover:text-[#12215c] text-sm group"
+              >
+                Learn more about {program.titleOverride ?? program.name}{" "}
+                <span
+                  class="transition-transform group-hover:translate-x-1 inline-block"
+                  aria-hidden="true"
+                >
+                  &rarr;
+                </span>
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <section class="bg-[#09143e]">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-      <h2 class="text-3xl font-bold text-white">Ready to Take the Next Step?</h2>
+      <h2 class="text-3xl font-bold text-white">
+        Ready to Take the Next Step?
+      </h2>
       <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
-        Whether you're ready to apply or just have a few questions, we're here to help. Get a no-obligation quote and see what's possible.
+        Whether you're ready to apply or just have a few questions, we're here
+        to help. Get a no-obligation quote and see what's possible.
       </p>
       <a
         href="/get-a-quote"
@@ -401,5 +497,4 @@ const expandedPrograms: Program[] = [
       </a>
     </div>
   </section>
-
 </BaseLayout>
