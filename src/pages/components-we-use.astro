@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SellDirectCarouselHero from "../components/marketing/SellDirectCarouselHero.astro";
+import WeMakeThatEasyGrid from "../components/marketing/WeMakeThatEasyGrid.astro";
+
+const pageData = {
+  path: "/components-we-use",
+  title: "Components We Use | Cliff Mortgages",
+  h1: "UI Components Library",
+  description:
+    "Reference-ready marketing sections that stay aligned with our current design language.",
+  seoDescription:
+    "Reusable Cliff Mortgages marketing components, ready to drop into landing pages and campaigns.",
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Components We Use", path: "/components-we-use" },
+  ],
+  faqs: [],
+};
+---
+
+<BaseLayout pageData={pageData}>
+  <main class="bg-white">
+    <section class="space-y-16">
+      <SellDirectCarouselHero />
+      <WeMakeThatEasyGrid />
+    </section>
+  </main>
+</BaseLayout>

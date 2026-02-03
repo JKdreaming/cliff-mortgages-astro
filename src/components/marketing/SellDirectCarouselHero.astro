@@ -1,0 +1,189 @@
+---
+interface RailImage {
+  imageUrl?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  railImages?: RailImage[];
+}
+
+const defaultRailImages: RailImage[] = [
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=600",
+  },
+  {
+    imageUrl:
+      "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&q=80&w=600",
+  },
+];
+
+const {
+  eyebrow = "Home Equity Line of Credit",
+  title = "Unlock your home's value with a Cliff HELOC",
+  subtitle = "Access the equity you've built in your home without giving up your current low mortgage rate. Colorado homeowners trust Cliff Mortgages for fast, flexible financing.",
+  ctaLabel = "Fill out the form",
+  ctaHref = "#hero-form-section",
+  secondaryCtaLabel = "See how it works",
+  secondaryCtaHref = "#",
+  railImages = defaultRailImages,
+} = Astro.props as Props;
+---
+
+<section
+  class="component-sell-direct-hero relative bg-white pb-24 overflow-hidden font-sans"
+>
+  <div class="relative pt-16 pb-12">
+    <!-- Background Image - Confined to top section -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/HELOC_Front_Door_Landing_Page_47757791_XL-(1).jpg"
+        alt="Background"
+        class="h-full w-full object-cover object-center"
+      />
+      <!-- Gradient Overlay: Solid white at top, solid white at bottom -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white/75 to-white">
+      </div>
+    </div>
+
+    <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <!-- Left Column: Content -->
+        <div class="text-left">
+          <p
+            class="text-sm font-semibold uppercase tracking-wide text-[#bf9f5c]"
+          >
+            {eyebrow}
+          </p>
+          <h1
+            class="text-[48px] leading-[1.1] font-bold text-gray-900 sm:text-[64px] mb-6 tracking-tight mt-2"
+          >
+            {title}
+          </h1>
+          <p
+            class="mt-6 text-[18px] leading-relaxed text-gray-500 max-w-xl font-medium"
+          >
+            {subtitle}
+          </p>
+
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a
+              href={ctaHref}
+              class="inline-flex items-center justify-center rounded-xl bg-[#09143e] px-8 py-4 text-[15px] font-bold text-white transition hover:bg-[#0c1d5a] active:scale-95 shadow-lg shadow-blue-900/10"
+            >
+              {ctaLabel}
+            </a>
+            <a
+              href={secondaryCtaHref}
+              class="inline-flex items-center justify-center rounded-xl border-2 border-gray-100 bg-white px-8 py-4 text-[15px] font-bold text-gray-900 transition hover:bg-gray-50 active:scale-95"
+            >
+              {secondaryCtaLabel}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Form -->
+        <div class="relative" id="hero-form-section">
+          <div
+            class="rounded-3xl border border-[#09143e]/10 bg-[#09143e] p-8 shadow-[0_20px_50px_-12px_rgba(9,20,62,0.25)]"
+          >
+            <h2 class="text-3xl font-bold text-white mb-6 text-left">
+              Fill Out Our Quick Form
+            </h2>
+            <div
+              class="plato-form-widget"
+              data-pf-id="fr6g8ai1fed"
+              data-pf-host="form.formcan.com/"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal Photo Rail - Exact Layout Staggering -->
+  <div class="relative mt-20 h-[450px] w-full">
+    <div
+      class="absolute left-1/2 top-0 flex -translate-x-1/2 items-center space-x-[-80px]"
+    >
+      {
+        railImages.map((image, index) => {
+          // Precise rhythmic staggered heights and offsets to match image
+          const configs = [
+            { h: "h-[180px]", mt: "mt-[120px]", z: "z-[1]" }, // 0
+            { h: "h-[220px]", mt: "mt-[60px]", z: "z-[2]" }, // 1
+            { h: "h-[200px]", mt: "mt-[140px]", z: "z-[3]" }, // 2
+            { h: "h-[260px]", mt: "mt-[40px]", z: "z-[4]" }, // 3
+            { h: "h-[320px]", mt: "mt-[0px]", z: "z-[10]", isCenter: true }, // 4 (Center focus)
+            { h: "h-[260px]", mt: "mt-[100px]", z: "z-[4]" }, // 5
+            { h: "h-[240px]", mt: "mt-[20px]", z: "z-[3]" }, // 6
+            { h: "h-[210px]", mt: "mt-[170px]", z: "z-[2]" }, // 7
+            { h: "h-[180px]", mt: "mt-[90px]", z: "z-[1]" }, // 8
+          ];
+          const config = configs[index % configs.length];
+          return (
+            <div
+              class={`relative w-[260px] shrink-0 overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-transform hover:z-50 hover:scale-105 ${config.h} ${config.mt} ${config.z} ${config.isCenter ? "ring-[12px] ring-white shadow-2xl scale-110" : "ring-4 ring-white"}`}
+            >
+              <img
+                src={image.imageUrl}
+                alt="Colorado Home"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    const existing = document.querySelector('script[data-formcan="true"]');
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "//static.formcan.com/assets/dist/formbuilder.js?v=20";
+      script.async = true;
+      script.dataset.formcan = "true";
+      document.body.appendChild(script);
+    }
+  }
+</script>
