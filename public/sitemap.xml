@@ -2,117 +2,158 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cliffmortgages.com/</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/purchase</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/refinance</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/heloc</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/equity-select</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/dscr</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/reverse-mortgage</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/jumbo</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/conventional</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/fha</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/va</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/usda</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/construction</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/commercial</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/fha-203k</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/loan-programs/non-qm</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/get-a-quote</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/about</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/about/cindy-cliff</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/contact</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/legal/privacy-policy</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://cliffmortgages.com/legal/accessibility</loc>
+    <lastmod>2025-02-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://cliffmortgages.com/equity-select-short-landing</loc>
+    <lastmod>2025-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cliffmortgages.com/equityselect-landing</loc>
+    <lastmod>2025-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cliffmortgages.com/wide-equity-select-short-landing-page</loc>
+    <lastmod>2025-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>
