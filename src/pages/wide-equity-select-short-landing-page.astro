@@ -1,6 +1,7 @@
 ---
 import LandingLayout from "../layouts/LandingLayout.astro";
 import SellDirectCarouselHero from "../components/marketing/SellDirectCarouselHero.astro";
+import WeMakeThatEasyGrid from "../components/marketing/WeMakeThatEasyGrid.astro";
 import { heroImageAssignments } from "../data/imageAssignments";
 
 const hero = heroImageAssignments.equitySelectLandingHero;
@@ -118,6 +119,59 @@ const proofPoints = [
       </div>
     </div>
   </section>
+
+  <!-- How It Works Section -->
+  <WeMakeThatEasyGrid
+    title="Access your equity in 4 simple steps."
+    description="Our streamlined HELOC process gets you from application to funding in as little as 20 days—no refinancing required."
+    cards={[
+      {
+        title: "Share your details",
+        description:
+          "Complete our quick online form with basic property and contact information. Takes just 2 minutes.",
+        stepNumber: 1,
+        image:
+          "/made-easy/friends-looking-at-the-restaurant-menu-2026-01-08-22-27-51-utc.jpg",
+        type: "photo",
+      },
+      {
+        title: "Get your valuation",
+        description:
+          "We analyze local market data to determine your available equity—up to 89.99% of your home's value.",
+        stepNumber: 2,
+        image:
+          "/made-easy/architects-are-reviewing-plans-together-buildings-2026-01-07-01-00-06-utc.jpg",
+        type: "photo",
+      },
+      {
+        title: "Review your terms",
+        description:
+          "Receive your personalized HELOC proposal with competitive rates and clear payment terms.",
+        stepNumber: 3,
+        image:
+          "/made-easy/top-view-of-business-people-putting-their-hands-on-2026-01-08-07-14-39-utc.jpg",
+        type: "photo",
+      },
+      {
+        title: "Access your funds",
+        description:
+          "E-sign your documents and your line of credit is ready. Use it for renovations, debt payoff, or anything you need.",
+        stepNumber: 4,
+        image:
+          "/made-easy/overjoyed-black-woman-holding-money-cash-in-hands-2026-01-08-23-10-47-utc.jpg",
+        type: "photo",
+      },
+    ]}
+    tallCard={{
+      icon: "fa-solid fa-house-chimney-user",
+      value: "Get Started",
+      label: "Apply for Your HELOC",
+      description:
+        "Take the first step toward unlocking your home's equity. No obligation, no impact to your credit, and you'll know your options within hours.",
+      ctaLabel: "Fill Out The Form",
+      ctaHref: "#hero-form-section",
+    }}
+  />
 
   <!-- Trust Badges Section -->
   <section class="bg-white py-12">
