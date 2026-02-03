@@ -1,0 +1,190 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import SellDirectCarouselHero from "../components/marketing/SellDirectCarouselHero.astro";
+import { heroImageAssignments } from "../data/imageAssignments";
+
+const hero = heroImageAssignments.equitySelectLandingHero;
+
+const pageData = {
+  path: "/wide-equity-select-short-landing-page",
+  title: "Wide HELOC Landing Page | Cliff Mortgages",
+  h1: "Use Your Home Equity For What Matters Now",
+  description:
+    "A streamlined HELOC-style option to access up to 89.99% of your home's value without touching a low-rate first mortgage. Compare scenarios, confirm payments, and keep your budget predictable.",
+  seoDescription:
+    "Paid-traffic landing page for HELOC-style EquitySelect inquiries. Fast closings, predictable payments, and no obligation quotes for Colorado homeowners.",
+  seoImageUrl: hero.src,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    {
+      name: "EquitySelect Wide Landing",
+      path: "/wide-equity-select-short-landing-page",
+    },
+  ],
+  faqs: [],
+};
+
+const proofPoints = [
+  "No Mortgage Insurance Required",
+  "Save with lower wholesale pricing",
+  "Fixed 30-year rates for stability and peace of mind",
+  "Borrow more: Access up to 89.99% of your home's value (vs. the standard 80%)",
+  "Local expert guidance from licensed Colorado mortgage professionals",
+  "Perfect to pay off high-interest credit cards, student loans, or renovations",
+  "Close fast: average closing in just 20 days",
+];
+---
+
+<LandingLayout pageData={pageData} footerVariant="landing-page-footer-varient">
+  <!-- Hero Section with Carousel -->
+  <SellDirectCarouselHero
+    eyebrow="Use your home equity for things you need."
+    title="We can help with a no-hassle cash-out up to 89.99% of value."
+    subtitle="Unlock a HELOC-style line without refinancing out of today's low rates. Get cash for projects, consolidate debt, or plan ahead with predictable payments backed by a local broker."
+    ctaLabel="See My Rate Options"
+    ctaHref="#hero-form-section"
+    secondaryCtaLabel=""
+    secondaryCtaHref=""
+    showTrustBadges={true}
+  />
+
+  <!-- Why Choose This Option Section -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-white p-8 md:p-12 shadow-sm">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-wide text-[#bf9f5c]"
+            >
+              Why homeowners choose this option
+            </p>
+            <h2 class="mt-3 text-3xl md:text-4xl font-bold text-gray-900">
+              The smart way to access your home equity
+            </h2>
+            <p class="mt-4 text-base text-gray-600">
+              This cash-out alternative is designed for homeowners who want
+              quick access to their equity without the hassle of a full
+              refinance.
+            </p>
+            <ul class="mt-8 space-y-4">
+              {
+                proofPoints.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <div class="h-6 w-6 rounded-full bg-[#bf9f5c]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <i class="fa-solid fa-check text-[#bf9f5c] text-sm" />
+                    </div>
+                    <span class="text-gray-700">{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-gray-50 p-8">
+            <div class="text-center">
+              <div
+                class="h-20 w-20 rounded-full bg-[#bf9f5c]/10 flex items-center justify-center mx-auto mb-6"
+              >
+                <i class="fa-solid fa-calculator text-[#bf9f5c] text-3xl"></i>
+              </div>
+              <p
+                class="text-sm font-semibold uppercase tracking-wide text-gray-500"
+              >
+                Prefer online guidance?
+              </p>
+              <h3 class="mt-2 text-2xl font-bold text-gray-900">
+                Get your personalized quote
+              </h3>
+              <p class="mt-3 text-gray-600">
+                Tell us about your timeline, equity goals, and payment
+                preferences—our team will follow up with personalized HELOC
+                scenarios.
+              </p>
+              <a
+                href="#hero-form-section"
+                class="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[#bf9f5c] px-8 py-4 text-base font-semibold text-white shadow-md transition hover:bg-[#a68a4c]"
+                data-scroll-form
+              >
+                Check My HELOC Options
+              </a>
+              <p class="mt-4 text-xs text-gray-500">
+                Average closing time ~20 days. No obligation to proceed. Prefer
+                a call? Dial (970) 308-2540 anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges Section -->
+  <section class="bg-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center items-center gap-12">
+        <div class="flex flex-col items-center text-center">
+          <img
+            src="/logos/bbb trust logo.webp"
+            alt="Better Business Bureau A+ Accredited Business - Cliff Mortgages"
+            class="h-16 w-auto object-contain mb-3"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="text-sm font-semibold text-gray-900">A+ Rating</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <img
+            src="/logos/google-reviews.png"
+            alt="Google Reviews 5 Star Rating - Cliff Mortgages Customer Reviews"
+            class="h-16 w-auto object-contain mb-3"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="text-sm font-semibold text-gray-900">5.0 ★★★★★</p>
+        </div>
+        <div class="flex flex-col items-center text-center">
+          <img
+            src="/logos/clb.webp"
+            alt="Colorado Local Business - Licensed Colorado Mortgage Professionals"
+            class="h-16 w-auto object-contain mb-3"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="text-sm font-semibold text-gray-900">
+            Licensed Professionals
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    if (typeof window !== "undefined") {
+      const existing = document.querySelector('script[data-formcan="true"]');
+      if (!existing) {
+        const script = document.createElement("script");
+        script.src = "//static.formcan.com/assets/dist/formbuilder.js?v=20";
+        script.async = true;
+        script.dataset.formcan = "true";
+        document.body.appendChild(script);
+      }
+
+      const scrollTargets = document.querySelectorAll("[data-scroll-form]");
+      scrollTargets.forEach((el) => {
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = el.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const offset = 100;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        });
+      });
+    }
+  </script>
+</LandingLayout>

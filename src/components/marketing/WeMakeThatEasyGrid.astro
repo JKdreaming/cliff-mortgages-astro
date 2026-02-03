@@ -216,31 +216,33 @@ const {
 
       <!-- Column 3 -->
       <div
-        class="flex flex-col rounded-[40px] bg-white border border-[#eee] p-10 text-center shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)]"
+        class="flex flex-col rounded-[40px] bg-[#bf9f5c] border border-[#bf9f5c]/20 p-10 text-center shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)]"
       >
-        <div class="flex-1 flex flex-col items-center justify-center py-12">
+        <div
+          class="flex-1 flex flex-col items-center justify-center py-12 getStartedWrapper sticky top-24 self-start"
+        >
           <div
-            class="h-20 w-20 rounded-3xl bg-black flex items-center justify-center text-white text-3xl mb-12 shadow-2xl"
+            class="h-20 w-20 rounded-3xl bg-white flex items-center justify-center text-[#09143e] text-3xl mb-12 shadow-2xl"
           >
             <i class={tallCard.icon}></i>
           </div>
           <div class="mb-8">
             <span
-              class="text-[64px] font-bold tracking-tighter text-black leading-none"
+              class="text-[48px] font-bold tracking-tighter text-white leading-none"
               >{tallCard.value}</span
             >
             <p
-              class="text-[12px] font-bold uppercase tracking-[0.2em] text-[#bbb] mt-2"
+              class="text-[12px] font-bold uppercase tracking-[0.2em] text-white/80 mt-2"
             >
               {tallCard.label}
             </p>
           </div>
-          <p class="text-[16px] leading-relaxed text-[#666] mb-12">
+          <p class="text-[16px] leading-relaxed text-white/90 mb-12">
             {tallCard.description}
           </p>
           <a
             href={tallCard.ctaHref}
-            class="inline-block w-full rounded-full bg-black py-5 text-[14px] font-bold text-white transition-all hover:bg-[#333] active:scale-95"
+            class="inline-block w-full rounded-full bg-[#09143e] py-5 text-[14px] font-bold text-white transition-all hover:bg-[#0f1d4d] active:scale-95"
             data-scroll-to-form>{tallCard.ctaLabel}</a
           >
         </div>

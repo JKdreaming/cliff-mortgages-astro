@@ -12,6 +12,7 @@ interface Props {
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
   railImages?: RailImage[];
+  showTrustBadges?: boolean;
 }
 
 const defaultRailImages: RailImage[] = [
@@ -62,11 +63,12 @@ const {
   secondaryCtaLabel = "See how it works",
   secondaryCtaHref = "#",
   railImages = defaultRailImages,
+  showTrustBadges = false,
 } = Astro.props as Props;
 ---
 
 <section
-  class="component-sell-direct-hero relative bg-white pb-24 overflow-hidden font-sans"
+  class="component-sell-direct-hero relative bg-white pb-10 overflow-hidden font-sans"
 >
   <div class="relative pt-16 pb-12">
     <!-- Background Image - Confined to top section -->
@@ -102,18 +104,47 @@ const {
           </p>
 
           <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href={ctaHref}
-              class="inline-flex items-center justify-center rounded-xl bg-[#09143e] px-8 py-4 text-[15px] font-bold text-white transition hover:bg-[#0c1d5a] active:scale-95 shadow-lg shadow-blue-900/10"
-            >
-              {ctaLabel}
-            </a>
-            <a
-              href={secondaryCtaHref}
-              class="inline-flex items-center justify-center rounded-xl border-2 border-gray-100 bg-white px-8 py-4 text-[15px] font-bold text-gray-900 transition hover:bg-gray-50 active:scale-95"
-            >
-              {secondaryCtaLabel}
-            </a>
+            {
+              showTrustBadges ? (
+                <div class="flex flex-wrap items-center gap-8 rounded-2xl bg-white border border-gray-200 px-8 py-6 shadow-sm">
+                  <div class="flex flex-col items-center text-center">
+                    <img
+                      src="/logos/bbb trust logo.webp"
+                      alt="Better Business Bureau A+ Accredited Business - Cliff Mortgages"
+                      class="h-20 w-auto object-contain mb-2"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <p class="text-sm font-semibold text-gray-700">A+ Rating</p>
+                  </div>
+                  <div class="flex flex-col items-center text-center">
+                    <img
+                      src="/logos/google-reviews.png"
+                      alt="Google Reviews 5 Star Rating - Cliff Mortgages Customer Reviews"
+                      class="h-20 w-auto object-contain mb-2"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <p class="text-sm font-semibold text-gray-700">5.0 ★★★★★</p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <a
+                    href={ctaHref}
+                    class="inline-flex items-center justify-center rounded-xl bg-[#09143e] px-8 py-4 text-[15px] font-bold text-white transition hover:bg-[#0c1d5a] active:scale-95 shadow-lg shadow-blue-900/10"
+                  >
+                    {ctaLabel}
+                  </a>
+                  <a
+                    href={secondaryCtaHref}
+                    class="inline-flex items-center justify-center rounded-xl border-2 border-gray-100 bg-white px-8 py-4 text-[15px] font-bold text-gray-900 transition hover:bg-gray-50 active:scale-95"
+                  >
+                    {secondaryCtaLabel}
+                  </a>
+                </>
+              )
+            }
           </div>
         </div>
 
@@ -138,7 +169,7 @@ const {
   </div>
 
   <!-- Horizontal Photo Rail - Exact Layout Staggering -->
-  <div class="relative mt-20 h-[450px] w-full">
+  <div class="relative mt-5 h-[450px] w-full">
     <div
       class="absolute left-1/2 top-0 flex -translate-x-1/2 items-center space-x-[-80px]"
     >
