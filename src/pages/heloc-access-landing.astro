@@ -1,0 +1,384 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+
+const pageData = {
+  path: "/heloc-access-landing",
+  title: "Access Your Home Equity — Without Refinancing | Cliff Mortgages",
+  h1: "Access Your Home Equity — Without Refinancing",
+  description:
+    "Get flexible access to your home equity with a HELOC. Keep your existing mortgage rate and access funds for renovations, debt payoff, or major expenses.",
+  seoDescription:
+    "A Home Equity Line of Credit (HELOC) gives eligible homeowners flexible access to equity while keeping their existing mortgage in place. No obligation consultation.",
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "HELOC Access", path: "/heloc-access-landing" },
+  ],
+  faqs: [],
+};
+---
+
+<LandingLayout pageData={pageData} footerVariant="landing-page-footer-varient">
+  <!-- Title Section -->
+  <section class="bg-white py-8 md:py-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <h1
+        class="text-3xl md:text-4xl font-bold text-gray-900 text-left lg:max-w-[60%]"
+      >
+        Access Your Home Equity — <span class="font-normal"
+          >Without Refinancing</span
+        >
+      </h1>
+    </div>
+  </section>
+
+  <!-- Hero Section with Full Width Image and Form Overlapping -->
+  <section class="relative bg-gradient-to-b from-gray-100 to-white">
+    <!-- Full Width Image Container -->
+    <div
+      class="w-full h-[300px] lg:h-[500px] overflow-hidden flex items-center justify-start bg-gray-200 relative"
+    >
+      <img
+        src="/HELOC_Front_Door_Landing_Page_47757791_XL-(1).jpg"
+        alt="Beautiful home exterior with garage"
+        class="w-[80%] h-full object-cover object-center"
+        loading="eager"
+      />
+      <!-- Gradient Overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-white/70 via-50% to-white to-70% hidden lg:block"
+      >
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-0 relative">
+        <!-- Left Column - Text -->
+        <div class="bg-white pt-8 md:pt-10">
+          <p class="text-gray-800 text-base leading-relaxed mb-6">
+            A Home Equity Line of Credit (HELOC) gives eligible homeowners
+            <em class="font-normal italic"
+              >flexible access to equity while keeping their existing mortgage
+              in place.</em
+            >
+          </p>
+
+          <p class="text-sm text-gray-600 pb-8 lg:pb-0">
+            No obligation. Review options based on your goals and situation.
+          </p>
+        </div>
+
+        <!-- Right Column - Form (Overlapping) -->
+        <div
+          class="relative lg:absolute lg:right-0 lg:top-[-580px] lg:w-[34%] z-10"
+        >
+          <div
+            class="bg-[#09143e] p-8 rounded-lg shadow-xl lg:mx-0"
+            id="heloc-form"
+          >
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">
+              Check HELOC Options
+            </h2>
+
+            <form
+              method="POST"
+              action="https://form.formcan.com/form/submit/fr6g8ai1fed/0?embed=true"
+              enctype="multipart/form-data"
+              class="space-y-4"
+            >
+              <input type="hidden" name="stepto" value="-1" />
+              <input
+                type="hidden"
+                name="submitter_timezone"
+                value="America/New_York"
+              />
+              <input
+                type="hidden"
+                name="submission-identifier"
+                value="sr008ba22e34d1491ab07600bb14d86d41"
+              />
+              <input type="hidden" name="pver" value="18" />
+              <input type="hidden" name="draft" value="False" />
+              <input type="hidden" name="workflow-step-identifier" value="" />
+              <input
+                type="hidden"
+                name="workflow-previous-step-submission-identifier"
+                value=""
+              />
+              <input type="hidden" name="custom-field" value="" />
+              <input
+                type="hidden"
+                name="submission_incremental_code"
+                value=""
+              />
+              <input type="hidden" name="invitation_identifier" value="" />
+              <input type="hidden" name="invitation_link_id" value="" />
+              <input
+                type="hidden"
+                name="form_submit_expired_timestamp"
+                value=""
+              />
+              <input type="hidden" name="is_final_page" value="false" />
+              <input type="hidden" name="saving_version" value="" />
+              <input type="hidden" name="language_code" value="en" />
+              <input type="hidden" name="stripe-open" value="close" />
+
+              <div>
+                <label
+                  for="fid2"
+                  class="block text-white text-sm font-medium mb-1"
+                >
+                  What is the current Value of your home?<span
+                    class="text-red-400">*</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  id="fid2"
+                  name="fid2"
+                  placeholder="Type estimated home value"
+                  required
+                  class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="fid3"
+                  class="block text-white text-sm font-medium mb-1"
+                >
+                  How much do you owe on your current mortgage?<span
+                    class="text-red-400">*</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  id="fid3"
+                  name="fid3"
+                  placeholder="Enter your remaining mortgage balance"
+                  required
+                  class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="fid4"
+                    class="block text-white text-sm font-medium mb-1"
+                  >
+                    First Name<span class="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fid4"
+                    name="fid4"
+                    placeholder="First"
+                    required
+                    class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="fid5"
+                    class="block text-white text-sm font-medium mb-1"
+                  >
+                    Last Name<span class="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fid5"
+                    name="fid5"
+                    placeholder="Last"
+                    required
+                    class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-2">
+                  <label
+                    for="fid6"
+                    class="block text-white text-sm font-medium mb-1"
+                  >
+                    Email<span class="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="fid6"
+                    name="fid6"
+                    placeholder=""
+                    required
+                    class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="fid7"
+                    class="block text-white text-sm font-medium mb-1"
+                  >
+                    Phone<span class="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="fid7"
+                    name="fid7"
+                    placeholder=""
+                    required
+                    class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="fid13"
+                  class="block text-white text-sm font-medium mb-1"
+                >
+                  What's the Best Time To Call You?<span class="text-red-400"
+                    >*</span
+                  >
+                </label>
+                <input
+                  type="text"
+                  id="fid13"
+                  name="fid13"
+                  placeholder="12pm"
+                  required
+                  class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
+                />
+                <p class="text-white text-xs mt-1">
+                  Can I call you in 30 minutes?
+                </p>
+              </div>
+
+              <div>
+                <label class="flex items-start gap-3 text-white text-sm">
+                  <input
+                    type="checkbox"
+                    name="fid9"
+                    id="fid9"
+                    value="1"
+                    required
+                    class="mt-1 w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-[#bf9f5c]"
+                  />
+                  <span class="leading-tight"
+                    >I agree to be contacted by Cliff Mortgages via call, email,
+                    and text for mortgage and loan services. To opt out, you can
+                    reply 'stop' at any time or reply 'help' for assistance. You
+                    can also click the unsubscribe link in the emails. Message
+                    and data rates may apply. Message frequency may vary.<span
+                      class="text-red-400">*</span
+                    ></span
+                  >
+                </label>
+              </div>
+
+              <div class="text-white text-sm">
+                <p>
+                  Click here to view our <a
+                    href="https://www.cliffmortgages.com/legal/privacy-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline hover:text-[#bf9f5c]">Privacy Policy</a
+                  >
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-[#bf9f5c] hover:bg-[#a68a4c] text-white font-semibold py-3.5 px-6 rounded shadow-sm transition duration-200 mt-2"
+              >
+                Check HELOC Options
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For Section -->
+  <section class="bg-white py-12 md:py-16 mt-32 lg:mt-0">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <hr class="border-t border-gray-300 mb-8" />
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        Who This Is For
+      </h2>
+      <hr class="border-t border-gray-300 mb-6" />
+      <p class="text-gray-800 text-base leading-relaxed">
+        This option is designed for homeowners who already own a home and want
+        flexible access to their equity — without replacing their current
+        mortgage.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Homeowners Consider a HELOC Section -->
+  <section class="bg-gray-50 py-12 md:py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+        Why Homeowners Consider a HELOC
+      </h2>
+
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="text-gray-800 mt-1">•</span>
+          <span class="text-gray-800">Home repairs or improvements</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-gray-800 mt-1">•</span>
+          <span class="text-gray-800">Managing larger expenses</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-gray-800 mt-1">•</span>
+          <span class="text-gray-800">Creating financial flexibility</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-gray-800 mt-1">•</span>
+          <span class="text-gray-800"
+            >Keeping a low-rate first mortgage in place</span
+          >
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-gray-800 mt-1">•</span>
+          <span class="text-gray-800"
+            >Replacing an existing HELOC with new terms</span
+          >
+        </li>
+      </ul>
+
+      <div>
+        <a
+          href="#heloc-form"
+          class="inline-block bg-[#09143e] hover:bg-[#0a1a4f] text-white font-semibold py-3.5 px-10 rounded shadow-sm transition duration-200"
+          data-scroll-form
+        >
+          Check HELOC Options
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    if (typeof window !== "undefined") {
+      const scrollTargets = document.querySelectorAll("[data-scroll-form]");
+      scrollTargets.forEach((el) => {
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = el.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const offset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        });
+      });
+    }
+  </script>
+</LandingLayout>
