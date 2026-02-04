@@ -1,9 +1,17 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
 export const POST: APIRoute = async ({ request }) => {
+  const apiKey = import.meta.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    return new Response(
+      JSON.stringify({ error: 'Email service is not configured. Please contact support.' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+
+  const resend = new Resend(apiKey);
   try {
     const formData = await request.formData();
 
