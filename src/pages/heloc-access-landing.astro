@@ -81,47 +81,10 @@ const pageData = {
 
             <form
               method="POST"
-              action="https://form.formcan.com/form/submit/fr6g8ai1fed/0?embed=true"
-              enctype="multipart/form-data"
+              action="/api/submit-heloc-form"
               class="space-y-4"
+              id="heloc-form-element"
             >
-              <input type="hidden" name="stepto" value="-1" />
-              <input
-                type="hidden"
-                name="submitter_timezone"
-                value="America/New_York"
-              />
-              <input
-                type="hidden"
-                name="submission-identifier"
-                value="sr008ba22e34d1491ab07600bb14d86d41"
-              />
-              <input type="hidden" name="pver" value="18" />
-              <input type="hidden" name="draft" value="False" />
-              <input type="hidden" name="workflow-step-identifier" value="" />
-              <input
-                type="hidden"
-                name="workflow-previous-step-submission-identifier"
-                value=""
-              />
-              <input type="hidden" name="custom-field" value="" />
-              <input
-                type="hidden"
-                name="submission_incremental_code"
-                value=""
-              />
-              <input type="hidden" name="invitation_identifier" value="" />
-              <input type="hidden" name="invitation_link_id" value="" />
-              <input
-                type="hidden"
-                name="form_submit_expired_timestamp"
-                value=""
-              />
-              <input type="hidden" name="is_final_page" value="false" />
-              <input type="hidden" name="saving_version" value="" />
-              <input type="hidden" name="language_code" value="en" />
-              <input type="hidden" name="stripe-open" value="close" />
-
               <div>
                 <label
                   for="fid2"
@@ -129,7 +92,7 @@ const pageData = {
                 >
                   What is the current Value of your home?<span
                     class="text-red-400">*</span
-                  >
+                  ><span class="text-red-400 text-xs ml-1">(required)</span>
                 </label>
                 <input
                   type="text"
@@ -148,7 +111,7 @@ const pageData = {
                 >
                   How much do you owe on your current mortgage?<span
                     class="text-red-400">*</span
-                  >
+                  ><span class="text-red-400 text-xs ml-1">(required)</span>
                 </label>
                 <input
                   type="text"
@@ -166,7 +129,9 @@ const pageData = {
                     for="fid4"
                     class="block text-white text-sm font-medium mb-1"
                   >
-                    First Name<span class="text-red-400">*</span>
+                    First Name<span class="text-red-400">*</span><span
+                      class="text-red-400 text-xs ml-1">(required)</span
+                    >
                   </label>
                   <input
                     type="text"
@@ -183,7 +148,9 @@ const pageData = {
                     for="fid5"
                     class="block text-white text-sm font-medium mb-1"
                   >
-                    Last Name<span class="text-red-400">*</span>
+                    Last Name<span class="text-red-400">*</span><span
+                      class="text-red-400 text-xs ml-1">(required)</span
+                    >
                   </label>
                   <input
                     type="text"
@@ -202,7 +169,9 @@ const pageData = {
                     for="fid6"
                     class="block text-white text-sm font-medium mb-1"
                   >
-                    Email<span class="text-red-400">*</span>
+                    Email<span class="text-red-400">*</span><span
+                      class="text-red-400 text-xs ml-1">(required)</span
+                    >
                   </label>
                   <input
                     type="email"
@@ -219,7 +188,9 @@ const pageData = {
                     for="fid7"
                     class="block text-white text-sm font-medium mb-1"
                   >
-                    Phone<span class="text-red-400">*</span>
+                    Phone<span class="text-red-400">*</span><span
+                      class="text-red-400 text-xs ml-1">(required)</span
+                    >
                   </label>
                   <input
                     type="tel"
@@ -239,16 +210,26 @@ const pageData = {
                 >
                   What's the Best Time To Call You?<span class="text-red-400"
                     >*</span
-                  >
+                  ><span class="text-red-400 text-xs ml-1">(required)</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   id="fid13"
                   name="fid13"
-                  placeholder="12pm"
                   required
                   class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"
-                />
+                >
+                  <option value="">Select a time</option>
+                  <option value="9am">9:00 AM</option>
+                  <option value="10am">10:00 AM</option>
+                  <option value="11am">11:00 AM</option>
+                  <option value="12pm">12:00 PM</option>
+                  <option value="1pm">1:00 PM</option>
+                  <option value="2pm">2:00 PM</option>
+                  <option value="3pm">3:00 PM</option>
+                  <option value="4pm">4:00 PM</option>
+                  <option value="5pm">5:00 PM</option>
+                  <option value="6pm">6:00 PM</option>
+                </select>
                 <p class="text-white text-xs mt-1">
                   Can I call you in 30 minutes?
                 </p>
@@ -379,6 +360,47 @@ const pageData = {
           }
         });
       });
+
+      // Form submission handler
+      const form = document.getElementById("heloc-form-element");
+      if (form) {
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch("/api/submit-heloc-form", {
+              method: "POST",
+              body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              alert(
+                "Thank you! Your HELOC inquiry has been submitted successfully. We will contact you soon.",
+              );
+              form.reset();
+            } else {
+              alert(
+                "There was an error submitting your form. Please try again or call us directly.",
+              );
+            }
+          } catch (error) {
+            alert(
+              "There was an error submitting your form. Please try again or call us directly.",
+            );
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      }
     }
   </script>
 </LandingLayout>
