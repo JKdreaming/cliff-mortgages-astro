@@ -40,7 +40,7 @@ const pageData = {
       <img
         src="/HELOC_Front_Door_Landing_Page_47757791_XL-(1).jpg"
         alt="Beautiful home exterior with garage"
-        class="w-[80%] h-full object-cover object-center"
+        class="w-full lg:w-[80%] h-full object-cover object-center"
         loading="eager"
       />
       <!-- Gradient Overlay -->
@@ -274,6 +274,24 @@ const pageData = {
               >
                 Check HELOC Options
               </button>
+
+              <!-- Trust Badges - Desktop Only -->
+              <div
+                class="hidden lg:flex items-center justify-center mt-4 gap-4"
+              >
+                <img
+                  src="/logos/bbb trust logo.webp"
+                  alt="Better Business Bureau A+ Rating"
+                  class="max-w-[120px] h-auto object-contain rounded-lg"
+                  loading="lazy"
+                />
+                <img
+                  src="/logos/google-reviews.png"
+                  alt="Google Reviews 5 Stars"
+                  class="max-w-[150px] h-auto object-contain rounded-lg"
+                  loading="lazy"
+                />
+              </div>
             </form>
           </div>
         </div>
@@ -284,16 +302,48 @@ const pageData = {
   <!-- Who This Is For Section -->
   <section class="bg-white py-12 md:py-16 mt-32 lg:mt-0">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <hr class="border-t border-gray-300 mb-8" />
       <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
         Who This Is For
       </h2>
-      <hr class="border-t border-gray-300 mb-6" />
       <p class="text-gray-800 text-base leading-relaxed">
         This option is designed for homeowners who already own a home and want
         flexible access to their equity — without replacing their current
         mortgage.
       </p>
+    </div>
+  </section>
+
+  <!-- Trust Badges - Mobile Only -->
+  <section class="lg:hidden bg-white py-8">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+        <div
+          class="flex flex-wrap items-center gap-8 rounded-2xl bg-white border border-gray-200 px-8 py-6 shadow-sm"
+        >
+          <div class="flex flex-col items-center text-center bbb-button">
+            <img
+              src="/logos/bbb trust logo.webp"
+              alt="Better Business Bureau A+ Accredited Business - Cliff Mortgages"
+              class="h-20 w-auto object-contain mb-2"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="text-sm font-semibold text-gray-700">A+ Rating</p>
+          </div>
+          <div
+            class="flex flex-col items-center text-center google-reviews-button"
+          >
+            <img
+              src="/logos/google-reviews.png"
+              alt="Google Reviews 5 Star Rating - Cliff Mortgages Customer Reviews"
+              class="h-20 w-auto object-contain mb-2"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="text-sm font-semibold text-gray-700">5.0 ★★★★★</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
