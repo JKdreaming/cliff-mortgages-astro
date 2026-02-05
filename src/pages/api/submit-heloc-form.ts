@@ -177,8 +177,8 @@ export const POST: APIRoute = async ({ request }) => {
     // 2. Add back all recipients: ['cindy@cliffmortgages.com', 'cindy.cliff@followupboss.me', 'joshua@jkdreaming.com']
 
     const { data: emailData, error } = await resend.emails.send({
-      from: 'HELOC Leads <onboarding@resend.dev>',
-      to: ['cliffmortgages@jkdreaming.com'],
+      from: 'HELOC Leads <leads@cliffmortgages.com>',
+      to: ['cindy@cliffmortgages.com', 'cindy.cliff@followupboss.me'],
       subject: `New HELOC Lead from ${pageName}: ${data.firstName} ${data.lastName}`,
       html: emailHtml,
     });
