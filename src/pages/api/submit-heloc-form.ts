@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   const apiKey = import.meta.env.RESEND_API_KEY;
 
@@ -172,14 +174,18 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { data: emailData, error } = await resend.emails.send({
       from: 'HELOC Leads <onboarding@resend.dev>',
-      to: ['cindy@cliffmortgages.com', 'cindy.cliff@followupboss.me', 'joshua@jkdreaming.com'],
+      to: ['cliffmortgages@jkdreaming.com'],
       subject: `New HELOC Lead from ${pageName}: ${data.firstName} ${data.lastName}`,
       html: emailHtml,
     });
 
     if (error) {
+      console.error('Resend API error:', error);
       return new Response(
-        JSON.stringify({ error: error.message }),
+        JSON.stringify({
+          error: error.message || 'Failed to send email',
+          details: error
+        }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
