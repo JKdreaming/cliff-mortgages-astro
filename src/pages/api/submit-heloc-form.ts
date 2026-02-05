@@ -172,9 +172,13 @@ export const POST: APIRoute = async ({ request }) => {
       </html>
     `;
 
+    // TODO: After verifying cliffmortgages.com domain in Resend:
+    // 1. Change from to: 'HELOC Leads <leads@cliffmortgages.com>'
+    // 2. Add back all recipients: ['cindy@cliffmortgages.com', 'cindy.cliff@followupboss.me', 'joshua@jkdreaming.com']
+
     const { data: emailData, error } = await resend.emails.send({
       from: 'HELOC Leads <onboarding@resend.dev>',
-      to: ['cindy@cliffmortgages.com', 'cindy.cliff@followupboss.me'],
+      to: ['cliffmortgages@jkdreaming.com'],
       subject: `New HELOC Lead from ${pageName}: ${data.firstName} ${data.lastName}`,
       html: emailHtml,
     });
