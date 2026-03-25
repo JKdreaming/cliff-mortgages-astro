@@ -22,6 +22,8 @@ import { allPageData, sitemap } from '../../data/sitemap';
 import { heroImageAssignments, pageHeroImageKeys } from '../../data/imageAssignments';
 import type { PageData } from '../../data/types';
 
+export const prerender = true;
+
 export interface Props {
   pageData: PageData;
   programPath: string;
@@ -39,11 +41,15 @@ export async function getStaticPaths() {
   });
 }
 
-const { programPath } = Astro.props as Props;
-const pageData = allPageData[programPath];
+const slugParam = Astro.params.slug;
+const programPathFromProps = (Astro.props as Partial<Props>).programPath;
+const programPath =
+  programPathFromProps ??
+  (typeof slugParam === 'string' ? `/loan-programs/${slugParam}` : '');
+const pageData = programPath ? allPageData[programPath] : undefined;
 
 if (!pageData) {
-  throw new Error(`Loan program not found for path: ${programPath}`);
+  return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
 const heroKey = pageHeroImageKeys[programPath];

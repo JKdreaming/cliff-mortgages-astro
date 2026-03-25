@@ -1,0 +1,408 @@
+import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DYAQuqF9.mjs';
+import 'piccolore';
+import { $ as $$LandingLayout } from '../chunks/LandingLayout_Bz6cSVHX.mjs';
+export { renderers } from '../renderers.mjs';
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
+var _a;
+const $$HelocAccessLanding = createComponent(async ($$result, $$props, $$slots) => {
+  const pageData = {
+    path: "/heloc-access-landing",
+    title: "Access Your Home Equity \u2014 Without Refinancing | Cliff Mortgages",
+    h1: "Access Your Home Equity \u2014 Without Refinancing",
+    description: "Get flexible access to your home equity with a HELOC. Keep your existing mortgage rate and access funds for renovations, debt payoff, or major expenses.",
+    seoDescription: "A Home Equity Line of Credit (HELOC) gives eligible homeowners flexible access to equity while keeping their existing mortgage in place. No obligation consultation.",
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "HELOC Access", path: "/heloc-access-landing" }
+    ],
+    faqs: []
+  };
+  return renderTemplate`${renderComponent($$result, "LandingLayout", $$LandingLayout, { "pageData": pageData, "footerVariant": "landing-page-footer-varient" }, { "default": async ($$result2) => renderTemplate(_a || (_a = __template(["  ", `<section class="bg-white py-8 md:py-10"> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <h1 class="text-3xl md:text-4xl font-bold text-gray-900 text-left lg:max-w-[60%]">
+Access Your Home Equity \u2014 <span class="font-normal">Without Refinancing</span> </h1> </div> </section>  <section class="relative bg-gradient-to-b from-gray-100 to-white"> <!-- Full Width Image Container --> <div class="w-full h-[300px] lg:h-[500px] overflow-hidden flex items-center justify-start bg-gray-200 relative"> <img src="/HELOC_Front_Door_Landing_Page_47757791_XL-(1).jpg" alt="Beautiful home exterior with garage" class="w-full lg:w-[80%] h-full object-cover object-center" loading="eager"> <!-- Gradient Overlay --> <div class="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-white/70 via-50% to-white to-70% hidden lg:block"></div> </div> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <div class="grid lg:grid-cols-2 gap-0 relative"> <!-- Left Column - Text --> <div class="bg-white pt-8 md:pt-10"> <p class="text-gray-800 text-base leading-relaxed mb-6">
+A Home Equity Line of Credit (HELOC) gives eligible homeowners
+<em class="font-normal italic">flexible access to equity while keeping their existing mortgage
+              in place.</em> </p> <p class="text-sm text-gray-600 pb-4 lg:pb-0">
+No obligation. Review options based on your goals and situation.
+</p> </div> <!-- Right Column - Form (Overlapping) --> <div class="relative lg:absolute lg:right-0 lg:top-[-580px] lg:w-[34%] z-10"> <div class="bg-[#09143e] p-8 rounded-lg shadow-xl lg:mx-0" id="heloc-form"> <h2 class="text-2xl font-bold text-white mb-6 text-center">
+Check HELOC Options
+</h2> <!-- Thank You Message --> <div id="thank-you-message" class="hidden mb-6 p-6 bg-white rounded-lg text-center"> <h3 class="text-2xl font-bold text-[#09143e] mb-3">THANK YOU!</h3> <p class="text-gray-800 text-base">
+We've received your inquiry and will get back to you as soon as
+                possible.
+</p> </div> <!-- Error Message --> <div id="error-message" class="hidden mb-6 p-6 bg-red-100 border border-red-400 rounded-lg text-center"> <h3 class="text-xl font-bold text-red-800 mb-2">
+Submission Error
+</h3> <p class="text-red-700 text-sm">
+There was an error submitting your form. Please try again or
+                call us directly.
+</p> </div> <form method="POST" action="/api/submit-heloc-form" class="space-y-4" id="heloc-form-element"> <div> <label for="fid2" class="block text-white text-sm font-medium mb-1">
+What is the current Value of your home?<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid2" name="fid2" placeholder="$500,000" required inputmode="numeric" class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div> <label for="fid3" class="block text-white text-sm font-medium mb-1">
+How much do you owe on your current mortgage?<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid3" name="fid3" placeholder="$250,000" required inputmode="numeric" class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div class="grid grid-cols-2 gap-4"> <div> <label for="fid4" class="block text-white text-sm font-medium mb-1">
+First Name<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid4" name="fid4" placeholder="First" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div> <label for="fid5" class="block text-white text-sm font-medium mb-1">
+Last Name<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid5" name="fid5" placeholder="Last" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> </div> <div class="grid grid-cols-5 gap-4"> <div class="col-span-3"> <label for="fid6" class="block text-white text-sm font-medium mb-1">
+Email<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="email" id="fid6" name="fid6" placeholder="" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div class="col-span-2"> <label for="fid7" class="block text-white text-sm font-medium mb-1">
+Phone<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="tel" id="fid7" name="fid7" placeholder="" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> </div> <div> <label for="fid13" class="block text-white text-sm font-medium mb-1">
+What's the Best Time To Call You?<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid13" name="fid13" placeholder="e.g., 2pm, Tomorrow morning, Anytime" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> <p class="text-white text-xs mt-1">
+Can I call you in 30 minutes?
+</p> </div> <div> <label class="flex items-start gap-3 text-white text-sm"> <input type="checkbox" name="fid9" id="fid9" value="1" required class="mt-1 w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-[#bf9f5c]"> <span class="leading-tight">I agree to be contacted by Cliff Mortgages via call, email,
+                    and text for mortgage and loan services. To opt out, you can
+                    reply 'stop' at any time or reply 'help' for assistance. You
+                    can also click the unsubscribe link in the emails. Message
+                    and data rates may apply. Message frequency may vary.<span class="text-red-400">*</span></span> </label> </div> <div class="text-white text-sm"> <p>
+Click here to view our <a href="https://www.cliffmortgages.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#bf9f5c]">Privacy Policy</a> </p> </div> <button type="submit" class="w-full bg-[#bf9f5c] hover:bg-[#a68a4c] text-white font-semibold py-3.5 px-6 rounded shadow-sm transition duration-200 mt-2">
+Check HELOC Options
+</button> <!-- Trust Badges - Desktop Only --> <div class="hidden lg:flex items-center justify-center mt-2 gap-4"> <img src="/logos/bbb trust logo.webp" alt="Better Business Bureau A+ Rating" class="max-w-[120px] h-auto object-contain rounded-lg" loading="lazy"> <img src="/logos/google-reviews.png" alt="Google Reviews 5 Stars" class="max-w-[150px] h-auto object-contain rounded-lg" loading="lazy"> </div> </form> </div> </div> </div> </div> </section>  <section class="bg-white py-12 md:py-16 lg:mt-0"> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+Who This Is For
+</h2> <p class="text-gray-800 text-base leading-relaxed">
+This option is designed for homeowners who already own a home and want
+        flexible access to their equity \u2014 without replacing their current
+        mortgage.
+</p> </div> </section>  <section class="bg-gray-50 py-12 md:py-16"> <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl"> <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+Why Homeowners Consider a HELOC
+</h2> <ul class="space-y-3 mb-8"> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Home repairs or improvements</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Managing larger expenses</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Creating financial flexibility</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Keeping a low-rate first mortgage in place</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Replacing an existing HELOC with new terms</span> </li> </ul> <div> <a href="#heloc-form" class="inline-block bg-[#09143e] hover:bg-[#0a1a4f] text-white font-semibold py-3.5 px-10 rounded shadow-sm transition duration-200" data-scroll-form>
+Check HELOC Options
+</a> </div> </div> </section>  <section class="sm:hidden bg-white py-8"> <div class="container mx-auto px-4"> <div class="flex flex-col gap-4"> <div class="flex flex-nowrap items-center gap-8 rounded-2xl bg-white border border-gray-200 px-8 py-6 shadow-sm"> <div class="flex flex-col items-center text-center bbb-button"> <img src="/logos/bbb trust logo.webp" alt="Better Business Bureau A+ Accredited Business - Cliff Mortgages" class="h-20 w-auto object-contain mb-2" loading="lazy" decoding="async"> <p class="text-sm font-semibold text-gray-700">A+ Rating</p> </div> <div class="flex flex-col items-center text-center google-reviews-button"> <img src="/logos/google-reviews.png" alt="Google Reviews 5 Star Rating - Cliff Mortgages Customer Reviews" class="h-20 w-auto object-contain mb-2" loading="lazy" decoding="async"> <p class="text-sm font-semibold text-gray-700">5.0 \u2605\u2605\u2605\u2605\u2605</p> </div> </div> </div> </div> </section> <script>
+    if (typeof window !== "undefined") {
+      // Currency formatting for home value and mortgage balance
+      function formatCurrency(input) {
+        let value = input.value.replace(/[^0-9]/g, "");
+        if (value) {
+          value = parseInt(value, 10).toLocaleString("en-US");
+          input.value = "$" + value;
+        } else {
+          input.value = "";
+        }
+      }
+
+      // Phone formatting
+      function formatPhone(input) {
+        let value = input.value.replace(/\\D/g, "");
+        if (value.length > 0) {
+          if (value.length <= 3) {
+            value = "(" + value;
+          } else if (value.length <= 6) {
+            value = "(" + value.slice(0, 3) + ") " + value.slice(3);
+          } else {
+            value =
+              "(" +
+              value.slice(0, 3) +
+              ") " +
+              value.slice(3, 6) +
+              "-" +
+              value.slice(6, 10);
+          }
+        }
+        input.value = value;
+      }
+
+      // Apply currency formatting
+      const homeValueInput = document.getElementById("fid2");
+      const mortgageBalanceInput = document.getElementById("fid3");
+      const phoneInput = document.getElementById("fid7");
+
+      if (homeValueInput) {
+        homeValueInput.addEventListener("input", function () {
+          formatCurrency(this);
+        });
+        homeValueInput.addEventListener("blur", function () {
+          formatCurrency(this);
+        });
+      }
+
+      if (mortgageBalanceInput) {
+        mortgageBalanceInput.addEventListener("input", function () {
+          formatCurrency(this);
+        });
+        mortgageBalanceInput.addEventListener("blur", function () {
+          formatCurrency(this);
+        });
+      }
+
+      if (phoneInput) {
+        phoneInput.addEventListener("input", function () {
+          formatPhone(this);
+        });
+        phoneInput.addEventListener("blur", function () {
+          formatPhone(this);
+        });
+        // Format on autofill
+        setTimeout(function () {
+          if (phoneInput.value) {
+            formatPhone(phoneInput);
+          }
+        }, 500);
+      }
+
+      const scrollTargets = document.querySelectorAll("[data-scroll-form]");
+      scrollTargets.forEach((el) => {
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = el.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const offset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        });
+      });
+
+      // Form submission handler
+      const form = document.getElementById("heloc-form-element");
+      if (form) {
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch("/api/submit-heloc-form", {
+              method: "POST",
+              body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              // Hide form and show thank you message
+              form.style.display = "none";
+              const thankYouMessage =
+                document.getElementById("thank-you-message");
+              if (thankYouMessage) {
+                thankYouMessage.classList.remove("hidden");
+              }
+              form.reset();
+            } else {
+              console.error("Form submission error:", result);
+              const errorMessage = document.getElementById("error-message");
+              if (errorMessage) {
+                errorMessage.classList.remove("hidden");
+                setTimeout(() => {
+                  errorMessage.classList.add("hidden");
+                }, 5000);
+              }
+            }
+          } catch (error) {
+            console.error("Form submission exception:", error);
+            const errorMessage = document.getElementById("error-message");
+            if (errorMessage) {
+              errorMessage.classList.remove("hidden");
+              setTimeout(() => {
+                errorMessage.classList.add("hidden");
+              }, 5000);
+            }
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      }
+    }
+  <\/script> `], ["  ", `<section class="bg-white py-8 md:py-10"> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <h1 class="text-3xl md:text-4xl font-bold text-gray-900 text-left lg:max-w-[60%]">
+Access Your Home Equity \u2014 <span class="font-normal">Without Refinancing</span> </h1> </div> </section>  <section class="relative bg-gradient-to-b from-gray-100 to-white"> <!-- Full Width Image Container --> <div class="w-full h-[300px] lg:h-[500px] overflow-hidden flex items-center justify-start bg-gray-200 relative"> <img src="/HELOC_Front_Door_Landing_Page_47757791_XL-(1).jpg" alt="Beautiful home exterior with garage" class="w-full lg:w-[80%] h-full object-cover object-center" loading="eager"> <!-- Gradient Overlay --> <div class="absolute inset-0 bg-gradient-to-r from-transparent from-30% via-white/70 via-50% to-white to-70% hidden lg:block"></div> </div> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <div class="grid lg:grid-cols-2 gap-0 relative"> <!-- Left Column - Text --> <div class="bg-white pt-8 md:pt-10"> <p class="text-gray-800 text-base leading-relaxed mb-6">
+A Home Equity Line of Credit (HELOC) gives eligible homeowners
+<em class="font-normal italic">flexible access to equity while keeping their existing mortgage
+              in place.</em> </p> <p class="text-sm text-gray-600 pb-4 lg:pb-0">
+No obligation. Review options based on your goals and situation.
+</p> </div> <!-- Right Column - Form (Overlapping) --> <div class="relative lg:absolute lg:right-0 lg:top-[-580px] lg:w-[34%] z-10"> <div class="bg-[#09143e] p-8 rounded-lg shadow-xl lg:mx-0" id="heloc-form"> <h2 class="text-2xl font-bold text-white mb-6 text-center">
+Check HELOC Options
+</h2> <!-- Thank You Message --> <div id="thank-you-message" class="hidden mb-6 p-6 bg-white rounded-lg text-center"> <h3 class="text-2xl font-bold text-[#09143e] mb-3">THANK YOU!</h3> <p class="text-gray-800 text-base">
+We've received your inquiry and will get back to you as soon as
+                possible.
+</p> </div> <!-- Error Message --> <div id="error-message" class="hidden mb-6 p-6 bg-red-100 border border-red-400 rounded-lg text-center"> <h3 class="text-xl font-bold text-red-800 mb-2">
+Submission Error
+</h3> <p class="text-red-700 text-sm">
+There was an error submitting your form. Please try again or
+                call us directly.
+</p> </div> <form method="POST" action="/api/submit-heloc-form" class="space-y-4" id="heloc-form-element"> <div> <label for="fid2" class="block text-white text-sm font-medium mb-1">
+What is the current Value of your home?<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid2" name="fid2" placeholder="$500,000" required inputmode="numeric" class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div> <label for="fid3" class="block text-white text-sm font-medium mb-1">
+How much do you owe on your current mortgage?<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid3" name="fid3" placeholder="$250,000" required inputmode="numeric" class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div class="grid grid-cols-2 gap-4"> <div> <label for="fid4" class="block text-white text-sm font-medium mb-1">
+First Name<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid4" name="fid4" placeholder="First" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div> <label for="fid5" class="block text-white text-sm font-medium mb-1">
+Last Name<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid5" name="fid5" placeholder="Last" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> </div> <div class="grid grid-cols-5 gap-4"> <div class="col-span-3"> <label for="fid6" class="block text-white text-sm font-medium mb-1">
+Email<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="email" id="fid6" name="fid6" placeholder="" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> <div class="col-span-2"> <label for="fid7" class="block text-white text-sm font-medium mb-1">
+Phone<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="tel" id="fid7" name="fid7" placeholder="" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> </div> </div> <div> <label for="fid13" class="block text-white text-sm font-medium mb-1">
+What's the Best Time To Call You?<span class="text-red-400">*</span><span class="text-red-400 text-xs ml-1">(required)</span> </label> <input type="text" id="fid13" name="fid13" placeholder="e.g., 2pm, Tomorrow morning, Anytime" required class="w-full px-4 py-[5px] border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#bf9f5c] focus:border-transparent"> <p class="text-white text-xs mt-1">
+Can I call you in 30 minutes?
+</p> </div> <div> <label class="flex items-start gap-3 text-white text-sm"> <input type="checkbox" name="fid9" id="fid9" value="1" required class="mt-1 w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-[#bf9f5c]"> <span class="leading-tight">I agree to be contacted by Cliff Mortgages via call, email,
+                    and text for mortgage and loan services. To opt out, you can
+                    reply 'stop' at any time or reply 'help' for assistance. You
+                    can also click the unsubscribe link in the emails. Message
+                    and data rates may apply. Message frequency may vary.<span class="text-red-400">*</span></span> </label> </div> <div class="text-white text-sm"> <p>
+Click here to view our <a href="https://www.cliffmortgages.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#bf9f5c]">Privacy Policy</a> </p> </div> <button type="submit" class="w-full bg-[#bf9f5c] hover:bg-[#a68a4c] text-white font-semibold py-3.5 px-6 rounded shadow-sm transition duration-200 mt-2">
+Check HELOC Options
+</button> <!-- Trust Badges - Desktop Only --> <div class="hidden lg:flex items-center justify-center mt-2 gap-4"> <img src="/logos/bbb trust logo.webp" alt="Better Business Bureau A+ Rating" class="max-w-[120px] h-auto object-contain rounded-lg" loading="lazy"> <img src="/logos/google-reviews.png" alt="Google Reviews 5 Stars" class="max-w-[150px] h-auto object-contain rounded-lg" loading="lazy"> </div> </form> </div> </div> </div> </div> </section>  <section class="bg-white py-12 md:py-16 lg:mt-0"> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+Who This Is For
+</h2> <p class="text-gray-800 text-base leading-relaxed">
+This option is designed for homeowners who already own a home and want
+        flexible access to their equity \u2014 without replacing their current
+        mortgage.
+</p> </div> </section>  <section class="bg-gray-50 py-12 md:py-16"> <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl"> <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+Why Homeowners Consider a HELOC
+</h2> <ul class="space-y-3 mb-8"> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Home repairs or improvements</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Managing larger expenses</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Creating financial flexibility</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Keeping a low-rate first mortgage in place</span> </li> <li class="flex items-start gap-3"> <span class="text-gray-800 mt-1">\u2022</span> <span class="text-gray-800">Replacing an existing HELOC with new terms</span> </li> </ul> <div> <a href="#heloc-form" class="inline-block bg-[#09143e] hover:bg-[#0a1a4f] text-white font-semibold py-3.5 px-10 rounded shadow-sm transition duration-200" data-scroll-form>
+Check HELOC Options
+</a> </div> </div> </section>  <section class="sm:hidden bg-white py-8"> <div class="container mx-auto px-4"> <div class="flex flex-col gap-4"> <div class="flex flex-nowrap items-center gap-8 rounded-2xl bg-white border border-gray-200 px-8 py-6 shadow-sm"> <div class="flex flex-col items-center text-center bbb-button"> <img src="/logos/bbb trust logo.webp" alt="Better Business Bureau A+ Accredited Business - Cliff Mortgages" class="h-20 w-auto object-contain mb-2" loading="lazy" decoding="async"> <p class="text-sm font-semibold text-gray-700">A+ Rating</p> </div> <div class="flex flex-col items-center text-center google-reviews-button"> <img src="/logos/google-reviews.png" alt="Google Reviews 5 Star Rating - Cliff Mortgages Customer Reviews" class="h-20 w-auto object-contain mb-2" loading="lazy" decoding="async"> <p class="text-sm font-semibold text-gray-700">5.0 \u2605\u2605\u2605\u2605\u2605</p> </div> </div> </div> </div> </section> <script>
+    if (typeof window !== "undefined") {
+      // Currency formatting for home value and mortgage balance
+      function formatCurrency(input) {
+        let value = input.value.replace(/[^0-9]/g, "");
+        if (value) {
+          value = parseInt(value, 10).toLocaleString("en-US");
+          input.value = "$" + value;
+        } else {
+          input.value = "";
+        }
+      }
+
+      // Phone formatting
+      function formatPhone(input) {
+        let value = input.value.replace(/\\\\D/g, "");
+        if (value.length > 0) {
+          if (value.length <= 3) {
+            value = "(" + value;
+          } else if (value.length <= 6) {
+            value = "(" + value.slice(0, 3) + ") " + value.slice(3);
+          } else {
+            value =
+              "(" +
+              value.slice(0, 3) +
+              ") " +
+              value.slice(3, 6) +
+              "-" +
+              value.slice(6, 10);
+          }
+        }
+        input.value = value;
+      }
+
+      // Apply currency formatting
+      const homeValueInput = document.getElementById("fid2");
+      const mortgageBalanceInput = document.getElementById("fid3");
+      const phoneInput = document.getElementById("fid7");
+
+      if (homeValueInput) {
+        homeValueInput.addEventListener("input", function () {
+          formatCurrency(this);
+        });
+        homeValueInput.addEventListener("blur", function () {
+          formatCurrency(this);
+        });
+      }
+
+      if (mortgageBalanceInput) {
+        mortgageBalanceInput.addEventListener("input", function () {
+          formatCurrency(this);
+        });
+        mortgageBalanceInput.addEventListener("blur", function () {
+          formatCurrency(this);
+        });
+      }
+
+      if (phoneInput) {
+        phoneInput.addEventListener("input", function () {
+          formatPhone(this);
+        });
+        phoneInput.addEventListener("blur", function () {
+          formatPhone(this);
+        });
+        // Format on autofill
+        setTimeout(function () {
+          if (phoneInput.value) {
+            formatPhone(phoneInput);
+          }
+        }, 500);
+      }
+
+      const scrollTargets = document.querySelectorAll("[data-scroll-form]");
+      scrollTargets.forEach((el) => {
+        el.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = el.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const offset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        });
+      });
+
+      // Form submission handler
+      const form = document.getElementById("heloc-form-element");
+      if (form) {
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+
+          try {
+            const formData = new FormData(form);
+            const response = await fetch("/api/submit-heloc-form", {
+              method: "POST",
+              body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              // Hide form and show thank you message
+              form.style.display = "none";
+              const thankYouMessage =
+                document.getElementById("thank-you-message");
+              if (thankYouMessage) {
+                thankYouMessage.classList.remove("hidden");
+              }
+              form.reset();
+            } else {
+              console.error("Form submission error:", result);
+              const errorMessage = document.getElementById("error-message");
+              if (errorMessage) {
+                errorMessage.classList.remove("hidden");
+                setTimeout(() => {
+                  errorMessage.classList.add("hidden");
+                }, 5000);
+              }
+            }
+          } catch (error) {
+            console.error("Form submission exception:", error);
+            const errorMessage = document.getElementById("error-message");
+            if (errorMessage) {
+              errorMessage.classList.remove("hidden");
+              setTimeout(() => {
+                errorMessage.classList.add("hidden");
+              }, 5000);
+            }
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      }
+    }
+  <\/script> `])), maybeRenderHead()) })}`;
+}, "/Volumes/14 Tera/Development/Cliff Mortgages/cliff-mortgages-lead-gen-site (astro edition) copy/Astro Site/src/pages/heloc-access-landing.astro", void 0);
+
+const $$file = "/Volumes/14 Tera/Development/Cliff Mortgages/cliff-mortgages-lead-gen-site (astro edition) copy/Astro Site/src/pages/heloc-access-landing.astro";
+const $$url = "/heloc-access-landing";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$HelocAccessLanding,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

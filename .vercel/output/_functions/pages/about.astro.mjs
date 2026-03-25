@@ -1,0 +1,42 @@
+import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_DYAQuqF9.mjs';
+import 'piccolore';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_CKCrAOCV.mjs';
+import { $ as $$GenericHero } from '../chunks/GenericHero_Dj9APbdo.mjs';
+import { h as heroImageAssignments, a as allPageData } from '../chunks/Footer_BM-aK1EU.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$About = createComponent(($$result, $$props, $$slots) => {
+  const pageData = allPageData["/about"];
+  const hero = heroImageAssignments.aboutHero;
+  const differentiators = [
+    { icon: "fa-solid fa-user-tie", title: "Personalized Guidance", text: "Every borrower\u2019s situation is unique. We take time to listen and craft the right strategy for you." },
+    { icon: "fa-solid fa-layer-group", title: "Loan Programs for Every Stage", text: "From 1% down loans to HELOCs, Reverse Mortgages, and DSCR investor loans \u2014 we offer programs beyond what most banks provide." },
+    { icon: "fa-solid fa-rocket", title: "Simplified Process", text: "One application. One credit pull. Access to 100+ lenders. Faster answers and smoother closings." },
+    { icon: "fa-solid fa-globe-americas", title: "Local Expertise, National Reach", text: "Based in Colorado but licensed and connected across the U.S., serving local homeowners and investors nationwide." }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "pageData": pageData }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "GenericHero", $$GenericHero, { "title": pageData.h1, "subtitle": pageData.description, "imageUrl": hero.src, "imageAlt": hero.alt, "image": hero })} ${maybeRenderHead()}<section class="bg-white py-16 sm:py-20"> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <div class="max-w-3xl mx-auto text-lg text-gray-600 space-y-6"> <p class="font-semibold text-xl text-gray-800">
+At Cliff Mortgages, we do more than provide loans — we provide solutions tailored to your goals.
+</p> <p>
+Led by <a href="/about/cindy-cliff" class="text-[#09143e] font-semibold hover:underline">Cindy Cliff</a>, a Mortgage Loan Originator and Real Estate Broker Associate, Cliff Mortgages is powered by the national strength of C2 Financial, the #1 ranked mortgage broker in the nation by AIME. This partnership allows us to offer Colorado homeowners, retirees, and real estate investors access to some of the industry’s most competitive programs.
+</p> </div> </div> </section> <section class="bg-gray-50 py-16 sm:py-20"> <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <div class="text-center max-w-2xl mx-auto"> <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">What Makes Us Different?</h2> </div> <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left"> ${differentiators.map((item) => renderTemplate`<div class="bg-white p-6 rounded-lg shadow-md border border-gray-200"${addAttribute(item.title, "key")}> <i${addAttribute(`${item.icon} text-3xl text-[#bf9f5c] mb-4`, "class")}></i> <h3 class="font-bold text-lg text-gray-800">${item.title}</h3> <p class="mt-2 text-gray-600">${item.text}</p> </div>`)} </div> </div> </section> <section class="bg-white py-16 sm:py-20"> <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl mx-auto"> <i class="fa-solid fa-heart-circle-check text-5xl text-[#bf9f5c] mb-4"></i> <h2 class="text-3xl font-bold text-gray-900">You’re a Client for Life</h2> <p class="mt-4 text-lg text-gray-600">
+At Cliff Mortgages, you’re more than just a file number. Whether it’s your first home, tapping into equity, or expanding your investment portfolio, we’re here to help you succeed for the long term.
+</p> </div> </section> <section class="bg-[#09143e]"> <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center"> <h2 class="text-3xl font-bold text-white">Start Your Mortgage Journey</h2> <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
+Call Cindy Cliff today at <a href="tel:970-308-2540" class="text-white font-semibold underline hover:text-gray-100">970-308-2540</a> or email <a href="mailto:cindy@cliffmortgages.com" class="text-white font-semibold underline hover:text-gray-100">cindy@cliffmortgages.com</a> to get started.
+</p> <a href="/get-a-quote" class="mt-8 inline-block bg-white text-[#09143e] font-bold py-4 px-10 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
+Request a Free Quote
+</a> </div> </section> ` })}`;
+}, "/Volumes/14 Tera/Development/Cliff Mortgages/cliff-mortgages-lead-gen-site (astro edition) copy/Astro Site/src/pages/about.astro", void 0);
+
+const $$file = "/Volumes/14 Tera/Development/Cliff Mortgages/cliff-mortgages-lead-gen-site (astro edition) copy/Astro Site/src/pages/about.astro";
+const $$url = "/about";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$About,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
