@@ -1,5 +1,7 @@
 # build output
 dist/
+# local Vercel CLI output (never commit; confuses CI vs Build Output API)
+.vercel/
 # generated types
 .astro/
 
