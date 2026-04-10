@@ -7,6 +7,9 @@ interface HeaderProps {
   currentPath: string;
 }
 
+const PHONE_DISPLAY = '970-699-3900';
+const PHONE_TEL_HREF = 'tel:+19706993900';
+
 const loanProgramBuckets = () => {
   const loanPrograms = sitemap.loanPrograms;
 
@@ -166,9 +169,10 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <>
+      <header className="site-header bg-white shadow-sm sticky top-0 z-50">
+        <div className="site-header-inner container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="site-header-bar flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <a href="/">
@@ -292,14 +296,20 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
               </div>
             </nav>
           </div>
-          <div className="hidden xl:block">
-            <a
-              href="/get-a-quote"
-              className="px-4 py-2 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-sm hover:bg-[#a68a4c] transition-transform hover:scale-105 text-sm"
-            >
-              Get a Quote
-            </a>
-          </div>
+            <div className="site-header-primary-cta hidden xl:flex items-center gap-3">
+              <a
+                href={PHONE_TEL_HREF}
+                className="site-header-call-link px-4 py-2 border-2 border-[#09143e] text-[#09143e] font-semibold rounded-lg shadow-sm hover:bg-[#09143e] hover:text-white transition-transform hover:scale-105 text-sm"
+              >
+                {PHONE_DISPLAY}
+              </a>
+              <a
+                href="/get-a-quote"
+                className="site-header-quote-link px-4 py-2 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-sm hover:bg-[#a68a4c] transition-transform hover:scale-105 text-sm"
+              >
+                Get a Quote
+              </a>
+            </div>
           <div className="-mr-2 flex xl:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -328,10 +338,16 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
             <a href="/contact" className={mobileNavLinkClasses(isPathActive('/contact', currentPath))}>
               Contact
             </a>
-            <div className="mt-4">
+            <div className="mobile-menu-cta-group mt-4 space-y-3">
+              <a
+                href={PHONE_TEL_HREF}
+                className="mobile-menu-call-link block w-full text-center px-4 py-3 border-2 border-[#09143e] text-[#09143e] font-semibold rounded-lg shadow-sm hover:bg-[#09143e] hover:text-white transition duration-300 text-sm"
+              >
+                {PHONE_DISPLAY}
+              </a>
               <a
                 href="/get-a-quote"
-                className="block w-full text-center px-4 py-3 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-sm hover:bg-[#a68a4c] transition duration-300 text-sm"
+                className="mobile-menu-quote-link block w-full text-center px-4 py-3 bg-[#bf9f5c] text-white font-semibold rounded-lg shadow-sm hover:bg-[#a68a4c] transition duration-300 text-sm"
               >
                 Get a Quote
               </a>
@@ -339,7 +355,27 @@ const Header: React.FC<HeaderProps> = ({ currentPath }) => {
           </div>
         </nav>
       )}
-    </header>
+      </header>
+      <section
+        className="mobile-sticky-dual-cta xl:hidden fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]"
+        aria-label="Call or request a quote"
+      >
+        <div className="mobile-sticky-dual-cta-inner flex gap-2 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+          <a
+            href={PHONE_TEL_HREF}
+            className="mobile-sticky-dual-cta-call flex flex-1 items-center justify-center px-2 py-3 border-2 border-[#09143e] text-[#09143e] font-semibold rounded-lg text-center text-xs sm:text-sm min-w-0 hover:bg-[#09143e] hover:text-white transition-colors whitespace-nowrap"
+          >
+            {PHONE_DISPLAY}
+          </a>
+          <a
+            href="/get-a-quote"
+            className="mobile-sticky-dual-cta-quote flex flex-1 items-center justify-center px-2 py-3 bg-[#bf9f5c] text-white font-semibold rounded-lg text-center text-xs sm:text-sm min-w-0 hover:bg-[#a68a4c] transition-colors"
+          >
+            Get a Quote
+          </a>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -201,7 +201,7 @@ const applyNowTitle = getApplyNowTitle(currentPath);
     ))}
   </head>
   <body class="bg-gray-50 min-h-screen font-sans text-gray-800">
-    <div class="flex flex-col min-h-screen">
+    <div class="app-shell flex flex-col min-h-screen pb-[max(5.5rem,env(safe-area-inset-bottom))] xl:pb-0">
       <Header client:idle currentPath={currentPath} />
       <main class="flex-grow">
         <Breadcrumbs items={pageData.breadcrumbs} />
