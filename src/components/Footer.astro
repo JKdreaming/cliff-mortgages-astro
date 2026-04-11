@@ -3,7 +3,7 @@ import { sitemap } from "../data/sitemap";
 import cliffmortgagesLogo from "../assets/images/cliffmortgages-logo.webp";
 import nrmlaLogo from "../assets/images/nrmla-logo.png";
 import bbbAPlusLogo from "../assets/images/bbb-a-plus-logo.png";
-import cindyProfilePic from "../assets/images/Cindy_Profile_Pic_200x200.jpg";
+const cindyProfilePicSrc = "/cindy_headshot_extended_025in_top-2.webp";
 
 type FooterLink = {
   label: string;
@@ -308,7 +308,7 @@ const disclosureColumns =
 
           <div class="flex flex-col items-center text-center gap-3">
             <img
-              src={cindyProfilePic.src}
+              src={cindyProfilePicSrc}
               alt="Cindy Cliff"
               class="w-1/2 rounded-[200px] object-cover"
               width="200"
