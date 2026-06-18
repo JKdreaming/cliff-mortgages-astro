@@ -211,36 +211,16 @@ const applyNowTitle = getApplyNowTitle(currentPath);
       <ApplyNowCTA client:idle title={applyNowTitle} />
       <Footer />
     </div>
-    <script>
-      {(function () {
-        return `
-          const loadWidgetTracker = () => {
-            if (window.widgetTracker) return;
-            (function(w,i,d,g,e,t){
-              w["WidgetTrackerObject"]=g;
-              (w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());
-              (t=d.createElement("script")),(e=d.getElementsByTagName("script")[0]);
-              t.async=1;t.src=i; e.parentNode.insertBefore(t,e);
-            })(window,"https://widgetbe.com/agent",document,"widgetTracker");
-            window.widgetTracker("create", "WT-JUVWSUQG");
-            window.widgetTracker("send", "pageview");
-          };
-
-          const scheduleWidgetLoad = () => {
-            if ("requestIdleCallback" in window) {
-              requestIdleCallback(loadWidgetTracker, { timeout: 4000 });
-            } else {
-              setTimeout(loadWidgetTracker, 3000);
-            }
-          };
-
-          if (document.readyState === "complete") {
-            scheduleWidgetLoad();
-          } else {
-            window.addEventListener("load", scheduleWidgetLoad, { once: true });
-          }
-        `;
-      })()}
+    <!-- begin Widget Tracker Code -->
+    <script is:inline>
+      (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
+      {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
+      (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
+      e.parentNode.insertBefore(t,e);})
+      (window,"https://widgetbe.com/agent",document,"widgetTracker");
+      window.widgetTracker("create", "WT-JUVWSUQG");
+      window.widgetTracker("send", "pageview");
     </script>
+    <!-- end Widget Tracker Code -->
   </body>
 </html>
